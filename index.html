@@ -42,11 +42,28 @@
       width: 100%; margin: 14px auto;
       background: rgba(11,18,34,.85); border: 1px solid #1e3154; border-radius: 12px;
       display: flex; align-items: center; justify-content: center; flex-direction: column;
-      padding: 8px; overflow: hidden;
+      padding: 8px; overflow: hidden; transition: opacity .25s ease;
     }
-    .ad-slot.banner-320 { min-height: 64px; }
+    .ad-slot iframe { max-width: 100%; border: 0; display: block; }
+    .ad-slot.banner-top { min-height: 64px; }
+    @media (min-width: 760px) { .ad-slot.banner-top { min-height: 106px; } }
     .ad-slot.banner-300 { min-height: 264px; }
-    .ad-slot.native-box { min-height: 110px; padding: 10px; }
+    .ad-slot.banner-bottom { min-height: 76px; }
+    .ad-slot.native-box { min-height: 68px; padding: 10px; }
+    .ad-slot.ad-pending {
+      min-height: 0 !important; max-height: 0; padding: 0; margin: 0 auto;
+      border-width: 0; opacity: 0; pointer-events: none;
+    }
+    .ad-slot.ad-collapsed { display: none !important; }
+    .ad-rail {
+      display: none; position: fixed; top: 88px; width: 174px; padding: 6px;
+      background: rgba(11,18,34,.9); border: 1px solid #1e3154; border-radius: 12px;
+      z-index: 20; align-items: center; justify-content: center; flex-direction: column;
+      overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,.45);
+    }
+    .ad-rail.left { left: 14px; }
+    .ad-rail.right { right: 14px; }
+    @media (min-width: 1200px) { .ad-rail.ad-ready { display: flex; } }
     .hero {
       background: linear-gradient(180deg, #111d36 0%, #0a1120 100%);
       border: 1.5px solid rgba(0,212,255,.45); border-radius: 20px;
@@ -107,25 +124,18 @@
   </style>
 </head>
 <body>
+  <!-- DESKTOP STICKY RAILS (>= 1200px ONLY — ZERO MOBILE OVERHEAD) -->
+  <div class="ad-rail left ad-pending" id="ad-rail-left"></div>
+  <div class="ad-rail right ad-pending" id="ad-rail-right"></div>
+
   <div class="wrap">
     <div class="topbar">
       <div class="brand"><span class="dot"></span> <span>BEDO GAMING 2027</span></div>
       <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
     </div>
 
-    <!-- AD ZONE 1: ADSTERRA 320x50 TOP BANNER (bedogaming233.github.io — EGYPT NO-VPN) -->
-    <div class="ad-slot banner-320" id="ad-top">
-      <script>
-        atOptions = {
-          'key' : 'eb17e3aff845e4544068be8326111b68',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      </script>
-      <script type="text/javascript" src="https://www.highperformanceformat.com/eb17e3aff845e4544068be8326111b68/invoke.js"></script>
-    </div>
+    <!-- AD ZONE 1: SMART TOP BANNER (728x90 Desktop / 320x50 Mobile — Dual-Domain Egypt + Anti-Adblock) -->
+    <div class="ad-slot banner-top" id="ad-top"></div>
 
     <div class="hero">
       <div class="badge" id="t-badge">الإصدار الرسمي الأحدث v11.1.1 • Cloudflare R2 Direct</div>
@@ -140,19 +150,8 @@
         <div class="stat"><b>100%</b><span id="t-s3">لعب أوفلاين بعد أول تحميل</span></div>
       </div>
 
-      <!-- AD ZONE 2: ADSTERRA HIGH-CPM 300x250 MEDIUM RECTANGLE (bedogaming233.github.io — EGYPT NO-VPN) -->
-      <div class="ad-slot banner-300" id="ad-mid">
-        <script>
-          atOptions = {
-            'key' : '1b3e8d2dbc99ddd864135c064c0f2f2a',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-        </script>
-        <script type="text/javascript" src="https://www.highperformanceformat.com/1b3e8d2dbc99ddd864135c064c0f2f2a/invoke.js"></script>
-      </div>
+      <!-- AD ZONE 2: HIGH-CPM 300x250 MEDIUM RECTANGLE (Egypt No-VPN + Worldwide) -->
+      <div class="ad-slot banner-300" id="ad-mid"></div>
 
       <button class="dl-btn" id="dlBtn" onclick="startDownloadFlow()">
         ⚡ <span id="dlTxt">تحميل مباشر سريع — Slim APK v11.1.1</span>
@@ -181,9 +180,9 @@
         </div>
       </div>
 
-      <!-- AD ZONE 3: ADSTERRA NATIVE BANNER (bedogaming233.github.io) -->
-      <div class="ad-slot native-box" id="ad-native">
-        <script async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
+      <!-- AD ZONE 3: SMART NATIVE BANNER (Arab/Foreign/4G) -> AUTO-FALLBACK TO WORKING EGYPT BANNER IF BLOCKED -->
+      <div class="ad-slot native-box ad-pending" id="ad-native">
+        <script id="nativeAdScript" async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
         <div id="container-5b38501e9f95039d29df080b96b84b0a"></div>
       </div>
 
@@ -193,11 +192,180 @@
         <a href="https://youtube.com/@bedo_gaming233?si=HtS3TzfZPx385JX2" target="_blank">▶️ YouTube</a>
         <a href="https://www.tiktok.com/@bedo_gaming233?_r=1&_t=ZS-9BciFvvI15d" target="_blank">🎵 TikTok</a>
       </div>
+
+      <!-- AD ZONE 4: SMART BOTTOM BANNER (Unique Unused Key Per Device — Zero Duplicates, Auto-Hide If Blocked) -->
+      <div class="ad-slot banner-bottom ad-pending" id="ad-bottom"></div>
     </div>
   </div>
 
-  <!-- ADSTERRA SOCIAL BAR (bedogaming233.github.io, async) -->
+  <!-- ADSTERRA SOCIAL BAR (bedogaming233.github.io, async — High-CTR Arab/Foreign/4G) -->
   <script async data-cfasync="false" src="https://bellnewyork.org/14/e4d253ca9a4280174668cc2da1127cce"></script>
+
+  <!-- BEDO SMART MULTI-BANNER & DUAL-DOMAIN FALLBACK ENGINE -->
+  <script>
+    (function initBedoSmartAds() {
+      const UNITS = {
+        b728x90:  { key: "4da2912468a04007bed3d337c4662f79", w: 728, h: 90,  anti: true },
+        b468x60:  { key: "c8e8d01fc23f989b737c14696091128f", w: 468, h: 60,  anti: true },
+        b300x250: { key: "1b3e8d2dbc99ddd864135c064c0f2f2a", w: 300, h: 250, anti: false },
+        b320x50:  { key: "eb17e3aff845e4544068be8326111b68", w: 320, h: 50,  anti: false },
+        b160x600: { key: "8976f2241077446934a4fc600e495d22", w: 160, h: 600, anti: true },
+        b160x300: { key: "41315dda23852b7335be460fd076296f", w: 160, h: 300, anti: true }
+      };
+
+      const queue = [];
+      let busy = false;
+      const usedKeys = new Set();
+
+      function runQueue() {
+        if (busy || !queue.length) return;
+        busy = true;
+        const job = queue.shift();
+        job().finally(() => {
+          busy = false;
+          runQueue();
+        });
+      }
+
+      function loadScriptInto(slotEl, unit, srcUrl, timeoutMs) {
+        return new Promise((resolve) => {
+          let settled = false;
+          let postLoadTimer = null;
+          const finish = (ok) => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(timer);
+            clearTimeout(postLoadTimer);
+            mo.disconnect();
+            resolve(ok);
+          };
+          const mo = new MutationObserver(() => {
+            if (slotEl.querySelector("iframe")) finish(true);
+          });
+          mo.observe(slotEl, { childList: true, subtree: true });
+
+          window.atOptions = {
+            key: unit.key,
+            format: "iframe",
+            height: unit.h,
+            width: unit.w,
+            params: {}
+          };
+          const s = document.createElement("script");
+          s.type = "text/javascript";
+          s.setAttribute("data-cfasync", "false");
+          s.src = srcUrl;
+          s.onload = () => {
+            if (slotEl.querySelector("iframe")) return finish(true);
+            // Allow invoke.js async tokenPromise/runTests up to 2.2s to inject iframe
+            postLoadTimer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), 2200);
+          };
+          s.onerror = () => finish(false);
+          const timer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), timeoutMs);
+          slotEl.appendChild(s);
+        });
+      }
+
+      function enqueueBanner(slotId, unit) {
+        const slotEl = document.getElementById(slotId);
+        if (!slotEl || !unit || usedKeys.has(unit.key)) {
+          if (slotEl) slotEl.classList.add("ad-collapsed");
+          return;
+        }
+        usedKeys.add(unit.key);
+        queue.push(async () => {
+          slotEl.innerHTML = "";
+          const hpfUrl = "https://www.highperformanceformat.com/" + unit.key + "/invoke.js";
+          let ok = await loadScriptInto(slotEl, unit, hpfUrl, 5000);
+          // Instant Anti-Adblock failover (bellnewyork.org) if AdBlocker blocked highperformanceformat.com
+          if (!ok && unit.anti) {
+            slotEl.innerHTML = "";
+            const antiUrl = "https://bellnewyork.org/22/" + unit.key;
+            ok = await loadScriptInto(slotEl, unit, antiUrl, 4500);
+          }
+          if (ok) {
+            slotEl.classList.remove("ad-pending", "ad-collapsed");
+            slotEl.classList.add("ad-ready");
+          } else {
+            slotEl.classList.remove("ad-pending", "ad-ready");
+            slotEl.classList.add("ad-collapsed");
+          }
+        });
+        runQueue();
+      }
+
+      const vw = window.innerWidth || document.documentElement.clientWidth || 360;
+
+      // 1) TOP & MID BANNERS (Viewable, Device-Matched, Egypt No-VPN Primary + Anti-Adblock Fallback)
+      enqueueBanner("ad-top", vw >= 760 ? UNITS.b728x90 : UNITS.b320x50);
+      enqueueBanner("ad-mid", UNITS.b300x250);
+
+      // 2) WIDE DESKTOP STICKY RAILS (>= 1200px ONLY)
+      if (vw >= 1200) {
+        enqueueBanner("ad-rail-left", UNITS.b160x600);
+        enqueueBanner("ad-rail-right", UNITS.b160x300);
+      }
+
+      // 3) SMART NATIVE BANNER MONITOR -> AUTO-SWAP TO WORKING EGYPT BANNER IF BLOCKED BY ISP
+      const nativeSlot = document.getElementById("ad-native");
+      const nativeBox = document.getElementById("container-5b38501e9f95039d29df080b96b84b0a");
+      const nativeScript = document.getElementById("nativeAdScript");
+      let nativeResolved = false;
+
+      function mountBottomSlot(nativeSucceeded) {
+        const bottomEl = document.getElementById("ad-bottom");
+        if (!bottomEl) return;
+        if (vw >= 760) {
+          enqueueBanner("ad-bottom", nativeSucceeded ? UNITS.b468x60 : UNITS.b320x50);
+        } else if (vw >= 490) {
+          enqueueBanner("ad-bottom", nativeSucceeded ? UNITS.b468x60 : UNITS.b160x300);
+        } else if (nativeSucceeded) {
+          enqueueBanner("ad-bottom", UNITS.b160x300);
+        } else {
+          bottomEl.classList.add("ad-collapsed");
+        }
+      }
+
+      function onNativeLoaded() {
+        if (nativeResolved) return;
+        nativeResolved = true;
+        clearTimeout(nativeTimer);
+        if (obs) obs.disconnect();
+        nativeSlot.classList.remove("ad-pending", "ad-collapsed");
+        nativeSlot.classList.add("ad-ready");
+        mountBottomSlot(true);
+      }
+
+      function onNativeBlocked() {
+        if (nativeResolved) return;
+        nativeResolved = true;
+        clearTimeout(nativeTimer);
+        if (obs) obs.disconnect();
+        const fallbackUnit = vw >= 490 ? UNITS.b468x60 : UNITS.b160x300;
+        enqueueBanner("ad-native", fallbackUnit);
+        mountBottomSlot(false);
+      }
+
+      let obs = null;
+      if (nativeBox && nativeSlot) {
+        if (nativeBox.children.length > 0) {
+          onNativeLoaded();
+        } else {
+          obs = new MutationObserver(() => {
+            if (nativeBox.children.length > 0) onNativeLoaded();
+          });
+          obs.observe(nativeBox, { childList: true, subtree: true });
+          if (nativeScript) nativeScript.addEventListener("error", onNativeBlocked);
+        }
+      }
+      const nativeTimer = setTimeout(() => {
+        if (!nativeResolved) {
+          if (nativeBox && nativeBox.children.length > 0) onNativeLoaded();
+          else onNativeBlocked();
+        }
+      }, 3800);
+    })();
+  </script>
 
   <script>
     const APK_DIRECT_URL = "https://pub-e9f3bbb7778a40088f47940a3ea9d0ec.r2.dev/apk/Bedo_Gaming_eFootball_2027_v11.1.1_SLIM.apk";
