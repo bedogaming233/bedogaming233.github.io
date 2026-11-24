@@ -1,202 +1,716 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bedo Gaming eFootball 2027 v11.1.1 — تحميل رسمي مباشر (Slim APK)</title>
-  <meta name="description" content="حمّل لعبة Bedo Gaming eFootball 2027 إصدار v11.1.1 أوفلاين بحجم خفيف جدًا (90.8 MB) مع تحديثات الخميس التلقائية، أنيميشن تيري هنري، و120 فريم!" />
-  <!-- ADSTERRA POPUNDER (bedogaming233.github.io, async) -->
+  <title>Bedo Gaming Football 2027 — v11.1.1 Slim Edition</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111114'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23f5f5f7' font-family='sans-serif' font-weight='800' font-size='14'>BG</text></svg>" />
+  <meta name="description" content="حمّل Bedo Gaming Football 2027 إصدار v11.1.1 أوفلاين بالكامل بحجم خفيف 90.8 MB مع تحديثات الخميس التلقائية و120 فريم." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- ADSTERRA POPUNDER (bedogaming233.github.io, async — zero render blocking) -->
   <script async data-cfasync="false" src="https://accountut.com/1/a9f9f5e14e7a6bdfe5ec70383b38a040"></script>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem("bedo_theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("bedo_lang");
+        if (l === "en" || l === "ar") {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      } catch(e){}
+    })();
+  </script>
   <style>
-    :root {
-      --bg: #060a13;
-      --card: #0e1629;
-      --card2: #132038;
-      --cyan: #00d4ff;
-      --green: #38e096;
-      --gold: #f5c346;
-      --text: #eaf2ff;
-      --muted: #93aac9;
+    :root, [data-theme="dark"] {
+      --bg: #050507;
+      --bg-grad: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(212,175,106,0.07), transparent 62%), radial-gradient(ellipse 60% 45% at 85% 10%, rgba(10,132,255,0.06), transparent 60%);
+      --nav-bg: rgba(10, 10, 13, 0.74);
+      --surface: #111114;
+      --surface-2: #18181d;
+      --surface-3: #202026;
+      --border: rgba(255, 255, 255, 0.085);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --specular: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      --ink: #f5f5f7;
+      --muted: #86868b;
+      --muted-2: #a1a1a6;
+      --blue: #0a84ff;
+      --blue-hover: #2997ff;
+      --gold: #d4af6a;
+      --gold-soft: rgba(212, 175, 106, 0.14);
+      --green: #30d158;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.55);
+      --bar-muted: linear-gradient(180deg, #3a3a42 0%, #24242a 100%);
+      --bar-blue: linear-gradient(180deg, #38a0ff 0%, #0a84ff 100%);
+      --wave-gold: rgba(212, 175, 106, 0.58);
+      --wave-silver: rgba(245, 245, 247, 0.26);
     }
+
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --bg-grad: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,113,227,0.05), transparent 60%);
+      --nav-bg: rgba(255, 255, 255, 0.78);
+      --surface: #ffffff;
+      --surface-2: #f2f2f7;
+      --surface-3: #e8e8ed;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.15);
+      --specular: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --muted-2: #515154;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --gold: #a57c35;
+      --gold-soft: rgba(165, 124, 53, 0.12);
+      --green: #248a3d;
+      --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.07);
+      --bar-muted: linear-gradient(180deg, #d2d2d7 0%, #bebec5 100%);
+      --bar-blue: linear-gradient(180deg, #2997ff 0%, #0071e3 100%);
+      --wave-gold: rgba(165, 124, 53, 0.55);
+      --wave-silver: rgba(29, 29, 31, 0.2);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: clip; }
     body {
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-      background: radial-gradient(circle at 20% 0%, #102446 0%, var(--bg) 55%);
-      color: var(--text);
-      min-height: 100vh;
-      padding-bottom: 32px;
+      font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      background-image: var(--bg-grad);
+      color: var(--ink);
+      min-height: 100dvh;
+      max-width: 100%;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    .wrap { max-width: 820px; margin: 0 auto; padding: 18px 16px; }
-    .topbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 16px; background: rgba(14,22,41,.92);
-      border: 1px solid #223556; border-radius: 14px; margin-bottom: 14px;
+
+    .num {
+      font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif;
+      font-variant-numeric: tabular-nums;
+      direction: ltr; unicode-bidi: isolate; display: inline-block;
     }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
-    .lang-btn {
-      background: #172745; color: var(--cyan); border: 1px solid #2e4c7a;
-      border-radius: 20px; padding: 6px 14px; font-weight: 700; cursor: pointer;
+
+    /* Apple Sticky Frosted Global Navbar */
+    .nav {
+      position: sticky; top: 0; z-index: 60;
+      background: var(--nav-bg);
+      backdrop-filter: saturate(180%) blur(22px);
+      -webkit-backdrop-filter: saturate(180%) blur(22px);
+      border-bottom: 1px solid var(--border);
     }
+    .scroll-bar {
+      position: absolute; bottom: 0; inset-inline-start: 0; height: 1.5px; width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--gold));
+      transition: width 0.08s linear;
+    }
+    .nav-inner {
+      max-width: 960px; margin: 0 auto; height: 54px; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--ink); font-weight: 700; font-size: 14.5px; letter-spacing: -0.01em;
+    }
+    .bg-mark {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: var(--surface-2); border: 1px solid var(--border-strong);
+      box-shadow: var(--specular);
+      display: grid; place-items: center;
+      font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 11px; letter-spacing: -0.03em; color: var(--ink);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 22px;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500;
+      position: relative; padding: 16px 0; transition: color 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px; background: var(--ink);
+    }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-pill, .lang-pill {
+      height: 30px; border-radius: 999px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--ink); cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      font-family: inherit; font-size: 12px; font-weight: 600;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .icon-pill { width: 32px; padding: 0; }
+    .lang-pill { padding: 0 12px; font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif; }
+    .icon-pill:hover, .lang-pill:hover { border-color: var(--border-strong); background: var(--surface-3); }
+    .icon-pill:active, .lang-pill:active { transform: scale(0.96); }
+
+    /* Main Container */
+    .wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 64px; }
+    @media (max-width: 640px) { .wrap { padding: 20px 16px 48px; } }
+
+    /* Asymmetric Apple Keynote Split Hero */
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: 32px; align-items: center;
+      margin-bottom: 24px;
+    }
+    .hero > * { min-width: 0; max-width: 100%; }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 20px; text-align: start; }
+      .cta-row { width: 100%; }
+      .btn-primary, .btn-glass { flex: 1 1 auto; min-width: 0; }
+    }
+
+    .live-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 12px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular);
+      font-size: 12px; font-weight: 600; color: var(--muted-2);
+      margin-bottom: 16px;
+    }
+    .pulse-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.55);
+      animation: pulseRing 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.55); }
+      70% { box-shadow: 0 0 0 7px rgba(48, 209, 88, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0); }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+      margin-bottom: 14px; color: var(--ink);
+    }
+    .hero-title .gold { color: var(--gold); }
+    .hero-sub {
+      font-size: 15.5px; line-height: 1.65; color: var(--muted);
+      max-width: 46ch; margin-bottom: 24px;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 46px; padding: 0 22px; border-radius: 999px; border: none;
+      background: var(--blue); color: #ffffff;
+      font-family: inherit; font-size: 14.5px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, transform 0.16s cubic-bezier(0.16,1,0.3,1), opacity 0.2s ease;
+    }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-primary:active { transform: scale(0.975); }
+    .btn-primary:disabled { opacity: 0.88; cursor: wait; }
+
+    .btn-glass {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 0 20px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border-strong);
+      box-shadow: var(--specular); color: var(--ink);
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.16s cubic-bezier(0.16,1,0.3,1);
+    }
+    .btn-glass:hover { background: var(--surface-2); border-color: var(--ink); }
+    .btn-glass:active { transform: scale(0.975); }
+
+    .ring-wrap { display: none; width: 18px; height: 18px; }
+    .btn-primary.is-loading .ring-wrap { display: inline-flex; }
+    .btn-primary.is-loading .dl-ico { display: none; }
+    .ring-svg { transform: rotate(-90deg); }
+    .ring-track { fill: none; stroke: rgba(255,255,255,0.28); stroke-width: 2.5; }
+    .ring-fill { fill: none; stroke: #ffffff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 44; stroke-dashoffset: 44; transition: stroke-dashoffset 0.9s linear; }
+
+    .mirror-row {
+      margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    }
+    .mirror-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      color: var(--blue); text-decoration: none; font-size: 13px; font-weight: 500;
+    }
+    .mirror-link:hover { text-decoration: underline; }
+
+    /* Interactive 3D-Tilt Cinema Hero Stage */
+    .stage-wrap { perspective: 1100px; }
+    .hero-stage {
+      position: relative; border-radius: 24px; overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #07070a;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.12);
+      transform-style: preserve-3d;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .hero-stage img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 32%;
+      display: block; transform: scale(1.03);
+      filter: contrast(1.06) brightness(0.96);
+    }
+    .stage-vignette {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(5,5,7,0.34) 0%, transparent 32%, transparent 62%, rgba(5,5,7,0.88) 100%),
+        radial-gradient(circle at 20% 20%, rgba(10,132,255,0.08), transparent 55%);
+    }
+    .stage-hud {
+      position: absolute; top: 14px; inset-inline-start: 14px;
+      width: 152px; padding: 9px 11px 7px; border-radius: 14px;
+      background: rgba(12, 12, 16, 0.56);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .stage-hud-top {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 11px; font-weight: 700; color: #f5f5f7; margin-bottom: 4px;
+    }
+    .hud-fps-tag { color: var(--gold); font-size: 10px; font-weight: 600; }
+    #fpsCanvas { width: 100%; height: 34px; display: block; }
+
+    .stage-pills {
+      position: absolute; bottom: 14px; left: 14px; right: 14px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    }
+    .stage-pill {
+      padding: 5px 12px; border-radius: 999px;
+      background: rgba(15, 15, 19, 0.72);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #f5f5f7; font-size: 11.5px; font-weight: 600;
+    }
+
+    /* Editorial Apple-Framed Adsterra Slots (ALL 10 Smart Dual-Domain Units Preserved!) */
     .ad-slot {
-      width: 100%; margin: 14px auto;
-      background: rgba(11,18,34,.85); border: 1px solid #1e3154; border-radius: 12px;
+      width: 100%; margin: 20px auto;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular); border-radius: 16px;
       display: flex; align-items: center; justify-content: center; flex-direction: column;
-      padding: 8px; overflow: hidden; transition: opacity .25s ease;
+      padding: 8px 10px; overflow: hidden; transition: opacity 0.28s ease;
+      position: relative;
     }
-    .ad-slot iframe { max-width: 100%; border: 0; display: block; }
-    .ad-slot.banner-top { min-height: 64px; }
-    @media (min-width: 760px) { .ad-slot.banner-top { min-height: 106px; } }
-    .ad-slot.banner-300 { min-height: 264px; }
-    .ad-slot.banner-bottom { min-height: 76px; }
-    .ad-slot.native-box { min-height: 68px; padding: 10px; }
+    .ad-slot::before {
+      content: attr(data-label);
+      font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--muted); opacity: 0.65; margin-bottom: 4px;
+    }
+    .ad-slot iframe { max-width: 100%; border: 0; display: block; border-radius: 8px; }
+    .ad-slot.banner-top { min-height: 76px; }
+    @media (min-width: 760px) { .ad-slot.banner-top { min-height: 118px; } }
+    .ad-slot.banner-300 { min-height: 278px; }
+    .ad-slot.banner-bottom { min-height: 84px; }
+    .ad-slot.native-box { min-height: 78px; padding: 10px; }
     .ad-slot.ad-pending {
       min-height: 0 !important; max-height: 0; padding: 0; margin: 0 auto;
       border-width: 0; opacity: 0; pointer-events: none;
     }
+    .ad-slot.ad-pending::before { display: none; }
     .ad-slot.ad-collapsed { display: none !important; }
+
+    /* Desktop Sticky Rails (>= 1340px ONLY — zero overlap with 960px main column!) */
     .ad-rail {
-      display: none; position: fixed; top: 88px; width: 174px; padding: 6px;
-      background: rgba(11,18,34,.9); border: 1px solid #1e3154; border-radius: 12px;
+      display: none; position: fixed; top: 82px; width: 174px; padding: 6px;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular); border-radius: 16px;
       z-index: 20; align-items: center; justify-content: center; flex-direction: column;
-      overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,.45);
+      overflow: hidden;
     }
-    .ad-rail.left { left: 14px; }
-    .ad-rail.right { right: 14px; }
-    @media (min-width: 1200px) { .ad-rail.ad-ready { display: flex; } }
-    .hero {
-      background: linear-gradient(180deg, #111d36 0%, #0a1120 100%);
-      border: 1.5px solid rgba(0,212,255,.45); border-radius: 20px;
-      padding: 24px 18px; text-align: center;
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    .ad-rail.left { left: 12px; }
+    .ad-rail.right { right: 12px; }
+    @media (min-width: 1340px) { .ad-rail.ad-ready { display: flex; } }
+
+    /* Section Heading */
+    .sec-head {
+      display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      margin: 34px 0 16px;
     }
-    .badge {
-      display: inline-block; background: rgba(56,224,150,.15); color: var(--green);
-      border: 1px solid var(--green); border-radius: 20px;
-      padding: 4px 14px; font-size: 12px; font-weight: 800; margin-bottom: 12px;
+    .sec-head h2 {
+      font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -0.025em;
     }
-    h1 { font-size: 28px; line-height: 1.25; margin-bottom: 8px; }
-    .gold { color: var(--gold); }
-    .sub { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
-    .stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0;
+    .sec-head p { font-size: 13.5px; color: var(--muted); }
+
+    /* Asymmetric Apple Bento Grid (2+1 and 1+2) */
+    .bento {
+      display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px;
     }
-    .stat {
-      background: #0b1324; border: 1px solid #223556; border-radius: 12px; padding: 12px 8px;
+    .tile {
+      min-width: 0; max-width: 100%;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular); border-radius: 24px;
+      padding: 24px; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: border-color 0.25s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
     }
-    .stat b { display: block; font-size: 18px; color: var(--cyan); }
-    .stat span { font-size: 11px; color: var(--muted); }
-    .dl-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      width: 100%; max-width: 440px; padding: 16px 24px;
-      background: linear-gradient(90deg, #ffd25a, #e2a426);
-      color: #08101c; font-size: 17px; font-weight: 900; border: none; border-radius: 14px;
-      cursor: pointer; text-decoration: none; transition: transform .15s, opacity .15s;
-      box-shadow: 0 8px 28px rgba(245,195,70,.3);
+    .tile:hover { border-color: var(--border-strong); }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    @media (max-width: 820px) {
+      .span-7, .span-5 { grid-column: span 12; }
+      .tile { padding: 20px; border-radius: 20px; }
     }
-    .dl-btn:hover { transform: translateY(-2px); }
-    .dl-btn:disabled { opacity: .72; cursor: wait; transform: none; }
-    .alt-btn {
-      display: inline-block; margin-top: 10px; color: var(--cyan); font-size: 13px; font-weight: 700;
-      text-decoration: none;
+
+    .tile-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .tile-desc { font-size: 13.5px; color: var(--muted); line-height: 1.6; max-width: 50ch; }
+
+    /* Bento 1: Kinetic 120 FPS Silk Wave */
+    .wave-stage {
+      margin-top: 18px; height: 112px; width: 100%; border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border: 1px solid var(--border); overflow: hidden; position: relative;
     }
-    .comm-btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; max-width: 440px; margin-top: 14px; padding: 13px 18px;
-      background: linear-gradient(90deg, rgba(0,212,255,.16), rgba(56,224,150,.16));
-      border: 1.5px solid rgba(0,212,255,.6); color: #eaf6ff;
-      font-size: 14.5px; font-weight: 800; border-radius: 13px; text-decoration: none;
-      transition: transform .15s, border-color .15s;
+    #waveCanvas { width: 100%; height: 100%; display: block; }
+    .wave-badge {
+      position: absolute; top: 10px; inset-inline-end: 12px;
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      background: var(--gold-soft); padding: 3px 9px; border-radius: 999px;
     }
-    .comm-btn:hover { transform: translateY(-2px); border-color: var(--green); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 18px; }
-    .feat {
-      background: var(--card); border: 1px solid #1f3254; border-radius: 14px; padding: 14px;
-      text-align: start;
+
+    /* Bento 2: 90.8 MB vs 3.2 GB Animated Bar Comparison */
+    .bars-wrap {
+      margin-top: 18px; height: 146px; display: flex; align-items: flex-end; justify-content: center; gap: 28px;
+      padding: 12px 10px 4px; border-bottom: 1px solid var(--border);
     }
-    .feat h3 { font-size: 14px; color: var(--gold); margin-bottom: 5px; }
-    .feat p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
-    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
-    .socials a {
-      background: var(--card2); border: 1px solid #2b446e; color: var(--text);
-      padding: 9px 16px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 700;
+    .bar-col { display: flex; flex-direction: column; align-items: center; gap: 7px; width: 92px; }
+    .bar-val { font-size: 13px; font-weight: 700; }
+    .bar-val.blue { color: var(--blue); }
+    .bar-val.dim { color: var(--muted); }
+    .bar-track { width: 64px; height: 96px; display: flex; align-items: flex-end; }
+    .bar-rect {
+      width: 100%; border-radius: 10px 10px 4px 4px;
+      transform-origin: bottom; transform: scaleY(0);
+      transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.in .bar-rect { transform: scaleY(1); }
+    .bar-rect.slim { height: 28px; background: var(--bar-blue); box-shadow: 0 8px 24px rgba(10,132,255,0.35); }
+    .bar-rect.heavy { height: 92px; background: var(--bar-muted); }
+    .bar-lbl { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+    /* Bento 3: Thursday Auto-OTA Timeline Pulse */
+    .ota-track {
+      margin-top: 22px; padding: 18px 14px; border-radius: 16px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      position: relative;
+    }
+    .ota-size-pill {
+      display: inline-block; margin-bottom: 14px;
+      font-size: 11.5px; font-weight: 700; color: var(--blue);
+      background: rgba(10,132,255,0.12); padding: 3px 10px; border-radius: 999px;
+    }
+    .ota-nodes {
+      position: relative; display: flex; align-items: center; justify-content: space-between;
+    }
+    .ota-line {
+      position: absolute; left: 8px; right: 8px; top: 50%; height: 2px;
+      background: repeating-linear-gradient(90deg, var(--border-strong) 0 5px, transparent 5px 10px);
+      transform: translateY(-50%); overflow: hidden;
+    }
+    .ota-beam {
+      position: absolute; top: 0; left: -35%; width: 35%; height: 100%;
+      background: linear-gradient(90deg, transparent, var(--blue), var(--gold), transparent);
+      animation: otaTravel 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes otaTravel {
+      0% { left: -35%; }
+      100% { left: 105%; }
+    }
+    .ota-node {
+      position: relative; z-index: 2; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--border-strong);
+      transition: border-color 0.3s ease;
+    }
+    .ota-node.live {
+      background: var(--blue); border-color: rgba(10,132,255,0.45);
+      box-shadow: 0 0 0 4px rgba(10,132,255,0.16);
+    }
+    .ota-labels {
+      margin-top: 10px; display: flex; justify-content: space-between;
+      font-size: 11px; color: var(--muted); font-weight: 600;
+    }
+
+    /* Bento 4: Built for Pro Play 2x2 Spec Matrix */
+    .specs-grid {
+      margin-top: 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    }
+    .spec-cell {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px 16px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .spec-cell:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+    .spec-cell b { display: block; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+    .spec-cell span { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* Scroll Reveal Choreography (respects prefers-reduced-motion) */
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* Minimal Apple Footer & Socials */
+    .footer {
+      margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;
+    }
+    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .soc-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 16px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular); color: var(--ink);
+      text-decoration: none; font-size: 13px; font-weight: 600;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .soc-pill:hover { background: var(--surface-2); border-color: var(--border-strong); transform: translateY(-1px); }
+    .foot-copy { font-size: 12px; color: var(--muted); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-dot, .ota-beam { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .bar-rect { transform: scaleY(1); transition: none; }
     }
   </style>
 </head>
 <body>
-  <!-- DESKTOP STICKY RAILS (>= 1200px ONLY — ZERO MOBILE OVERHEAD) -->
+  <!-- DESKTOP STICKY RAILS (>= 1340px ONLY — ZERO MOBILE OVERHEAD) -->
   <div class="ad-rail left ad-pending" id="ad-rail-left"></div>
   <div class="ad-rail right ad-pending" id="ad-rail-right"></div>
 
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand"><span class="dot"></span> <span>BEDO GAMING 2027</span></div>
-      <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+  <!-- APPLE FROSTED GLOBAL NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html">
+        <span class="bg-mark">BG</span>
+        <span>Bedo Gaming</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#overview" class="active" id="n-over">نظرة عامة</a>
+        <a href="#features" id="n-feat">المميزات</a>
+        <a href="#ota" id="n-ota">تحديث الخميس</a>
+        <a href="./community.html" id="n-comm">مجتمع اللاعبين</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-pill" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme" title="Dark / Light">
+          <svg id="themeIco" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+        </button>
+        <button class="lang-pill" id="langBtn" onclick="toggleLang()">EN</button>
+      </div>
     </div>
+    <div class="scroll-bar" id="scrollBar"></div>
+  </header>
+
+  <main class="wrap">
+    <!-- ASYMMETRIC APPLE KEYNOTE SPLIT HERO -->
+    <section class="hero" id="overview">
+      <div>
+        <div class="live-chip">
+          <span class="pulse-dot"></span>
+          <span id="t-badge">الإصدار الأحدث <span class="num">v11.1.1</span> • Cloudflare R2 Direct</span>
+        </div>
+
+        <h1 class="hero-title" id="t-title"><span class="num">Bedo Gaming</span><br /><span class="num">Football <span class="gold">2027</span></span></h1>
+        <p class="hero-sub" id="t-sub">
+          محرك <span class="num">v11.1.1</span> أوفلاين بالكامل. أُعيد هندسته في <span class="num">90.8 MB</span> فقط — مع تحديثات خميس تلقائية و120 فريم حقيقي بدون VPN.
+        </p>
+
+        <div class="cta-row">
+          <button class="btn-primary" id="dlBtn" onclick="startDownloadFlow()">
+            <svg class="dl-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="ring-wrap">
+              <svg class="ring-svg" width="18" height="18" viewBox="0 0 18 18">
+                <circle class="ring-track" cx="9" cy="9" r="7"></circle>
+                <circle class="ring-fill" id="dlRing" cx="9" cy="9" r="7"></circle>
+              </svg>
+            </span>
+            <span id="dlTxt">تحميل مباشر — 90.8 MB</span>
+          </button>
+
+          <a class="btn-glass" id="commBtn" href="./community.html">
+            <span id="commTxt">مجتمع اللاعبين</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="mirror-row">
+          <a class="mirror-link" id="mirrorLink" href="https://pub-e9f3bbb7778a40088f47940a3ea9d0ec.r2.dev/apk/Bedo_Gaming_eFootball_2027_v11.1.1_SLIM.apk">
+            <span id="mirrorTxt">رابط احتياطي مباشر (Cloudflare R2 CDN)</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE 3D-TILT CINEMA HERO STAGE -->
+      <div class="stage-wrap">
+        <div class="hero-stage" id="heroStage">
+          <img src="./hero-stage.jpg" alt="Bedo Gaming Football 2027 Stadium Showcase" loading="eager" />
+          <div class="stage-vignette"></div>
+          <div class="stage-hud">
+            <div class="stage-hud-top">
+              <span class="num">120 FPS</span>
+              <span class="hud-fps-tag num">v11.1.1</span>
+            </div>
+            <canvas id="fpsCanvas" width="260" height="68"></canvas>
+          </div>
+          <div class="stage-pills">
+            <span class="stage-pill num">90.8 MB</span>
+            <span class="stage-pill num">120 FPS</span>
+            <span class="stage-pill" id="pill-off">100% أوفلاين</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- AD ZONE 1: SMART TOP BANNER (728x90 Desktop / 320x50 Mobile — Dual-Domain Egypt + Anti-Adblock) -->
-    <div class="ad-slot banner-top" id="ad-top"></div>
+    <div class="ad-slot banner-top" id="ad-top" data-label="Sponsored"></div>
 
-    <div class="hero">
-      <div class="badge" id="t-badge">الإصدار الرسمي الأحدث v11.1.1 • Cloudflare R2 Direct</div>
-      <h1 id="t-title">Bedo Gaming <span class="gold">eFootball 2027</span></h1>
-      <p class="sub" id="t-sub">
-        محرك كونامي الرسمي v11.1.1 أوفلاين بالكامل • حجم الـ APK الخفيف فقط 90.8 MB • تحديثات الخميس تلقائية بدون إعادة تثبيت!
-      </p>
-
-      <div class="stats">
-        <div class="stat"><b>90.8 MB</b><span id="t-s1">حجم ملف الـ Slim APK</span></div>
-        <div class="stat"><b>120 FPS</b><span id="t-s2">فريمات مفتوحة + جيمبلاي أصلي</span></div>
-        <div class="stat"><b>100%</b><span id="t-s3">لعب أوفلاين بعد أول تحميل</span></div>
-      </div>
-
-      <!-- AD ZONE 2: HIGH-CPM 300x250 MEDIUM RECTANGLE (Egypt No-VPN + Worldwide) -->
-      <div class="ad-slot banner-300" id="ad-mid"></div>
-
-      <button class="dl-btn" id="dlBtn" onclick="startDownloadFlow()">
-        ⚡ <span id="dlTxt">تحميل مباشر سريع — Slim APK v11.1.1</span>
-      </button>
-      <br />
-      <a class="alt-btn" id="mirrorLink" href="https://pub-e9f3bbb7778a40088f47940a3ea9d0ec.r2.dev/apk/Bedo_Gaming_eFootball_2027_v11.1.1_SLIM.apk">
-        رابط احتياطي مباشر (Cloudflare R2 CDN)
-      </a>
-      <br />
-      <a class="comm-btn" id="commBtn" href="./community.html">
-        💬 مجتمع اللاعبين — اكتب رأيك واقترح إضافات تحديث الخميس 🔥
-      </a>
-
-      <div class="grid">
-        <div class="feat">
-          <h3 id="f1t">🔥 أنيميشن تيري هنري + 20 باكدج</h3>
-          <p id="f1d">باكدج تيري هنري الجديد مع 20 لاعب هايلايت + أنيميشن الدريبلنج والباص الأصليين للـ v11.1.1.</p>
-        </div>
-        <div class="feat">
-          <h3 id="f2t">☁️ تحديثات الخميس التلقائية (OTA)</h3>
-          <p id="f2d">كل خميس ينزلك التحديث الجديد بحجم صغير (15–35 MB) من داخل اللعبة بدون مسح أو إعادة تثبيت.</p>
-        </div>
-        <div class="feat">
-          <h3 id="f3t">💎 999,999,999 توكن + 74 مهارة</h3>
-          <p id="f3d">توكن اختيار المهارة المحددة والمركز مفتوحين بالكامل + Bedo Arena + منتخب مصر الحقيقي في الكان.</p>
-        </div>
-      </div>
-
-      <!-- AD ZONE 3: SMART NATIVE BANNER (Arab/Foreign/4G) -> AUTO-FALLBACK TO WORKING EGYPT BANNER IF BLOCKED -->
-      <div class="ad-slot native-box ad-pending" id="ad-native">
-        <script id="nativeAdScript" async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
-        <div id="container-5b38501e9f95039d29df080b96b84b0a"></div>
-      </div>
-
-      <div class="socials">
-        <a href="https://t.me/Bedo_Gaming223" target="_blank">✈️ Telegram الأساسي</a>
-        <a href="https://t.me/bedogaming133" target="_blank">✈️ Telegram الاحتياطي</a>
-        <a href="https://youtube.com/@bedo_gaming233?si=HtS3TzfZPx385JX2" target="_blank">▶️ YouTube</a>
-        <a href="https://www.tiktok.com/@bedo_gaming233?_r=1&_t=ZS-9BciFvvI15d" target="_blank">🎵 TikTok</a>
-      </div>
-
-      <!-- AD ZONE 4: SMART BOTTOM BANNER (Unique Unused Key Per Device — Zero Duplicates, Auto-Hide If Blocked) -->
-      <div class="ad-slot banner-bottom ad-pending" id="ad-bottom"></div>
+    <!-- ASYMMETRIC APPLE BENTO FEATURE SHOWCASE -->
+    <div class="sec-head reveal" id="features">
+      <h2 id="t-sec-feat">هندسة احترافية. أداء بلا تنازل.</h2>
+      <p id="t-sec-sub">كل تفصيلة مُعدّلة لتشتغل بسلاسة على موبايلك</p>
     </div>
-  </div>
+
+    <section class="bento">
+      <!-- BENTO 1 (Wide 7-col): 120 FPS Motion Engine + Kinetic Canvas Wave -->
+      <article class="tile span-7 reveal">
+        <div>
+          <h3 class="tile-title" id="f1t">محرك حركة 120 FPS وباكدجات الأساطير</h3>
+          <p class="tile-desc" id="f1d">باكدج الأساطير الجديد مع 20 لاعب هايلايت + أنيميشن المراوغة والتمرير الأصليين لنسخة v11.1.1 بفريمات مفتوحة واستجابة فورية.</p>
+        </div>
+        <div class="wave-stage">
+          <span class="wave-badge num">120 Hz Motion</span>
+          <canvas id="waveCanvas" width="640" height="220"></canvas>
+        </div>
+      </article>
+
+      <!-- BENTO 2 (5-col): 90.8 MB Slim Architecture Bar Comparison -->
+      <article class="tile span-5 reveal">
+        <div>
+          <h3 class="tile-title" id="f2t">معمارية Slim بحجم 90.8 MB</h3>
+          <p class="tile-desc" id="f2d">ابدأ التثبيت في ثوانٍ بملف خفيف، واللعبة تنزّل البيانات تلقائياً وتستكمل من آخر نقطة لو النت فصل.</p>
+        </div>
+        <div class="bars-wrap">
+          <div class="bar-col">
+            <span class="bar-val blue num">90.8 MB</span>
+            <div class="bar-track"><div class="bar-rect slim"></div></div>
+            <span class="bar-lbl" id="bar-slim">Bedo Slim</span>
+          </div>
+          <div class="bar-col">
+            <span class="bar-val dim num">3.2 GB</span>
+            <div class="bar-track"><div class="bar-rect heavy"></div></div>
+            <span class="bar-lbl" id="bar-old">النسخة التقليدية</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- BENTO 3 (5-col): Thursday Auto-OTA Pulse Timeline -->
+      <article class="tile span-5 reveal" id="ota">
+        <div>
+          <h3 class="tile-title" id="f3t">تحديثات الخميس التلقائية (OTA)</h3>
+          <p class="tile-desc" id="f3d">كل خميس ينزلك التحديث الجديد من داخل اللعبة بحجم صغير جداً بدون مسح اللعبة أو ضياع تشكيلتك.</p>
+        </div>
+        <div class="ota-track">
+          <span class="ota-size-pill num">15 – 35 MB / Week</span>
+          <div class="ota-nodes">
+            <div class="ota-line"><div class="ota-beam"></div></div>
+            <span class="ota-node"></span>
+            <span class="ota-node"></span>
+            <span class="ota-node"></span>
+            <span class="ota-node live"></span>
+          </div>
+          <div class="ota-labels">
+            <span>Rev 1</span>
+            <span>Rev 2</span>
+            <span>Rev 3</span>
+            <span id="ota-now">الخميس القادم</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- BENTO 4 (Wide 7-col): Built for Pro Play 2x2 Spec Matrix -->
+      <article class="tile span-7 reveal">
+        <div>
+          <h3 class="tile-title" id="f4t">مُصممة للعب الاحترافي الكامل</h3>
+          <p class="tile-desc" id="f4d">حفظ التشكيلات من 1 إلى 20، دوري الذكاء الاصطناعي الأسطوري، وتشكيلات المنتخبات والأندية الحقيقية لموسم 2027.</p>
+        </div>
+        <div class="specs-grid">
+          <div class="spec-cell">
+            <b class="num">20</b>
+            <span id="sp1">خطة وتشكيلة محفوظة</span>
+          </div>
+          <div class="spec-cell">
+            <b class="num">74</b>
+            <span id="sp2">مهارة + 999M توكن</span>
+          </div>
+          <div class="spec-cell">
+            <b class="num">Division 1</b>
+            <span id="sp3">ذكاء اصطناعي Legend AI</span>
+          </div>
+          <div class="spec-cell">
+            <b class="num">2027</b>
+            <span id="sp4">منتخبات ومدربين أصليين</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- AD ZONE 2: HIGH-CPM 300x250 MEDIUM RECTANGLE (Egypt No-VPN + Worldwide) -->
+    <div class="ad-slot banner-300" id="ad-mid" data-label="Sponsored"></div>
+
+    <!-- AD ZONE 3: SMART NATIVE BANNER (Arab/Foreign/4G) -> AUTO-FALLBACK TO WORKING EGYPT BANNER IF BLOCKED -->
+    <div class="ad-slot native-box ad-pending" id="ad-native" data-label="Sponsored">
+      <script id="nativeAdScript" async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
+      <div id="container-5b38501e9f95039d29df080b96b84b0a"></div>
+    </div>
+
+    <!-- MINIMAL APPLE FOOTER & SOCIAL CHANNELS -->
+    <footer class="footer">
+      <div class="socials">
+        <a class="soc-pill" href="https://t.me/Bedo_Gaming223" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+          <span id="s-tg1">Telegram الأساسي</span>
+        </a>
+        <a class="soc-pill" href="https://t.me/bedogaming133" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+          <span id="s-tg2">Telegram الاحتياطي</span>
+        </a>
+        <a class="soc-pill" href="https://youtube.com/@bedo_gaming233?si=HtS3TzfZPx385JX2" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>YouTube</span>
+        </a>
+        <a class="soc-pill" href="https://www.tiktok.com/@bedo_gaming233?_r=1&_t=ZS-9BciFvvI15d" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          <span>TikTok</span>
+        </a>
+      </div>
+
+      <!-- AD ZONE 4: SMART BOTTOM BANNER (Unique Unused Key Per Device — Zero Duplicates) -->
+      <div class="ad-slot banner-bottom ad-pending" id="ad-bottom" data-label="Sponsored"></div>
+
+      <p class="foot-copy" id="footCopy">Bedo Gaming Studio • v11.1.1 Slim Architecture • Direct Cloudflare R2 Delivery</p>
+    </footer>
+  </main>
 
   <!-- ADSTERRA SOCIAL BAR (bedogaming233.github.io, async — High-CTR Arab/Foreign/4G) -->
   <script async data-cfasync="false" src="https://bellnewyork.org/14/e4d253ca9a4280174668cc2da1127cce"></script>
@@ -257,7 +771,6 @@
           s.src = srcUrl;
           s.onload = () => {
             if (slotEl.querySelector("iframe")) return finish(true);
-            // Allow invoke.js async tokenPromise/runTests up to 2.2s to inject iframe
             postLoadTimer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), 2200);
           };
           s.onerror = () => finish(false);
@@ -277,7 +790,6 @@
           slotEl.innerHTML = "";
           const hpfUrl = "https://www.highperformanceformat.com/" + unit.key + "/invoke.js";
           let ok = await loadScriptInto(slotEl, unit, hpfUrl, 5000);
-          // Instant Anti-Adblock failover (bellnewyork.org) if AdBlocker blocked highperformanceformat.com
           if (!ok && unit.anti) {
             slotEl.innerHTML = "";
             const antiUrl = "https://bellnewyork.org/22/" + unit.key;
@@ -296,17 +808,14 @@
 
       const vw = window.innerWidth || document.documentElement.clientWidth || 360;
 
-      // 1) TOP & MID BANNERS (Viewable, Device-Matched, Egypt No-VPN Primary + Anti-Adblock Fallback)
       enqueueBanner("ad-top", vw >= 760 ? UNITS.b728x90 : UNITS.b320x50);
       enqueueBanner("ad-mid", UNITS.b300x250);
 
-      // 2) WIDE DESKTOP STICKY RAILS (>= 1200px ONLY)
-      if (vw >= 1200) {
+      if (vw >= 1340) {
         enqueueBanner("ad-rail-left", UNITS.b160x600);
         enqueueBanner("ad-rail-right", UNITS.b160x300);
       }
 
-      // 3) SMART NATIVE BANNER MONITOR -> AUTO-SWAP TO WORKING EGYPT BANNER IF BLOCKED BY ISP
       const nativeSlot = document.getElementById("ad-native");
       const nativeBox = document.getElementById("container-5b38501e9f95039d29df080b96b84b0a");
       const nativeScript = document.getElementById("nativeAdScript");
@@ -367,13 +876,15 @@
     })();
   </script>
 
+  <!-- APPLE MOTION GRAPHICS ENGINE + DOWNLOAD FLOW + THEME / LANGUAGE -->
   <script>
     const APK_DIRECT_URL = "https://pub-e9f3bbb7778a40088f47940a3ea9d0ec.r2.dev/apk/Bedo_Gaming_eFootball_2027_v11.1.1_SLIM.apk";
     const WEBSITE_SMARTLINK_URL = "https://asiafilm.org/4/0c638d27a6b3d1c9c3705b5f1038f1ae";
 
-    let lang = "ar";
+    let lang = localStorage.getItem("bedo_lang") || "ar";
     let counting = false;
 
+    /* 1) Dynamic Island Download Flow (preserves Smartlink + 5s Cloudflare countdown) */
     function startDownloadFlow() {
       if (counting) return;
       counting = true;
@@ -382,49 +893,221 @@
       }
       const btn = document.getElementById("dlBtn");
       const txt = document.getElementById("dlTxt");
+      const ring = document.getElementById("dlRing");
       btn.disabled = true;
+      btn.classList.add("is-loading");
       let sec = 5;
+      const total = 5;
       const tick = () => {
+        if (ring) ring.style.strokeDashoffset = String(44 * (sec / total));
         if (sec <= 0) {
-          txt.textContent = lang === "ar" ? "✅ جاري بدء التحميل المباشر..." : "✅ Starting Direct Download...";
+          txt.textContent = lang === "ar" ? "جاري بدء التحميل المباشر..." : "Starting Direct Download...";
           window.location.href = APK_DIRECT_URL;
           setTimeout(() => {
             btn.disabled = false;
+            btn.classList.remove("is-loading");
+            if (ring) ring.style.strokeDashoffset = "44";
             counting = false;
-            txt.textContent = lang === "ar" ? "تحميل مباشر سريع — Slim APK v11.1.1" : "Fast Direct Download — Slim APK v11.1.1";
-          }, 3000);
+            txt.textContent = lang === "ar" ? "تحميل مباشر — 90.8 MB" : "Download Slim APK — 90.8 MB";
+          }, 3200);
           return;
         }
         txt.textContent = lang === "ar"
-          ? `جاري تجهيز رابط Cloudflare السريع (${sec} ثوانٍ)...`
-          : `Preparing high-speed Cloudflare link (${sec}s)...`;
+          ? `تجهيز رابط Cloudflare السريع (${sec} ث)...`
+          : `Preparing Cloudflare R2 link (${sec}s)...`;
         sec--;
         setTimeout(tick, 1000);
       };
       tick();
     }
 
+    /* 2) Dark / Light Theme Switch (Synced across index & community) */
+    function syncThemeIcon() {
+      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      const ico = document.getElementById("themeIco");
+      if (!ico) return;
+      ico.innerHTML = isDark
+        ? '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+    function toggleTheme() {
+      const cur = document.documentElement.getAttribute("data-theme") || "dark";
+      const next = cur === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("bedo_theme", next); } catch(e){}
+      syncThemeIcon();
+    }
+
+    /* 3) Bilingual AR (RTL) / EN (LTR) */
+    function applyLang() {
+      const ar = lang === "ar";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = ar ? "rtl" : "ltr";
+      document.getElementById("langBtn").textContent = ar ? "EN" : "العربية";
+      document.getElementById("n-over").textContent = ar ? "نظرة عامة" : "Overview";
+      document.getElementById("n-feat").textContent = ar ? "المميزات" : "Features";
+      document.getElementById("n-ota").textContent = ar ? "تحديث الخميس" : "Thursday OTA";
+      document.getElementById("n-comm").textContent = ar ? "مجتمع اللاعبين" : "Community";
+      document.getElementById("t-badge").innerHTML = ar
+        ? 'الإصدار الأحدث <span class="num">v11.1.1</span> • Cloudflare R2 Direct'
+        : 'Latest Engine <span class="num">v11.1.1</span> • Cloudflare R2 Direct';
+      document.getElementById("t-sub").innerHTML = ar
+        ? 'محرك <span class="num">v11.1.1</span> أوفلاين بالكامل. أُعيد هندسته في <span class="num">90.8 MB</span> فقط — مع تحديثات خميس تلقائية و<span class="num">120 FPS</span> حقيقي بدون VPN.'
+        : 'Official <span class="num">v11.1.1</span> offline engine. Re-engineered into <span class="num">90.8 MB</span> — with automatic Thursday OTA updates and unlocked <span class="num">120 FPS</span>, no VPN required.';
+      if (!counting) {
+        document.getElementById("dlTxt").innerHTML = ar ? 'تحميل مباشر — <span class="num">90.8 MB</span>' : 'Download Slim APK — <span class="num">90.8 MB</span>';
+      }
+      document.getElementById("commTxt").textContent = ar ? "مجتمع اللاعبين" : "Player Community";
+      document.getElementById("mirrorTxt").textContent = ar
+        ? "رابط احتياطي مباشر (Cloudflare R2 CDN)"
+        : "Direct Mirror Link (Cloudflare R2 CDN)";
+      document.getElementById("pill-off").textContent = ar ? "100% أوفلاين" : "100% Offline";
+      document.getElementById("t-sec-feat").textContent = ar ? "هندسة احترافية. أداء بلا تنازل." : "Pro Engineering. Zero Compromise.";
+      document.getElementById("t-sec-sub").textContent = ar ? "كل تفصيلة مُعدّلة لتشتغل بسلاسة على موبايلك" : "Every layer tuned for fluid mobile performance";
+      document.getElementById("f1t").innerHTML = ar ? 'محرك حركة <span class="num">120 FPS</span> وباكدجات الأساطير' : '<span class="num">120 FPS</span> Motion Engine &amp; Legend Packs';
+      document.getElementById("f1d").textContent = ar
+        ? "باكدج الأساطير الجديد مع 20 لاعب هايلايت + أنيميشن المراوغة والتمرير الأصليين لنسخة v11.1.1 بفريمات مفتوحة واستجابة فورية."
+        : "New Legend highlight packs with 20 elite cards plus authentic v11.1.1 dribbling and passing physics running at unlocked 120 FPS.";
+      document.getElementById("f2t").innerHTML = ar ? 'معمارية <span class="num">Slim</span> بحجم <span class="num">90.8 MB</span>' : '<span class="num">90.8 MB</span> Slim Architecture';
+      document.getElementById("f2d").textContent = ar
+        ? "ابدأ التثبيت في ثوانٍ بملف خفيف، واللعبة تنزّل البيانات تلقائياً وتستكمل من آخر نقطة لو النت فصل."
+        : "Install in seconds with an ultra-light APK while the built-in smart downloader fetches and resumes assets automatically.";
+      document.getElementById("bar-slim").textContent = ar ? "Bedo Slim" : "Bedo Slim";
+      document.getElementById("bar-old").textContent = ar ? "النسخة التقليدية" : "Standard Build";
+      document.getElementById("f3t").textContent = ar ? "تحديثات الخميس التلقائية (OTA)" : "Thursday Auto-OTA";
+      document.getElementById("f3d").textContent = ar
+        ? "كل خميس ينزلك التحديث الجديد من داخل اللعبة بحجم صغير جداً بدون مسح اللعبة أو ضياع تشكيلتك."
+        : "Every Thursday brings fresh packs and fixes directly in-game in 15–35 MB delta patches with zero reinstall.";
+      document.getElementById("ota-now").textContent = ar ? "الخميس القادم" : "Next Thu";
+      document.getElementById("f4t").textContent = ar ? "مُصممة للعب الاحترافي الكامل" : "Built for Pro Play";
+      document.getElementById("f4d").textContent = ar
+        ? "حفظ التشكيلات من 1 إلى 20، دوري الذكاء الاصطناعي الأسطوري، وتشكيلات المنتخبات والأندية الحقيقية لموسم 2027."
+        : "Save 20 full Game Plans, compete through Division 3 to 1 Legend AI, and play with authentic 2027 national teams & managers.";
+      document.getElementById("sp1").textContent = ar ? "خطة وتشكيلة محفوظة" : "Saved Game Plans";
+      document.getElementById("sp2").textContent = ar ? "مهارة + 999M توكن" : "Skills & Max Tokens";
+      document.getElementById("sp3").textContent = ar ? "ذكاء اصطناعي Legend AI" : "Legend AI Difficulty";
+      document.getElementById("sp4").textContent = ar ? "منتخبات ومدربين أصليين" : "Authentic 2027 Squads";
+      document.getElementById("s-tg1").textContent = ar ? "Telegram الأساسي" : "Main Telegram";
+      document.getElementById("s-tg2").textContent = ar ? "Telegram الاحتياطي" : "Backup Telegram";
+    }
     function toggleLang() {
       lang = lang === "ar" ? "en" : "ar";
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-      document.getElementById("langBtn").textContent = lang === "ar" ? "English" : "العربية";
-      document.getElementById("t-badge").textContent = lang === "ar"
-        ? "الإصدار الرسمي الأحدث v11.1.1 • Cloudflare R2 Direct"
-        : "Latest Official v11.1.1 Engine • Cloudflare R2 Direct";
-      document.getElementById("t-sub").textContent = lang === "ar"
-        ? "محرك كونامي الرسمي v11.1.1 أوفلاين بالكامل • حجم الـ APK الخفيف فقط 90.8 MB • تحديثات الخميس تلقائية بدون إعادة تثبيت!"
-        : "Official Konami v11.1.1 100% Offline Engine • Ultra-light 90.8 MB Slim APK • Automatic Thursday OTA Updates without reinstalling!";
-      document.getElementById("t-s1").textContent = lang === "ar" ? "حجم ملف الـ Slim APK" : "Slim APK Size";
-      document.getElementById("t-s2").textContent = lang === "ar" ? "فريمات مفتوحة + جيمبلاي أصلي" : "Unlocked FPS + Authentic Gameplay";
-      document.getElementById("t-s3").textContent = lang === "ar" ? "لعب أوفلاين بعد أول تحميل" : "Offline Play After First Download";
-      document.getElementById("dlTxt").textContent = lang === "ar"
-        ? "تحميل مباشر سريع — Slim APK v11.1.1"
-        : "Fast Direct Download — Slim APK v11.1.1";
-      document.getElementById("commBtn").textContent = lang === "ar"
-        ? "💬 مجتمع اللاعبين — اكتب رأيك واقترح إضافات تحديث الخميس 🔥"
-        : "💬 Player Community — Reviews, Feature Votes & Bug Reports 🔥";
+      try { localStorage.setItem("bedo_lang", lang); } catch(e){}
+      applyLang();
     }
+
+    /* 4) Scroll Progress Bar + Reveal Observer */
+    const scrollBar = document.getElementById("scrollBar");
+    window.addEventListener("scroll", () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100;
+      if (scrollBar) scrollBar.style.width = Math.min(100, Math.max(0, pct)) + "%";
+    }, { passive: true });
+
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("in"));
+    }
+
+    /* 5) Subtle 3D Pointer Tilt on Hero Cinema Stage (Desktop only) */
+    const heroStage = document.getElementById("heroStage");
+    const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (heroStage && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+      heroStage.addEventListener("pointermove", (e) => {
+        const r = heroStage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        heroStage.style.transform = `rotateY(${(x * 6).toFixed(2)}deg) rotateX(${(-y * 5).toFixed(2)}deg)`;
+      });
+      heroStage.addEventListener("pointerleave", () => {
+        heroStage.style.transform = "rotateY(0deg) rotateX(0deg)";
+      });
+    }
+
+    /* 6) 60fps Apple Hardware-Accelerated Motion Graphics (Telemetry Curve + Silk Kinetic Wave) */
+    (function startMotionGraphics() {
+      const fpsC = document.getElementById("fpsCanvas");
+      const waveC = document.getElementById("waveCanvas");
+      if (!fpsC || !waveC) return;
+      const fCtx = fpsC.getContext("2d");
+      const wCtx = waveC.getContext("2d");
+
+      function drawFrame(t) {
+        const sec = t * 0.001;
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+
+        // A) Hero 120 FPS Telemetry Curve
+        const fw = fpsC.width, fh = fpsC.height;
+        fCtx.clearRect(0, 0, fw, fh);
+        const fGrad = fCtx.createLinearGradient(0, 0, 0, fh);
+        fGrad.addColorStop(0, "rgba(245, 245, 247, 0.28)");
+        fGrad.addColorStop(1, "rgba(245, 245, 247, 0.0)");
+        fCtx.beginPath();
+        for (let x = 0; x <= fw; x += 6) {
+          const p = x / fw;
+          const rise = Math.pow(p, 0.72) * 0.62;
+          const ripple = Math.sin(p * 11 - sec * 2.4) * 0.1 + Math.cos(p * 6 - sec * 1.4) * 0.07;
+          const y = fh - (0.18 + rise + ripple) * fh;
+          if (x === 0) fCtx.moveTo(x, y);
+          else fCtx.lineTo(x, y);
+        }
+        fCtx.strokeStyle = "rgba(245, 245, 247, 0.9)";
+        fCtx.lineWidth = 2;
+        fCtx.stroke();
+        fCtx.lineTo(fw, fh);
+        fCtx.lineTo(0, fh);
+        fCtx.closePath();
+        fCtx.fillStyle = fGrad;
+        fCtx.fill();
+
+        // B) Bento 120 FPS Multi-Ribbon Silk Kinetic Wave
+        const ww = waveC.width, wh = waveC.height;
+        wCtx.clearRect(0, 0, ww, wh);
+        const ribbons = 6;
+        for (let r = 0; r < ribbons; r++) {
+          const frac = r / (ribbons - 1);
+          wCtx.beginPath();
+          for (let x = 0; x <= ww; x += 8) {
+            const nx = x / ww;
+            const env = Math.sin(nx * Math.PI);
+            const y =
+              wh * 0.54 +
+              Math.sin(nx * 6.8 - sec * (1.35 + frac * 0.35) + r * 0.55) * (28 + r * 4) * env +
+              Math.cos(nx * 3.2 + sec * 0.8 + r * 0.8) * 14 * env;
+            if (x === 0) wCtx.moveTo(x, y);
+            else wCtx.lineTo(x, y);
+          }
+          if (r % 2 === 0) {
+            wCtx.strokeStyle = isLight
+              ? `rgba(165, 124, 53, ${0.24 + frac * 0.35})`
+              : `rgba(212, 175, 106, ${0.22 + frac * 0.42})`;
+          } else {
+            wCtx.strokeStyle = isLight
+              ? `rgba(0, 113, 227, ${0.18 + frac * 0.28})`
+              : `rgba(245, 245, 247, ${0.14 + frac * 0.28})`;
+          }
+          wCtx.lineWidth = r === 2 ? 2.1 : 1.25;
+          wCtx.stroke();
+        }
+
+        if (!reducedMotion) requestAnimationFrame(drawFrame);
+      }
+      requestAnimationFrame(drawFrame);
+    })();
+
+    // Init
+    syncThemeIcon();
+    applyLang();
   </script>
 </body>
 </html>
