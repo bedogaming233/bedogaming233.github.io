@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المكتبة الرسمية — Bedo Gaming Official</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111114'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23f5f5f7' font-family='sans-serif' font-weight='800' font-size='14'>BG</text></svg>" />
+  <meta name="description" content="المكتبة الرسمية لقناة Bedo Gaming — تحميل مباشر وسريع للألعاب، المودات، الباتشات، التطبيقات، والملفات الحصرية بدون VPN." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- ADSTERRA POPUNDER (bedogaming233.github.io, async) -->
+  <script async data-cfasync="false" src="https://accountut.com/1/a9f9f5e14e7a6bdfe5ec70383b38a040"></script>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem("bedo_theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("bedo_lang");
+        if (l === "en" || l === "ar") {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      } catch(e){}
+    })();
+  </script>
+  <style>
+    :root, [data-theme="dark"] {
+      --bg: #050507;
+      --bg-grad: radial-gradient(ellipse 80% 45% at 50% -10%, rgba(10,132,255,0.08), transparent 60%), radial-gradient(ellipse 55% 40% at 15% 10%, rgba(212,175,106,0.06), transparent 60%);
+      --nav-bg: rgba(10, 10, 13, 0.76);
+      --surface: #111114;
+      --surface-2: #18181d;
+      --surface-3: #222229;
+      --border: rgba(255, 255, 255, 0.085);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --specular: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      --ink: #f5f5f7;
+      --muted: #86868b;
+      --muted-2: #a1a1a6;
+      --blue: #0a84ff;
+      --blue-hover: #2997ff;
+      --blue-soft: rgba(10, 132, 255, 0.13);
+      --gold: #d4af6a;
+      --gold-soft: rgba(212, 175, 106, 0.14);
+      --gold-border: rgba(212, 175, 106, 0.36);
+      --green: #30d158;
+      --green-soft: rgba(48, 209, 88, 0.14);
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.52);
+      --seg-bg: #141418;
+      --seg-pill: #282830;
+      --shimmer-1: #16161b;
+      --shimmer-2: #22222a;
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --bg-grad: radial-gradient(ellipse 80% 45% at 50% -10%, rgba(0,113,227,0.05), transparent 60%);
+      --nav-bg: rgba(255, 255, 255, 0.8);
+      --surface: #ffffff;
+      --surface-2: #f2f2f7;
+      --surface-3: #e5e5ea;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-strong: rgba(0, 0, 0, 0.16);
+      --specular: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --muted-2: #515154;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --blue-soft: rgba(0, 113, 227, 0.1);
+      --gold: #a57c35;
+      --gold-soft: rgba(165, 124, 53, 0.12);
+      --gold-border: rgba(165, 124, 53, 0.35);
+      --green: #248a3d;
+      --green-soft: rgba(36, 138, 61, 0.12);
+      --shadow-card: 0 14px 36px rgba(0, 0, 0, 0.07);
+      --seg-bg: #e8e8ed;
+      --seg-pill: #ffffff;
+      --shimmer-1: #ebebf0;
+      --shimmer-2: #f6f6fa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: clip; }
+    body {
+      font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg); background-image: var(--bg-grad); color: var(--ink);
+      min-height: 100dvh; max-width: 100%; overflow-x: clip; line-height: 1.5;
+      -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .num { font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+    /* Navbar */
+    .nav {
+      position: sticky; top: 0; z-index: 60;
+      background: var(--nav-bg); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px);
+      border-bottom: 1px solid var(--border);
+    }
+    .scroll-bar { position: absolute; bottom: 0; inset-inline-start: 0; height: 1.5px; width: 0%; background: linear-gradient(90deg, var(--blue), var(--gold)); }
+    .nav-inner { max-width: 980px; margin: 0 auto; height: 54px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 14.5px; user-select: none; }
+    .bg-mark {
+      width: 28px; height: 28px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border-strong);
+      box-shadow: var(--specular); display: grid; place-items: center;
+      font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 11px; color: var(--ink); cursor: pointer;
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; position: relative; padding: 16px 0; transition: color 0.2s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px; background: var(--ink); }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-pill, .lang-pill {
+      height: 30px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      font-family: inherit; font-size: 12px; font-weight: 600; transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .icon-pill { width: 32px; }
+    .lang-pill { padding: 0 11px; font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif; }
+    .mob-nav {
+      display: none; max-width: 980px; margin: 0 auto; padding: 8px 14px 0; gap: 8px; overflow-x: auto;
+    }
+    @media (max-width: 720px) { .mob-nav { display: flex; } }
+    .mob-nav a {
+      flex: 1; text-align: center; text-decoration: none; padding: 7px 10px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 600; white-space: nowrap;
+    }
+    .mob-nav a.active { background: var(--surface-2); border-color: var(--border-strong); color: var(--ink); }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px 64px; }
+    @media (max-width: 640px) { .wrap { padding: 16px 14px 48px; } }
+
+    /* Featured Spotlight Card */
+    .spotlight {
+      display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; align-items: center;
+      background: var(--surface); border: 1px solid var(--gold-border); box-shadow: var(--shadow-card), var(--specular);
+      border-radius: 26px; padding: 24px; margin-bottom: 18px; position: relative; overflow: hidden;
+    }
+    .spotlight > * { min-width: 0; max-width: 100%; }
+    @media (max-width: 780px) { .spotlight { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 16px; border-radius: 22px; } }
+    .feat-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px;
+      background: var(--gold-soft); border: 1px solid var(--gold-border); color: var(--gold);
+      font-size: 11.5px; font-weight: 700; margin-bottom: 10px;
+    }
+    .spotlight h1 { font-size: clamp(23px, 3.6vw, 35px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 8px; }
+    .spotlight p { color: var(--muted); font-size: 14px; line-height: 1.62; margin-bottom: 16px; }
+    .sp-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .btn-blue {
+      height: 42px; padding: 0 20px; border-radius: 999px; background: var(--blue); color: #fff; border: none;
+      text-decoration: none; font-family: inherit; font-size: 13.5px; font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-blue:hover { background: var(--blue-hover); }
+    .btn-blue:active { transform: scale(0.97); }
+    .btn-ghost {
+      height: 42px; padding: 0 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--ink);
+      text-decoration: none; font-family: inherit; font-size: 13px; font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sp-art {
+      border-radius: 18px; overflow: hidden; aspect-ratio: 16/9.5; position: relative;
+      border: 1px solid var(--border-strong); background: #09090d;
+    }
+    .sp-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sp-art-fade { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 48%, rgba(5,5,7,0.88) 100%); pointer-events: none; }
+    .sp-art-tags { position: absolute; bottom: 10px; left: 10px; right: 10px; z-index: 2; display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+    .sp-art-tag { padding: 4px 10px; border-radius: 999px; background: rgba(15,15,20,0.78); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.14); color: #f5f5f7; font-size: 11px; font-weight: 600; }
+
+    /* Command Bar */
+    .cmd-bar {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular);
+      border-radius: 18px; padding: 8px; margin-bottom: 18px;
+    }
+    .cats-scroll {
+      display: flex; gap: 4px; background: var(--seg-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 3px; overflow-x: auto; max-width: 100%; scrollbar-width: none;
+    }
+    .cats-scroll::-webkit-scrollbar { display: none; }
+    .cat-btn {
+      padding: 7px 13px; border-radius: 9px; border: none; background: transparent;
+      color: var(--muted); font-family: inherit; font-size: 12.5px; font-weight: 600;
+      cursor: pointer; white-space: nowrap; transition: all 0.2s ease;
+    }
+    .cat-btn.active { background: var(--seg-pill); color: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,0.22), var(--specular); }
+
+    .search-box { position: relative; flex: 1; min-width: 170px; }
+    .search-ico { position: absolute; top: 50%; inset-inline-start: 11px; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+    .search-inp {
+      width: 100%; height: 37px; padding-inline-start: 33px; padding-inline-end: 12px;
+      background: var(--seg-bg); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--ink); font-family: inherit; font-size: 13px; outline: none;
+    }
+    .search-inp:focus { border-color: var(--blue); }
+    .sort-wrap { display: flex; gap: 4px; background: var(--seg-bg); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+    .sort-btn {
+      border: none; background: transparent; color: var(--muted); border-radius: 7px; padding: 6px 10px;
+      font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap;
+    }
+    .sort-btn.active { background: var(--seg-pill); color: var(--ink); }
+    @media (max-width: 640px) {
+      .cats-scroll { width: 100%; }
+      .search-box { flex: 1 1 100%; min-width: 0; }
+      .sort-wrap { width: 100%; }
+      .sort-btn { flex: 1; }
+    }
+
+    /* Release Bento Grid */
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 840px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+    .rcard {
+      min-width: 0; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular);
+      border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      transition: transform 0.24s cubic-bezier(0.16,1,0.3,1), border-color 0.24s ease;
+    }
+    .rcard:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+    .rcover {
+      aspect-ratio: 16/9.5; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 75% 20%, rgba(10,132,255,0.28), transparent 55%), linear-gradient(145deg, #161926, #0b0c12);
+    }
+    .rcover.cat-mods { background: radial-gradient(circle at 25% 25%, rgba(212,175,106,0.3), transparent 55%), linear-gradient(145deg, #1f1b14, #0c0b0e); }
+    .rcover.cat-apps { background: radial-gradient(circle at 75% 25%, rgba(48,209,88,0.24), transparent 55%), linear-gradient(145deg, #121f19, #0b0e0d); }
+    .rcover.cat-files { background: radial-gradient(circle at 30% 20%, rgba(100,210,255,0.24), transparent 55%), linear-gradient(145deg, #141c24, #0b0c11); }
+    .rcover img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+    .rcard:hover .rcover img { transform: scale(1.04); }
+    .rcover-ov { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,5,7,0.28) 0%, transparent 45%, rgba(5,5,7,0.72) 100%); pointer-events: none; }
+    .rcat {
+      position: absolute; top: 10px; inset-inline-start: 10px; z-index: 2;
+      padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+      background: rgba(10,10,14,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.16); color: #f5f5f7;
+    }
+    .rhost {
+      position: absolute; bottom: 10px; inset-inline-end: 10px; z-index: 2;
+      padding: 2px 9px; border-radius: 999px; font-size: 10.5px; font-weight: 600;
+      background: rgba(10,10,14,0.68); backdrop-filter: blur(8px); color: #d8d8de;
+    }
+
+    .rbody { padding: 15px 16px 16px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+    .rtitle { font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3; }
+    .rdesc { font-size: 12.5px; color: var(--muted); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .rmeta {
+      display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: var(--muted-2);
+      margin-top: auto; padding-top: 9px; border-top: 1px solid var(--border);
+    }
+    .rfoot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .rdl-cnt { font-size: 11.5px; color: var(--green); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+    .rbtn {
+      height: 33px; padding: 0 14px; border-radius: 999px; background: var(--blue); color: #fff;
+      font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;
+    }
+
+    /* Skeleton & Empty */
+    .skel-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; overflow: hidden; padding-bottom: 16px; }
+    .skel { background: linear-gradient(90deg, var(--shimmer-1) 25%, var(--shimmer-2) 50%, var(--shimmer-1) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    .empty {
+      grid-column: 1 / -1; text-align: center; padding: 40px 18px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 22px; color: var(--muted); font-size: 14px;
+    }
+
+    /* Adsterra Apple-Framed Slots */
+    .ad-slot {
+      width: 100%; margin: 18px auto;
+      background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 8px 10px; overflow: hidden;
+    }
+    .ad-slot::before { content: attr(data-label); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); opacity: 0.65; margin-bottom: 4px; }
+    .ad-slot iframe { max-width: 100%; border: 0; display: block; border-radius: 8px; }
+    .ad-slot.banner-top { min-height: 76px; }
+    @media (min-width: 760px) { .ad-slot.banner-top { min-height: 118px; } }
+    .ad-slot.banner-300 { min-height: 278px; }
+    .ad-slot.banner-bottom { min-height: 84px; }
+    .ad-slot.native-box { min-height: 78px; padding: 10px; }
+    .ad-slot.ad-pending { min-height: 0 !important; max-height: 0; padding: 0; margin: 0 auto; border-width: 0; opacity: 0; pointer-events: none; }
+    .ad-slot.ad-pending::before { display: none; }
+    .ad-slot.ad-collapsed { display: none !important; }
+    .ad-rail {
+      display: none; position: fixed; top: 82px; width: 174px; padding: 6px;
+      background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular); border-radius: 16px;
+      z-index: 20; align-items: center; justify-content: center; flex-direction: column; overflow: hidden;
+    }
+    .ad-rail.left { left: 12px; }
+    .ad-rail.right { right: 12px; }
+    @media (min-width: 1360px) { .ad-rail.ad-ready { display: flex; } }
+
+    .footer {
+      margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;
+    }
+    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .soc-pill {
+      background: var(--surface); border: 1px solid var(--border); color: var(--ink);
+      padding: 8px 15px; border-radius: 999px; text-decoration: none; font-size: 12.5px; font-weight: 600;
+    }
+    .foot-copy { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ad-rail left ad-pending" id="ad-rail-left"></div>
+  <div class="ad-rail right ad-pending" id="ad-rail-right"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html" id="secretBrand">
+        <span class="bg-mark" id="secretLogo">BG</span>
+        <span>Bedo Gaming</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html" id="n-main">Football 2027</a>
+        <a href="./library.html" class="active" id="n-lib">المكتبة والتحميلات</a>
+        <a href="./community.html" id="n-comm">مجتمع اللاعبين</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-pill" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg id="themeIco" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+        </button>
+        <button class="lang-pill" id="langBtn" onclick="toggleLang()">EN</button>
+      </div>
+    </div>
+    <div class="scroll-bar" id="scrollBar"></div>
+  </header>
+
+  <div class="mob-nav">
+    <a href="./index.html" id="m-main">Football 2027</a>
+    <a href="./library.html" class="active" id="m-lib">المكتبة</a>
+    <a href="./community.html" id="m-comm">المجتمع</a>
+  </div>
+
+  <main class="wrap">
+    <!-- DYNAMIC FEATURED SPOTLIGHT (Loaded from D1) -->
+    <section id="spotlightWrap"></section>
+
+    <!-- AD ZONE 1 -->
+    <div class="ad-slot banner-top" id="ad-top" data-label="Sponsored"></div>
+
+    <!-- CATEGORY TABS + SPOTLIGHT SEARCH -->
+    <div class="cmd-bar">
+      <div class="cats-scroll" id="catsBar">
+        <button class="cat-btn active" data-cat="all" onclick="setCat('all')" id="cat-all">الكل</button>
+        <button class="cat-btn" data-cat="games" onclick="setCat('games')" id="cat-games">الألعاب</button>
+        <button class="cat-btn" data-cat="mods" onclick="setCat('mods')" id="cat-mods">المودات والباتشات</button>
+        <button class="cat-btn" data-cat="apps" onclick="setCat('apps')" id="cat-apps">التطبيقات</button>
+        <button class="cat-btn" data-cat="files" onclick="setCat('files')" id="cat-files">ملفات حصرية</button>
+      </div>
+      <div class="search-box">
+        <svg class="search-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input class="search-inp" id="searchInp" placeholder="ابحث عن لعبة، مود، أو تطبيق..." oninput="onSearch()" />
+      </div>
+      <div class="sort-wrap">
+        <button class="sort-btn active" id="sort-featured" onclick="setSort('featured')">الأحدث</button>
+        <button class="sort-btn" id="sort-popular" onclick="setSort('popular')">الأكثر تحميلاً</button>
+      </div>
+    </div>
+
+    <!-- RELEASE CARDS GRID -->
+    <section class="grid" id="catalogGrid"></section>
+
+    <!-- AD ZONE 2 -->
+    <div class="ad-slot banner-300" id="ad-mid" data-label="Sponsored"></div>
+
+    <!-- AD ZONE 3: NATIVE -> AUTO-FALLBACK IN EGYPT -->
+    <div class="ad-slot native-box ad-pending" id="ad-native" data-label="Sponsored">
+      <script id="nativeAdScript" async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
+      <div id="container-5b38501e9f95039d29df080b96b84b0a"></div>
+    </div>
+
+    <!-- AD ZONE 4 -->
+    <div class="ad-slot banner-bottom ad-pending" id="ad-bottom" data-label="Sponsored"></div>
+
+    <footer class="footer">
+      <div class="socials">
+        <a class="soc-pill" href="./index.html" id="f-main">Football 2027</a>
+        <a class="soc-pill" href="./community.html" id="f-comm">مجتمع اللاعبين</a>
+        <a class="soc-pill" href="https://t.me/Bedo_Gaming223" target="_blank" rel="noopener">Telegram</a>
+        <a class="soc-pill" href="https://youtube.com/@bedo_gaming233?si=HtS3TzfZPx385JX2" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <p class="foot-copy">Bedo Gaming Official Platform • Verified Downloads</p>
+    </footer>
+  </main>
+
+  <script async data-cfasync="false" src="https://bellnewyork.org/14/e4d253ca9a4280174668cc2da1127cce"></script>
+
+  <!-- SMART DUAL-DOMAIN ADSTERRA ENGINE -->
+  <script>
+    (function initBedoSmartAds() {
+      const UNITS = {
+        b728x90:  { key: "4da2912468a04007bed3d337c4662f79", w: 728, h: 90,  anti: true },
+        b468x60:  { key: "c8e8d01fc23f989b737c14696091128f", w: 468, h: 60,  anti: true },
+        b300x250: { key: "1b3e8d2dbc99ddd864135c064c0f2f2a", w: 300, h: 250, anti: false },
+        b320x50:  { key: "eb17e3aff845e4544068be8326111b68", w: 320, h: 50,  anti: false },
+        b160x600: { key: "8976f2241077446934a4fc600e495d22", w: 160, h: 600, anti: true },
+        b160x300: { key: "41315dda23852b7335be460fd076296f", w: 160, h: 300, anti: true }
+      };
+      const queue = []; let busy = false; const usedKeys = new Set();
+      function runQueue() {
+        if (busy || !queue.length) return;
+        busy = true; queue.shift()().finally(() => { busy = false; runQueue(); });
+      }
+      function loadScriptInto(slotEl, unit, srcUrl, timeoutMs) {
+        return new Promise((resolve) => {
+          let settled = false, postLoadTimer = null;
+          const finish = (ok) => { if (settled) return; settled = true; clearTimeout(timer); clearTimeout(postLoadTimer); mo.disconnect(); resolve(ok); };
+          const mo = new MutationObserver(() => { if (slotEl.querySelector("iframe")) finish(true); });
+          mo.observe(slotEl, { childList: true, subtree: true });
+          window.atOptions = { key: unit.key, format: "iframe", height: unit.h, width: unit.w, params: {} };
+          const s = document.createElement("script"); s.type = "text/javascript"; s.setAttribute("data-cfasync", "false"); s.src = srcUrl;
+          s.onload = () => { if (slotEl.querySelector("iframe")) return finish(true); postLoadTimer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), 2200); };
+          s.onerror = () => finish(false);
+          const timer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), timeoutMs);
+          slotEl.appendChild(s);
+        });
+      }
+      function enqueueBanner(slotId, unit) {
+        const slotEl = document.getElementById(slotId);
+        if (!slotEl || !unit || usedKeys.has(unit.key)) { if (slotEl) slotEl.classList.add("ad-collapsed"); return; }
+        usedKeys.add(unit.key);
+        queue.push(async () => {
+          slotEl.innerHTML = "";
+          let ok = await loadScriptInto(slotEl, unit, "https://www.highperformanceformat.com/" + unit.key + "/invoke.js", 5000);
+          if (!ok && unit.anti) { slotEl.innerHTML = ""; ok = await loadScriptInto(slotEl, unit, "https://bellnewyork.org/22/" + unit.key, 4500); }
+          slotEl.classList.remove("ad-pending", ok ? "ad-collapsed" : "ad-ready");
+          slotEl.classList.add(ok ? "ad-ready" : "ad-collapsed");
+        });
+        runQueue();
+      }
+      const vw = window.innerWidth || document.documentElement.clientWidth || 360;
+      enqueueBanner("ad-top", vw >= 760 ? UNITS.b728x90 : UNITS.b320x50);
+      enqueueBanner("ad-mid", UNITS.b300x250);
+      if (vw >= 1360) { enqueueBanner("ad-rail-left", UNITS.b160x600); enqueueBanner("ad-rail-right", UNITS.b160x300); }
+      const nativeSlot = document.getElementById("ad-native"), nativeBox = document.getElementById("container-5b38501e9f95039d29df080b96b84b0a"), nativeScript = document.getElementById("nativeAdScript");
+      let nativeResolved = false, obs = null;
+      function mountBottom(ok) {
+        const el = document.getElementById("ad-bottom"); if (!el) return;
+        if (vw >= 760) enqueueBanner("ad-bottom", ok ? UNITS.b468x60 : UNITS.b320x50);
+        else if (vw >= 490) enqueueBanner("ad-bottom", ok ? UNITS.b468x60 : UNITS.b160x300);
+        else if (ok) enqueueBanner("ad-bottom", UNITS.b160x300);
+        else el.classList.add("ad-collapsed");
+      }
+      function onOk() { if (nativeResolved) return; nativeResolved = true; clearTimeout(nt); if (obs) obs.disconnect(); nativeSlot.classList.remove("ad-pending","ad-collapsed"); nativeSlot.classList.add("ad-ready"); mountBottom(true); }
+      function onFail() { if (nativeResolved) return; nativeResolved = true; clearTimeout(nt); if (obs) obs.disconnect(); enqueueBanner("ad-native", vw >= 490 ? UNITS.b468x60 : UNITS.b160x300); mountBottom(false); }
+      if (nativeBox && nativeSlot) {
+        if (nativeBox.children.length > 0) onOk();
+        else { obs = new MutationObserver(() => { if (nativeBox.children.length > 0) onOk(); }); obs.observe(nativeBox, { childList: true, subtree: true }); if (nativeScript) nativeScript.addEventListener("error", onFail); }
+      }
+      const nt = setTimeout(() => { if (!nativeResolved) { if (nativeBox && nativeBox.children.length > 0) onOk(); else onFail(); } }, 3800);
+    })();
+  </script>
+
+  <!-- LIBRARY LOGIC + SECRET 5-TAP STUDIO UNLOCK -->
+  <script>
+    const API_BASE = "https://bedo-community-api.vercel.app";
+    let lang = localStorage.getItem("bedo_lang") || "ar";
+    let currentCat = "all";
+    let currentSort = "featured";
+    let searchQ = "";
+    let searchTimer = null;
+    let cachedItems = [];
+    let cachedCounts = { all: 0, games: 0, mods: 0, apps: 0, files: 0 };
+
+    const CAT_LABELS = {
+      ar: { all: "الكل", games: "الألعاب", mods: "المودات والباتشات", apps: "التطبيقات", files: "ملفات حصرية" },
+      en: { all: "All", games: "Games", mods: "Mods & Patches", apps: "Apps", files: "Exclusive Files" }
+    };
+
+    function escapeHtml(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+    }
+
+    function coverSrc(item) {
+      if (item.has_cover_data) return `${API_BASE}/api/catalog/${item.id}/cover?v=${item.updated_at || 1}`;
+      if (item.cover_url) return item.cover_url;
+      return "";
+    }
+
+    function catIconSvg(cat) {
+      if (cat === "mods") return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#d4af6a" stroke-width="1.3"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>';
+      if (cat === "apps") return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="1.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>';
+      if (cat === "files") return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#64d2ff" stroke-width="1.3"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>';
+      return '<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#f5f5f7" stroke-width="1.3"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg>';
+    }
+
+    function renderSkeletons() {
+      document.getElementById("catalogGrid").innerHTML = [1,2,3].map(() => `
+        <div class="skel-card">
+          <div class="skel" style="aspect-ratio:16/9.5;"></div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
+            <div class="skel" style="height:16px;width:72%;border-radius:8px;"></div>
+            <div class="skel" style="height:12px;width:94%;border-radius:8px;"></div>
+            <div class="skel" style="height:32px;width:100%;border-radius:999px;margin-top:8px;"></div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderSpotlight(items) {
+      const wrap = document.getElementById("spotlightWrap");
+      const feat = items.find(x => x.featured === 1) || items[0];
+      if (!feat || searchQ || currentCat !== "all") { wrap.innerHTML = ""; return; }
+      const ar = lang === "ar";
+      const title = ar ? feat.title_ar : (feat.title_en || feat.title_ar);
+      const sum = ar ? feat.summary_ar : (feat.summary_en || feat.summary_ar);
+      const src = coverSrc(feat);
+      const href = `./download.html?id=${feat.id}`;
+      wrap.innerHTML = `
+        <div class="spotlight">
+          <div>
+            <div class="feat-badge">★ ${ar ? "الإصدار المميز • مثبّت من المطور" : "Featured Release • Developer Pick"}</div>
+            <h1>${escapeHtml(title)}</h1>
+            <p>${escapeHtml(sum)}</p>
+            <div class="sp-actions">
+              <a class="btn-blue" href="${href}">${ar ? "تحميل مباشر" : "Download Now"}${feat.file_size ? ` — <span class="num">${escapeHtml(feat.file_size)}</span>` : ""}</a>
+              <a class="btn-ghost" href="${href}">${ar ? "التفاصيل والتعليقات" : "Details &amp; Reviews"} ↗</a>
+            </div>
+          </div>
+          <div class="sp-art">
+            ${src ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(title)}" />` : `<div style="width:100%;height:100%;display:grid;place-items:center;">${catIconSvg(feat.category)}</div>`}
+            <div class="sp-art-fade"></div>
+            <div class="sp-art-tags">
+              ${feat.file_size ? `<span class="sp-art-tag num">${escapeHtml(feat.file_size)}</span>` : ""}
+              <span class="sp-art-tag num">${escapeHtml(feat.version)}</span>
+              <span class="sp-art-tag num">${Number(feat.downloads || 0).toLocaleString()} ${ar ? "تحميل" : "DLs"}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById("catalogGrid");
+      const ar = lang === "ar";
+      const labels = CAT_LABELS[lang] || CAT_LABELS.ar;
+      renderSpotlight(cachedItems);
+
+      if (!cachedItems.length) {
+        grid.innerHTML = `<div class="empty">${ar ? "لا توجد ملفات في هذا القسم حالياً." : "No releases found in this category yet."}</div>`;
+        return;
+      }
+
+      grid.innerHTML = cachedItems.map(item => {
+        const title = ar ? item.title_ar : (item.title_en || item.title_ar);
+        const sum = ar ? item.summary_ar : (item.summary_en || item.summary_ar);
+        const src = coverSrc(item);
+        const catLbl = labels[item.category] || item.category;
+        return `
+          <a class="rcard" href="./download.html?id=${item.id}">
+            <div class="rcover cat-${escapeHtml(item.category)}">
+              ${src ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(title)}" loading="lazy" onerror="this.remove()" />` : catIconSvg(item.category)}
+              <div class="rcover-ov"></div>
+              <span class="rcat">${escapeHtml(catLbl)}</span>
+              <span class="rhost num">${escapeHtml(item.host_label || "Direct")}</span>
+            </div>
+            <div class="rbody">
+              <div class="rtitle">${escapeHtml(title)}</div>
+              <div class="rdesc">${escapeHtml(sum)}</div>
+              <div class="rmeta">
+                <span class="num">${escapeHtml(item.version)}</span>
+                <span class="num">${escapeHtml(item.file_size || "—")}</span>
+              </div>
+              <div class="rfoot">
+                <span class="rdl-cnt">● <span class="num">${Number(item.downloads || 0).toLocaleString()}</span> ${ar ? "تحميل" : "DLs"}</span>
+                <span class="rbtn">${ar ? "تحميل" : "Get"} ↓</span>
+              </div>
+            </div>
+          </a>
+        `;
+      }).join("");
+    }
+
+    function updateCatLabels() {
+      const labels = CAT_LABELS[lang] || CAT_LABELS.ar;
+      ["all","games","mods","apps","files"].forEach(k => {
+        const el = document.getElementById("cat-" + k);
+        if (!el) return;
+        const c = cachedCounts[k] || 0;
+        el.innerHTML = c > 0 ? `${labels[k]} <span class="num" style="opacity:.7">(${c})</span>` : labels[k];
+      });
+    }
+
+    async function fetchCatalog() {
+      renderSkeletons();
+      try {
+        const qs = new URLSearchParams({ category: currentCat, sort: currentSort, q: searchQ });
+        const res = await fetch(`${API_BASE}/api/catalog?${qs.toString()}`);
+        const data = await res.json();
+        if (!data.ok) throw new Error("API");
+        cachedItems = data.items || [];
+        if (data.counts) cachedCounts = data.counts;
+        updateCatLabels();
+        renderGrid();
+      } catch (e) {
+        document.getElementById("catalogGrid").innerHTML = `<div class="empty">${lang === "ar" ? "تعذر تحميل المكتبة حالياً — جرب تحديث الصفحة." : "Could not load library right now."}</div>`;
+      }
+    }
+
+    function setCat(c) {
+      currentCat = c;
+      document.querySelectorAll(".cat-btn").forEach(b => b.classList.toggle("active", b.dataset.cat === c));
+      fetchCatalog();
+    }
+    function setSort(s) {
+      currentSort = s;
+      document.getElementById("sort-featured").classList.toggle("active", s === "featured");
+      document.getElementById("sort-popular").classList.toggle("active", s === "popular");
+      fetchCatalog();
+    }
+    function onSearch() {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => { searchQ = document.getElementById("searchInp").value.trim(); fetchCatalog(); }, 300);
+    }
+
+    /* Theme + Lang */
+    function syncThemeIcon() {
+      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      const ico = document.getElementById("themeIco");
+      if (!ico) return;
+      ico.innerHTML = isDark
+        ? '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+    function toggleTheme() {
+      const next = (document.documentElement.getAttribute("data-theme") || "dark") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("bedo_theme", next); } catch(e){}
+      syncThemeIcon();
+    }
+    function applyLang() {
+      const ar = lang === "ar";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = ar ? "rtl" : "ltr";
+      document.getElementById("langBtn").textContent = ar ? "EN" : "العربية";
+      document.getElementById("n-lib").textContent = ar ? "المكتبة والتحميلات" : "Library";
+      document.getElementById("n-comm").textContent = ar ? "مجتمع اللاعبين" : "Community";
+      document.getElementById("m-lib").textContent = ar ? "المكتبة" : "Library";
+      document.getElementById("m-comm").textContent = ar ? "المجتمع" : "Community";
+      document.getElementById("searchInp").placeholder = ar ? "ابحث عن لعبة، مود، أو تطبيق..." : "Search games, mods, or apps...";
+      document.getElementById("sort-featured").textContent = ar ? "الأحدث" : "Newest";
+      document.getElementById("sort-popular").textContent = ar ? "الأكثر تحميلاً" : "Most Downloaded";
+      document.getElementById("f-comm").textContent = ar ? "مجتمع اللاعبين" : "Community";
+      updateCatLabels();
+      if (cachedItems.length) renderGrid();
+    }
+    function toggleLang() {
+      lang = lang === "ar" ? "en" : "ar";
+      try { localStorage.setItem("bedo_lang", lang); } catch(e){}
+      applyLang();
+    }
+
+    /* Secret 5-Tap Unlock on BG Logo -> opens hidden studio.html */
+    (function bindSecretUnlock() {
+      let taps = 0, tapTimer = null;
+      const logo = document.getElementById("secretLogo");
+      if (!logo) return;
+      logo.addEventListener("click", (e) => {
+        taps++;
+        clearTimeout(tapTimer);
+        if (taps >= 5) {
+          e.preventDefault();
+          e.stopPropagation();
+          taps = 0;
+          window.location.href = "./studio.html";
+          return;
+        }
+        if (taps >= 2) { e.preventDefault(); e.stopPropagation(); }
+        tapTimer = setTimeout(() => { taps = 0; }, 1400);
+      });
+    })();
+
+    const scrollBar = document.getElementById("scrollBar");
+    window.addEventListener("scroll", () => {
+      const h = document.documentElement;
+      if (scrollBar) scrollBar.style.width = Math.min(100, Math.max(0, (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100)) + "%";
+    }, { passive: true });
+
+    syncThemeIcon();
+    applyLang();
+    fetchCatalog();
+  </script>
+</body>
+</html>

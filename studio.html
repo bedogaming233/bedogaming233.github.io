@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Bedo Secret Studio — Control Center</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111114'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%2330d158' font-family='sans-serif' font-weight='800' font-size='14'>BG</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- ZERO ADS ON ADMIN STUDIO TO PROTECT ADSTERRA ACCOUNT 100% -->
+  <style>
+    :root {
+      --bg: #050507;
+      --bg-grad: radial-gradient(ellipse 75% 45% at 70% -10%, rgba(48,209,88,0.07), transparent 60%), radial-gradient(ellipse 55% 40% at 15% 5%, rgba(10,132,255,0.06), transparent 60%);
+      --surface: #111114; --surface-2: #18181d; --surface-3: #222229;
+      --border: rgba(255,255,255,0.085); --border-strong: rgba(255,255,255,0.16);
+      --spec: inset 0 1px 0 rgba(255,255,255,0.08);
+      --ink: #f5f5f7; --muted: #86868b; --muted-2: #a1a1a6;
+      --blue: #0a84ff; --blue-hover: #2997ff; --blue-soft: rgba(10,132,255,0.13); --blue-border: rgba(10,132,255,0.35);
+      --gold: #d4af6a; --gold-soft: rgba(212,175,106,0.14); --gold-border: rgba(212,175,106,0.38);
+      --green: #30d158; --green-soft: rgba(48,209,88,0.14);
+      --red: #ff453a; --red-soft: rgba(255,69,58,0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: clip; }
+    body {
+      font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", -apple-system, sans-serif;
+      background-color: var(--bg); background-image: var(--bg-grad); color: var(--ink);
+      min-height: 100dvh; line-height: 1.5; -webkit-font-smoothing: antialiased;
+    }
+    .num { font-family: "Plus Jakarta Sans", sans-serif; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+    /* Lock Screen */
+    .lock-wrap {
+      min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .lock-card {
+      width: 100%; max-width: 400px; background: var(--surface); border: 1px solid var(--border-strong);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.6), var(--spec); border-radius: 26px; padding: 28px 24px; text-align: center;
+    }
+    .lock-badge {
+      width: 54px; height: 54px; margin: 0 auto 14px; border-radius: 16px;
+      background: var(--green-soft); border: 1px solid rgba(48,209,88,0.4); color: var(--green);
+      display: grid; place-items: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 18px;
+    }
+    .lock-card h1 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .lock-card p { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.6; }
+    .lock-err { display: none; margin-top: 10px; padding: 9px 12px; border-radius: 11px; background: var(--red-soft); color: var(--red); font-size: 12.5px; font-weight: 600; }
+    .lock-err.show { display: block; }
+
+    /* Studio App */
+    .app { display: none; }
+    .app.open { display: block; }
+
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(10,10,13,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-in { max-width: 1080px; margin: 0 auto; height: 56px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 14.5px; }
+    .shield { width: 30px; height: 30px; border-radius: 9px; background: var(--green-soft); border: 1px solid rgba(48,209,88,0.4); color: var(--green); display: grid; place-items: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 11px; }
+    .ver-pill { padding: 3px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 11px; font-weight: 700; border: 1px solid rgba(48,209,88,0.35); }
+    @media (max-width: 640px) { .ver-pill { display: none; } }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .pill-btn {
+      padding: 6px 13px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border-strong);
+      color: var(--ink); text-decoration: none; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+    }
+    .pill-btn.red { background: var(--red-soft); border-color: rgba(255,69,58,0.4); color: var(--red); }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 18px 56px; }
+    @media (max-width: 600px) { .wrap { padding: 14px 12px 44px; } }
+
+    /* KPI Strip */
+    .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 16px; }
+    @media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .kpi { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--spec); border-radius: 18px; padding: 14px 15px; }
+    .kpi span { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+    .kpi b { font-size: 22px; font-weight: 800; }
+
+    /* Workspace Tabs */
+    .st-tabs {
+      display: flex; gap: 4px; background: #141418; border: 1px solid var(--border); border-radius: 14px;
+      padding: 4px; margin-bottom: 16px; overflow-x: auto;
+    }
+    .st-tab {
+      flex: 1; padding: 9px 12px; border-radius: 10px; border: none; background: transparent;
+      color: var(--muted); font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap;
+    }
+    .st-tab.active { background: #282830; color: var(--ink); box-shadow: var(--spec); }
+
+    .work { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr); gap: 18px; align-items: start; }
+    @media (max-width: 860px) { .work { grid-template-columns: minmax(0, 1fr); } }
+    .panel { min-width: 0; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--spec); border-radius: 22px; padding: 20px; }
+    @media (max-width: 560px) { .panel { padding: 15px; border-radius: 18px; } }
+    .p-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .p-head h2 { font-size: 16px; font-weight: 700; }
+
+    /* Form Controls */
+    .fg { margin-bottom: 11px; }
+    .flbl { display: block; font-size: 11.5px; color: var(--muted); font-weight: 600; margin-bottom: 5px; }
+    .inp, .sel, .txt {
+      width: 100%; background: var(--surface-2); border: 1px solid var(--border); border-radius: 11px;
+      color: var(--ink); font-family: inherit; font-size: 13.5px; padding: 9px 12px; outline: none;
+    }
+    .inp:focus, .sel:focus, .txt:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+    .txt { min-height: 72px; resize: vertical; }
+    .frow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .frow3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    @media (max-width: 520px) { .frow3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    /* Cover Image Uploader + Preview */
+    .cov-picker {
+      background: var(--surface-2); border: 1px dashed var(--border-strong); border-radius: 14px; padding: 12px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .cov-preview {
+      display: none; aspect-ratio: 16/9; border-radius: 11px; overflow: hidden; border: 1px solid var(--border); background: #09090c; position: relative;
+    }
+    .cov-preview.has { display: block; }
+    .cov-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cov-size-tag {
+      position: absolute; bottom: 8px; inset-inline-end: 8px; padding: 2px 8px; border-radius: 999px;
+      background: rgba(10,10,14,0.8); color: var(--green); font-size: 10.5px; font-weight: 700;
+    }
+    .cov-btns { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .file-lbl {
+      display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px;
+      background: var(--blue-soft); border: 1px solid var(--blue-border); color: var(--blue);
+      font-size: 12.5px; font-weight: 600; cursor: pointer;
+    }
+    .clr-cov { padding: 6px 11px; border-radius: 999px; background: var(--red-soft); border: none; color: var(--red); font-family: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+
+    .toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0 14px; }
+    .chk-pill {
+      display: flex; align-items: center; gap: 8px; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 11px; padding: 9px 11px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+    }
+    .chk-pill input { accent-color: var(--blue); width: 16px; height: 16px; }
+
+    .btn-primary {
+      width: 100%; height: 44px; border-radius: 999px; border: none; background: var(--blue); color: #fff;
+      font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-primary:disabled { opacity: 0.65; cursor: wait; }
+    .btn-cancel {
+      display: none; width: 100%; height: 38px; margin-top: 8px; border-radius: 999px;
+      background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--muted-2);
+      font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .btn-cancel.show { display: block; }
+
+    /* Published List */
+    .items { display: flex; flex-direction: column; gap: 10px; }
+    .item {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 16px; padding: 13px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .item-row { display: flex; gap: 12px; align-items: flex-start; }
+    .thumb {
+      width: 84px; height: 52px; border-radius: 10px; overflow: hidden; flex-shrink: 0;
+      background: #0d0d12; border: 1px solid var(--border); display: grid; place-items: center; color: var(--muted); font-size: 11px; font-weight: 700;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .it-info { min-width: 0; flex: 1; }
+    .it-title { font-size: 14px; font-weight: 700; line-height: 1.3; }
+    .it-sub { font-size: 11.5px; color: var(--muted); margin-top: 3px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .st-tag { padding: 2px 8px; border-radius: 999px; font-size: 10.5px; font-weight: 700; flex-shrink: 0; }
+    .st-live { background: var(--green-soft); color: var(--green); }
+    .st-hide { background: var(--surface-3); color: var(--muted); }
+    .st-warn { background: var(--red-soft); color: var(--red); }
+
+    .it-acts { display: flex; flex-wrap: wrap; gap: 6px; }
+    .abtn {
+      padding: 5px 11px; border-radius: 999px; font-family: inherit; font-size: 11.5px; font-weight: 600;
+      background: var(--surface); border: 1px solid var(--border-strong); color: var(--ink); cursor: pointer;
+    }
+    .abtn.blue { color: var(--blue); border-color: var(--blue-border); background: var(--blue-soft); }
+    .abtn.gold { color: var(--gold); border-color: var(--gold-border); background: var(--gold-soft); }
+    .abtn.red { color: var(--red); border-color: rgba(255,69,58,0.4); background: var(--red-soft); }
+    .abtn.green { color: var(--green); border-color: rgba(48,209,88,0.4); background: var(--green-soft); }
+
+    /* Comments Moderation Panel */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .cm-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 15px; padding: 13px; margin-bottom: 10px; }
+    .cm-top { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .cm-body { font-size: 13.5px; margin-bottom: 10px; line-height: 1.55; }
+    .cm-reply-row { display: flex; gap: 8px; }
+
+    .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--ink); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; z-index: 1000; display: none; box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
+    .toast.show { display: block; }
+  </style>
+</head>
+<body>
+  <!-- LOCK SCREEN -->
+  <section class="lock-wrap" id="lockScreen">
+    <div class="lock-card">
+      <div class="lock-badge">BG</div>
+      <h1>Bedo Secret Studio</h1>
+      <p>لوحة التحكم المخفية لإدارة الألعاب والملفات والصور والتعليقات — محمية بتشفير <span class="num">HMAC-SHA256</span> وقفل ضد التخمين.</p>
+      <input class="inp" type="password" id="passInp" placeholder="أدخل كلمة مرور المطور..." onkeydown="if(event.key==='Enter')loginStudio()" style="margin-bottom:12px;text-align:center;" />
+      <button class="btn-primary" id="loginBtn" onclick="loginStudio()">فتح لوحة التحكم</button>
+      <div class="lock-err" id="lockErr"></div>
+      <div style="margin-top:16px;"><a href="./index.html" style="color:var(--muted);font-size:12.5px;text-decoration:none;">← العودة للموقع الرئيسي</a></div>
+    </div>
+  </section>
+
+  <!-- STUDIO DASHBOARD -->
+  <div class="app" id="studioApp">
+    <header class="nav">
+      <div class="nav-in">
+        <div class="brand">
+          <span class="shield">BG</span>
+          <span>Bedo Secret Studio</span>
+          <span class="ver-pill">✓ دخول مشفّر</span>
+        </div>
+        <div class="nav-right">
+          <a class="pill-btn" href="./library.html" target="_blank">عرض المكتبة ↗</a>
+          <button class="pill-btn red" onclick="lockStudio()">قفل اللوحة</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="kpis">
+        <div class="kpi"><span>الملفات المنشورة</span><b class="num" id="kPub">0</b></div>
+        <div class="kpi"><span>إجمالي التحميلات</span><b class="num" id="kDls" style="color:var(--green)">0</b></div>
+        <div class="kpi"><span>تنبيهات روابط معطلة</span><b class="num" id="kBroken" style="color:var(--gold)">0</b></div>
+        <div class="kpi"><span>مشاركات المجتمع</span><b class="num" id="kPosts">0</b></div>
+      </section>
+
+      <div class="st-tabs">
+        <button class="st-tab active" id="st-rel" onclick="switchStudioTab('rel')">إدارة الألعاب والملفات</button>
+        <button class="st-tab" id="st-com" onclick="switchStudioTab('com')">تعليقات التحميلات</button>
+        <button class="st-tab" id="st-hub" onclick="openCommunityAdmin()">إدارة مجتمع اللاعبين ↗</button>
+      </div>
+
+      <!-- TAB 1: RELEASES MANAGER -->
+      <section class="tab-pane active" id="pane-rel">
+        <div class="work">
+          <!-- PUBLISH / EDIT FORM -->
+          <div class="panel">
+            <div class="p-head">
+              <h2 id="formTitle">+ نشر لعبة أو ملف جديد فوراً</h2>
+              <small style="color:var(--green);font-size:11.5px;font-weight:600;">● حفظ فوري على D1</small>
+            </div>
+
+            <div class="fg">
+              <label class="flbl" for="fTitleAr">اسم اللعبة أو الملف (عربي) *</label>
+              <input class="inp" id="fTitleAr" maxlength="120" placeholder="مثلاً: لعبة سباق الشوارع Pro 2027 Lite" />
+            </div>
+            <div class="fg">
+              <label class="flbl" for="fTitleEn">الاسم بالإنجليزي (اختياري)</label>
+              <input class="inp" id="fTitleEn" maxlength="120" placeholder="e.g. Street Racing Pro 2027 Lite" />
+            </div>
+
+            <div class="frow3">
+              <div class="fg">
+                <label class="flbl" for="fCat">القسم / التاب *</label>
+                <select class="sel" id="fCat">
+                  <option value="games">الألعاب</option>
+                  <option value="mods">المودات والباتشات</option>
+                  <option value="apps">التطبيقات</option>
+                  <option value="files">ملفات حصرية</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="flbl" for="fVer">الإصدار</label>
+                <input class="inp" id="fVer" maxlength="32" value="v1.0" placeholder="v1.0" />
+              </div>
+              <div class="fg">
+                <label class="flbl" for="fSize">حجم الملف</label>
+                <input class="inp" id="fSize" maxlength="32" placeholder="640 MB" />
+              </div>
+            </div>
+
+            <div class="fg">
+              <label class="flbl" for="fHost">اسم سيرفر التحميل (يظهر كشارة أنيقة)</label>
+              <input class="inp" id="fHost" maxlength="40" value="GitHub Releases" placeholder="GitHub Releases / MediaFire / Drive" />
+            </div>
+
+            <div class="fg">
+              <label class="flbl" for="fDlUrl">رابط التحميل الأساسي (https://...) *</label>
+              <input class="inp" id="fDlUrl" type="url" placeholder="https://github.com/.../releases/download/..." dir="ltr" />
+            </div>
+            <div class="fg">
+              <label class="flbl" for="fMirrorUrl">رابط تحميل احتياطي (اختياري)</label>
+              <input class="inp" id="fMirrorUrl" type="url" placeholder="https://www.mediafire.com/file/..." dir="ltr" />
+            </div>
+
+            <!-- COVER PHOTO UPLOAD (FROM PHONE GALLERY OR URL!) -->
+            <div class="fg">
+              <label class="flbl">صورة الغلاف (اختر صورة من موبايلك أو ضع رابط صورة)</label>
+              <div class="cov-picker">
+                <div class="cov-preview" id="covPreview">
+                  <img id="covImg" alt="Preview" />
+                  <span class="cov-size-tag num" id="covSizeTag"></span>
+                </div>
+                <div class="cov-btns">
+                  <label class="file-lbl">
+                    <span>اختر صورة من الجهاز / المعرض</span>
+                    <input type="file" id="covFile" accept="image/*" style="display:none" onchange="handleCoverFile(this)" />
+                  </label>
+                  <button type="button" class="clr-cov" id="clrCovBtn" style="display:none" onclick="clearCover()">إزالة الصورة</button>
+                </div>
+                <input class="inp" id="fCoverUrl" placeholder="أو الصق رابط صورة مباشر (https://...)" dir="ltr" oninput="previewCoverUrl()" />
+              </div>
+            </div>
+
+            <div class="fg">
+              <label class="flbl" for="fSumAr">وصف مختصر (يظهر في الكارت وصفحة التحميل)</label>
+              <textarea class="txt" id="fSumAr" maxlength="400" placeholder="اكتب وصفاً مختصراً وجذاباً للعبة أو الملف..."></textarea>
+            </div>
+            <div class="fg">
+              <label class="flbl" for="fFeatsAr">المميزات (اكتب كل ميزة في سطر جديد — اختياري)</label>
+              <textarea class="txt" id="fFeatsAr" maxlength="1200" placeholder="تعمل أوفلاين 100%&#10;فريمات مفتوحة 120 FPS&#10;حجم مضغوط للأجهزة المتوسطة"></textarea>
+            </div>
+            <div class="fg">
+              <label class="flbl" for="fInstAr">خطوات التثبيت (كل خطوة في سطر — اختياري)</label>
+              <textarea class="txt" id="fInstAr" maxlength="800" placeholder="اضغط تحميل وانتظر 5 ثوانٍ&#10;ثبّت ملف الـ APK&#10;افتح اللعبة واستمتع"></textarea>
+            </div>
+
+            <div class="toggles">
+              <label class="chk-pill"><input type="checkbox" id="fFeatured" /><span>تثبيت كـ "مميز" بالأعلى</span></label>
+              <label class="chk-pill"><input type="checkbox" id="fPublished" checked /><span>نشر فوراً للزوار</span></label>
+            </div>
+
+            <button class="btn-primary" id="saveBtn" onclick="saveRelease()">نشر فوراً على الموقع</button>
+            <button class="btn-cancel" id="cancelEditBtn" onclick="resetForm()">إلغاء التعديل والعودة للنشر الجديد</button>
+          </div>
+
+          <!-- PUBLISHED RELEASES LIST -->
+          <div class="panel">
+            <div class="p-head">
+              <h2>المكتبة المنشورة حالياً</h2>
+              <button class="abtn" onclick="loadOverview()">تحديث ↻</button>
+            </div>
+            <div class="items" id="itemsList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: FILE COMMENTS MODERATION -->
+      <section class="tab-pane" id="pane-com">
+        <div class="panel">
+          <div class="p-head">
+            <h2>أحدث تعليقات اللاعبين على الملفات</h2>
+            <button class="abtn" onclick="loadOverview()">تحديث ↻</button>
+          </div>
+          <div id="commentsList"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const API_BASE = "https://bedo-community-api.vercel.app";
+    const SITE_ORIGIN = "https://bedogaming233.github.io";
+    const CAT_AR = { games: "الألعاب", mods: "المودات", apps: "التطبيقات", files: "ملفات حصرية" };
+
+    let studioToken = sessionStorage.getItem("bedo_studio_token") || "";
+    let allItems = [];
+    let allComments = [];
+    let editingId = null;
+    let compressedCoverData = ""; // data:image/jpeg;base64,...
+
+    function escapeHtml(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+    }
+    function showToast(m) {
+      const t = document.getElementById("toast"); t.textContent = m; t.classList.add("show");
+      clearTimeout(window._tt); window._tt = setTimeout(() => t.classList.remove("show"), 3200);
+    }
+    function authHeaders() {
+      const h = { "Content-Type": "application/json" };
+      if (studioToken) h["X-Admin-Token"] = studioToken;
+      return h;
+    }
+
+    async function loginStudio() {
+      const pass = document.getElementById("passInp").value.trim();
+      const err = document.getElementById("lockErr");
+      const btn = document.getElementById("loginBtn");
+      err.classList.remove("show");
+      if (!pass) return;
+      btn.disabled = true;
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/verify`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Admin-Key": pass }
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok || !data.token) {
+          err.textContent = data.error_ar || "كلمة المرور غير صحيحة";
+          err.classList.add("show");
+          return;
+        }
+        studioToken = data.token;
+        sessionStorage.setItem("bedo_studio_token", studioToken);
+        document.getElementById("passInp").value = "";
+        enterStudio();
+      } catch {
+        err.textContent = "تعذر الاتصال بالسيرفر حالياً.";
+        err.classList.add("show");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function enterStudio() {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("studioApp").classList.add("open");
+      loadOverview();
+    }
+
+    function lockStudio() {
+      studioToken = "";
+      sessionStorage.removeItem("bedo_studio_token");
+      document.getElementById("studioApp").classList.remove("open");
+      document.getElementById("lockScreen").style.display = "flex";
+      showToast("تم قفل لوحة التحكم بنجاح");
+    }
+
+    function switchStudioTab(tab) {
+      ["rel", "com"].forEach(k => {
+        document.getElementById("st-" + k).classList.toggle("active", k === tab);
+        document.getElementById("pane-" + k).classList.toggle("active", k === tab);
+      });
+    }
+    function openCommunityAdmin() {
+      if (studioToken) sessionStorage.setItem("bedo_studio_token", studioToken);
+      window.open("./community.html", "_blank");
+    }
+
+    /* Browser-side 640x360 HD JPEG compressor (~25-45KB -> 100,000+ covers free in D1!) */
+    function handleCoverFile(input) {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const targetW = 640, targetH = 360;
+          canvas.width = targetW; canvas.height = targetH;
+          const ctx = canvas.getContext("2d");
+          // Center-crop cover fit
+          const scale = Math.max(targetW / img.width, targetH / img.height);
+          const sw = targetW / scale, sh = targetH / scale;
+          const sx = (img.width - sw) / 2, sy = (img.height - sh) / 2;
+          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, targetW, targetH);
+
+          let q = 0.8;
+          let dataUrl = canvas.toDataURL("image/jpeg", q);
+          while (dataUrl.length > 180000 && q > 0.35) {
+            q -= 0.1;
+            dataUrl = canvas.toDataURL("image/jpeg", q);
+          }
+          compressedCoverData = dataUrl;
+          document.getElementById("fCoverUrl").value = "";
+          document.getElementById("covImg").src = dataUrl;
+          document.getElementById("covSizeTag").textContent = Math.round(dataUrl.length * 0.75 / 1024) + " KB HD";
+          document.getElementById("covPreview").classList.add("has");
+          document.getElementById("clrCovBtn").style.display = "inline-block";
+          showToast("تم ضغط صورة الغلاف بنجاح بجودة HD خفيفة");
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function previewCoverUrl() {
+      const u = document.getElementById("fCoverUrl").value.trim();
+      if (u && (u.startsWith("https://") || u.startsWith("./"))) {
+        compressedCoverData = "";
+        document.getElementById("covImg").src = u;
+        document.getElementById("covSizeTag").textContent = "URL";
+        document.getElementById("covPreview").classList.add("has");
+        document.getElementById("clrCovBtn").style.display = "inline-block";
+      }
+    }
+
+    function clearCover() {
+      compressedCoverData = "";
+      document.getElementById("covFile").value = "";
+      document.getElementById("fCoverUrl").value = "";
+      document.getElementById("covPreview").classList.remove("has");
+      document.getElementById("clrCovBtn").style.display = "none";
+    }
+
+    async function loadOverview() {
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/overview`, { headers: authHeaders() });
+        if (res.status === 401) { lockStudio(); return; }
+        const data = await res.json();
+        if (!data.ok) return;
+        allItems = data.items || [];
+        allComments = data.recent_comments || [];
+        const st = data.stats || {};
+        document.getElementById("kPub").textContent = `${st.published_items || 0} / ${st.total_items || 0}`;
+        document.getElementById("kDls").textContent = Number(st.total_downloads || 0).toLocaleString();
+        document.getElementById("kBroken").textContent = st.broken_items || 0;
+        document.getElementById("kBroken").style.color = (st.broken_items || 0) > 0 ? "var(--red)" : "var(--green)";
+        document.getElementById("kPosts").textContent = st.community_posts || 0;
+        renderItems();
+        renderCommentsMod();
+      } catch {
+        showToast("خطأ في تحميل البيانات من السيرفر");
+      }
+    }
+
+    function itemCoverSrc(it) {
+      if (it.has_cover_data) return `${API_BASE}/api/catalog/${it.id}/cover?v=${it.updated_at || 1}`;
+      if (it.cover_url) return it.cover_url;
+      return "";
+    }
+
+    function renderItems() {
+      const box = document.getElementById("itemsList");
+      if (!allItems.length) {
+        box.innerHTML = `<div style="text-align:center;color:var(--muted);padding:28px 0;">لا توجد ملفات بعد — ابدأ بنشر أول ملف من الفورم!</div>`;
+        return;
+      }
+      box.innerHTML = allItems.map(it => {
+        const src = itemCoverSrc(it);
+        const brokenBadge = it.broken_reports > 0 ? `<span class="st-tag st-warn">! ${it.broken_reports} بلاغ رابط</span>` : "";
+        return `
+          <div class="item">
+            <div class="item-row">
+              <div class="thumb">${src ? `<img src="${escapeHtml(src)}" alt="" />` : "BG"}</div>
+              <div class="it-info">
+                <div class="it-title">${escapeHtml(it.title_ar)}</div>
+                <div class="it-sub">
+                  <span>${CAT_AR[it.category] || it.category}</span>
+                  <span class="num">• ${escapeHtml(it.version)}</span>
+                  ${it.file_size ? `<span class="num">• ${escapeHtml(it.file_size)}</span>` : ""}
+                  <span class="num" style="color:var(--green)">• ${Number(it.downloads || 0).toLocaleString()} تحميل</span>
+                  <span class="num">• ✓ ${it.works_count || 0}</span>
+                </div>
+              </div>
+              <span class="st-tag ${it.published ? "st-live" : "st-hide"}">${it.published ? "● منشور" : "مخفي"}</span>
+            </div>
+            ${brokenBadge ? `<div>${brokenBadge} <button class="abtn green" onclick="resetBroken(${it.id})">تم إصلاح الرابط</button></div>` : ""}
+            <div class="it-acts">
+              <button class="abtn blue" onclick="copyItemLink(${it.id})">نسخ رابط التليجرام</button>
+              <button class="abtn ${it.featured ? "gold" : ""}" onclick="toggleFeatured(${it.id}, ${it.featured ? 0 : 1})">${it.featured ? "★ مثبّت" : "تثبيت بالأعلى"}</button>
+              <button class="abtn" onclick="startEdit(${it.id})">تعديل</button>
+              <button class="abtn" onclick="togglePublished(${it.id}, ${it.published ? 0 : 1})">${it.published ? "إخفاء" : "إظهار"}</button>
+              <button class="abtn red" onclick="deleteItem(${it.id})">حذف</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCommentsMod() {
+      const box = document.getElementById("commentsList");
+      if (!allComments.length) {
+        box.innerHTML = `<div style="text-align:center;color:var(--muted);padding:24px 0;">لا توجد تعليقات على الملفات حتى الآن.</div>`;
+        return;
+      }
+      box.innerHTML = allComments.map(c => `
+        <div class="cm-card">
+          <div class="cm-top">
+            <span><b style="color:var(--ink)">${escapeHtml(c.author)}</b> على: <b style="color:var(--blue)">${escapeHtml(c.item_title || "#" + c.item_id)}</b></span>
+            <span>${c.rating ? "★".repeat(c.rating) : ""}</span>
+          </div>
+          <div class="cm-body">${escapeHtml(c.body)}</div>
+          <div class="cm-reply-row">
+            <input class="inp" id="cr-${c.id}" value="${escapeHtml(c.dev_reply || "")}" placeholder="اكتب رد Bedo Gaming الرسمي..." />
+            <button class="abtn green" onclick="saveCommentReply(${c.id})">حفظ الرد</button>
+            <button class="abtn red" onclick="deleteItemComment(${c.id})">حذف</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function copyItemLink(id) {
+      const link = `${SITE_ORIGIN}/download.html?id=${id}`;
+      navigator.clipboard?.writeText(link).then(() => showToast("تم نسخ رابط الصفحة للمشاركة على تليجرام/يوتيوب!")).catch(() => prompt("انسخ الرابط:", link));
+    }
+
+    function startEdit(id) {
+      const it = allItems.find(x => x.id === id);
+      if (!it) return;
+      editingId = id;
+      document.getElementById("formTitle").textContent = `تعديل الملف #${id}`;
+      document.getElementById("saveBtn").textContent = "حفظ التعديلات الآن";
+      document.getElementById("cancelEditBtn").classList.add("show");
+      document.getElementById("fTitleAr").value = it.title_ar || "";
+      document.getElementById("fTitleEn").value = it.title_en || "";
+      document.getElementById("fCat").value = it.category || "games";
+      document.getElementById("fVer").value = it.version || "v1.0";
+      document.getElementById("fSize").value = it.file_size || "";
+      document.getElementById("fHost").value = it.host_label || "Direct CDN";
+      document.getElementById("fDlUrl").value = it.download_url || "";
+      document.getElementById("fMirrorUrl").value = it.mirror_url || "";
+      document.getElementById("fCoverUrl").value = it.cover_url || "";
+      document.getElementById("fSumAr").value = it.summary_ar || "";
+      document.getElementById("fFeatsAr").value = it.features_ar || "";
+      document.getElementById("fInstAr").value = it.install_ar || "";
+      document.getElementById("fFeatured").checked = Boolean(it.featured);
+      document.getElementById("fPublished").checked = Boolean(it.published);
+      compressedCoverData = "";
+      const src = itemCoverSrc(it);
+      if (src) {
+        document.getElementById("covImg").src = src;
+        document.getElementById("covSizeTag").textContent = it.has_cover_data ? "D1 HD" : "URL";
+        document.getElementById("covPreview").classList.add("has");
+        document.getElementById("clrCovBtn").style.display = "inline-block";
+      } else {
+        clearCover();
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function resetForm() {
+      editingId = null;
+      document.getElementById("formTitle").textContent = "+ نشر لعبة أو ملف جديد فوراً";
+      document.getElementById("saveBtn").textContent = "نشر فوراً على الموقع";
+      document.getElementById("cancelEditBtn").classList.remove("show");
+      ["fTitleAr","fTitleEn","fSize","fDlUrl","fMirrorUrl","fCoverUrl","fSumAr","fFeatsAr","fInstAr"].forEach(i => document.getElementById(i).value = "");
+      document.getElementById("fVer").value = "v1.0";
+      document.getElementById("fHost").value = "GitHub Releases";
+      document.getElementById("fFeatured").checked = false;
+      document.getElementById("fPublished").checked = true;
+      clearCover();
+    }
+
+    async function saveRelease() {
+      const btn = document.getElementById("saveBtn");
+      const payload = {
+        title_ar: document.getElementById("fTitleAr").value.trim(),
+        title_en: document.getElementById("fTitleEn").value.trim(),
+        category: document.getElementById("fCat").value,
+        version: document.getElementById("fVer").value.trim() || "v1.0",
+        file_size: document.getElementById("fSize").value.trim(),
+        host_label: document.getElementById("fHost").value.trim() || "Direct CDN",
+        download_url: document.getElementById("fDlUrl").value.trim(),
+        mirror_url: document.getElementById("fMirrorUrl").value.trim(),
+        cover_url: document.getElementById("fCoverUrl").value.trim(),
+        summary_ar: document.getElementById("fSumAr").value.trim(),
+        features_ar: document.getElementById("fFeatsAr").value.trim(),
+        install_ar: document.getElementById("fInstAr").value.trim(),
+        featured: document.getElementById("fFeatured").checked,
+        published: document.getElementById("fPublished").checked
+      };
+      if (compressedCoverData) payload.cover_data = compressedCoverData;
+
+      btn.disabled = true;
+      try {
+        const url = editingId ? `${API_BASE}/api/admin/catalog/${editingId}` : `${API_BASE}/api/admin/catalog`;
+        const method = editingId ? "PATCH" : "POST";
+        const res = await fetch(url, { method, headers: authHeaders(), body: JSON.stringify(payload) });
+        if (res.status === 401) { lockStudio(); return; }
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          showToast(data.error_ar || "تعذر الحفظ — تأكد من البيانات");
+          return;
+        }
+        const savedId = data.item?.id;
+        showToast(editingId ? "تم حفظ التعديلات لايف!" : `تم النشر فوراً! رابط الصفحة: download.html?id=${savedId}`);
+        resetForm();
+        await loadOverview();
+      } catch {
+        showToast("خطأ في الاتصال بالسيرفر");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    async function patchItem(id, body, msg) {
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/catalog/${id}`, {
+          method: "PATCH", headers: authHeaders(), body: JSON.stringify(body)
+        });
+        if (res.status === 401) { lockStudio(); return; }
+        const data = await res.json();
+        if (data.ok) { showToast(msg); await loadOverview(); }
+      } catch { showToast("خطأ في التحديث"); }
+    }
+    function toggleFeatured(id, v) { patchItem(id, { featured: Boolean(v) }, v ? "تم تثبيت الإصدار بالأعلى" : "تم إلغاء التثبيت"); }
+    function togglePublished(id, v) { patchItem(id, { published: Boolean(v) }, v ? "تم إظهار الملف للزوار" : "تم إخفاء الملف"); }
+    function resetBroken(id) { patchItem(id, { reset_broken: true }, "تم تصفير بلاغات الرابط المعطل"); }
+
+    async function deleteItem(id) {
+      if (!confirm("هل تريد حذف هذا الملف وتعليقاته نهائياً؟")) return;
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/catalog/${id}`, { method: "DELETE", headers: authHeaders() });
+        if (res.ok) { showToast("تم الحذف نهائياً"); await loadOverview(); }
+      } catch { showToast("فشل الحذف"); }
+    }
+
+    async function saveCommentReply(id) {
+      const val = document.getElementById("cr-" + id)?.value || "";
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/comments/${id}`, {
+          method: "PATCH", headers: authHeaders(), body: JSON.stringify({ dev_reply: val })
+        });
+        if (res.ok) { showToast("تم حفظ رد المطور الموثق"); await loadOverview(); }
+      } catch {}
+    }
+
+    async function deleteItemComment(id) {
+      if (!confirm("حذف هذا التعليق؟")) return;
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/comments/${id}`, { method: "DELETE", headers: authHeaders() });
+        if (res.ok) { showToast("تم حذف التعليق"); await loadOverview(); }
+      } catch {}
+    }
+
+    if (studioToken) enterStudio();
+  </script>
+</body>
+</html>

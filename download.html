@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحميل مباشر — Bedo Gaming Official</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111114'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23f5f5f7' font-family='sans-serif' font-weight='800' font-size='14'>BG</text></svg>" />
+  <meta name="description" content="صفحة التحميل المباشر الرسمية من Bedo Gaming — روابط سريعة مفحوصة بدون VPN مع تقييمات وتعليقات اللاعبين." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- ADSTERRA POPUNDER (bedogaming233.github.io, async) -->
+  <script async data-cfasync="false" src="https://accountut.com/1/a9f9f5e14e7a6bdfe5ec70383b38a040"></script>
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem("bedo_theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("bedo_lang");
+        if (l === "en" || l === "ar") {
+          document.documentElement.lang = l;
+          document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        }
+      } catch(e){}
+    })();
+  </script>
+  <style>
+    :root, [data-theme="dark"] {
+      --bg: #050507;
+      --bg-grad: radial-gradient(ellipse 75% 45% at 30% -10%, rgba(10,132,255,0.09), transparent 60%), radial-gradient(ellipse 50% 35% at 85% 5%, rgba(212,175,106,0.06), transparent 60%);
+      --nav-bg: rgba(10, 10, 13, 0.76);
+      --surface: #111114; --surface-2: #18181d; --surface-3: #222229;
+      --border: rgba(255, 255, 255, 0.085); --border-strong: rgba(255, 255, 255, 0.16);
+      --specular: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      --ink: #f5f5f7; --muted: #86868b; --muted-2: #a1a1a6;
+      --blue: #0a84ff; --blue-hover: #2997ff; --blue-soft: rgba(10,132,255,0.13); --blue-border: rgba(10,132,255,0.34);
+      --gold: #d4af6a; --gold-soft: rgba(212,175,106,0.14); --gold-border: rgba(212,175,106,0.38);
+      --green: #30d158; --green-soft: rgba(48,209,88,0.14);
+      --red: #ff453a; --red-soft: rgba(255,69,58,0.14);
+      --shadow-card: 0 24px 60px rgba(0,0,0,0.52);
+      --dev-bg: linear-gradient(180deg, rgba(18,34,58,0.78), rgba(13,24,42,0.78));
+      --shimmer-1: #16161b; --shimmer-2: #22222a;
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --bg-grad: radial-gradient(ellipse 75% 45% at 30% -10%, rgba(0,113,227,0.05), transparent 60%);
+      --nav-bg: rgba(255, 255, 255, 0.8);
+      --surface: #ffffff; --surface-2: #f2f2f7; --surface-3: #e5e5ea;
+      --border: rgba(0,0,0,0.08); --border-strong: rgba(0,0,0,0.16);
+      --specular: inset 0 1px 0 rgba(255,255,255,0.9);
+      --ink: #1d1d1f; --muted: #6e6e73; --muted-2: #515154;
+      --blue: #0071e3; --blue-hover: #0077ed; --blue-soft: rgba(0,113,227,0.1); --blue-border: rgba(0,113,227,0.28);
+      --gold: #a57c35; --gold-soft: rgba(165,124,53,0.12); --gold-border: rgba(165,124,53,0.35);
+      --green: #248a3d; --green-soft: rgba(36,138,61,0.12);
+      --red: #d70015; --red-soft: rgba(215,0,21,0.1);
+      --shadow-card: 0 14px 36px rgba(0,0,0,0.07);
+      --dev-bg: linear-gradient(180deg, rgba(0,113,227,0.07), rgba(0,113,227,0.04));
+      --shimmer-1: #ebebf0; --shimmer-2: #f6f6fa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: clip; scroll-behavior: smooth; }
+    body {
+      font-family: "IBM Plex Sans Arabic", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg); background-image: var(--bg-grad); color: var(--ink);
+      min-height: 100dvh; line-height: 1.5; -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .num { font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+    /* Navbar */
+    .nav { position: sticky; top: 0; z-index: 60; background: var(--nav-bg); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); border-bottom: 1px solid var(--border); }
+    .scroll-bar { position: absolute; bottom: 0; inset-inline-start: 0; height: 1.5px; width: 0%; background: linear-gradient(90deg, var(--blue), var(--gold)); }
+    .nav-inner { max-width: 960px; margin: 0 auto; height: 54px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 14.5px; user-select: none; }
+    .bg-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border-strong); box-shadow: var(--specular); display: grid; place-items: center; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 11px; color: var(--ink); cursor: pointer; }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 500; padding: 16px 0; position: relative; }
+    .nav-links a.active, .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px; background: var(--ink); }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-pill, .lang-pill { height: 30px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-family: inherit; font-size: 12px; font-weight: 600; }
+    .icon-pill { width: 32px; }
+    .lang-pill { padding: 0 11px; font-family: "Plus Jakarta Sans", "IBM Plex Sans Arabic", sans-serif; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 22px 20px 64px; }
+    @media (max-width: 640px) { .wrap { padding: 14px 14px 48px; } }
+
+    .crumb {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted-2);
+      text-decoration: none; font-size: 12.5px; font-weight: 600; margin-bottom: 16px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .crumb:hover { border-color: var(--border-strong); color: var(--ink); }
+
+    /* Hero Download Showcase */
+    .dl-hero {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: 26px; align-items: start;
+      background: var(--surface); border: 1px solid var(--border-strong); box-shadow: var(--shadow-card), var(--specular);
+      border-radius: 26px; padding: 24px; margin-bottom: 18px;
+    }
+    .dl-hero > * { min-width: 0; max-width: 100%; }
+    @media (max-width: 780px) { .dl-hero { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 18px; border-radius: 22px; } }
+
+    .cover-box {
+      aspect-ratio: 16/10; border-radius: 18px; overflow: hidden; position: relative;
+      background: radial-gradient(circle at 75% 20%, rgba(10,132,255,0.3), transparent 55%), linear-gradient(145deg, #161b2a, #0a0c12);
+      border: 1px solid var(--border-strong); margin-bottom: 12px; display: grid; place-items: center;
+    }
+    .cover-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .spec-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .spec { background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; }
+    .spec span { display: block; font-size: 11px; color: var(--muted); }
+    .spec b { font-size: 14px; font-weight: 700; color: var(--ink); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+    .tag { padding: 4px 11px; border-radius: 999px; font-size: 11.5px; font-weight: 600; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink); }
+    .tag.ok { background: var(--green-soft); border-color: rgba(48,209,88,0.38); color: var(--green); }
+    .tag.gold { background: var(--gold-soft); border-color: var(--gold-border); color: var(--gold); }
+
+    .dl-title { font-size: clamp(23px, 3.6vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.18; margin-bottom: 10px; }
+    .dl-sum { font-size: 14px; color: var(--muted); line-height: 1.68; margin-bottom: 18px; }
+
+    /* Dynamic Island Download Button */
+    .btn-island {
+      width: 100%; min-height: 50px; padding: 0 22px; border-radius: 999px;
+      background: var(--blue); color: #ffffff; border: none;
+      font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-bottom: 10px; box-shadow: 0 10px 28px rgba(10,132,255,0.28);
+      transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+    }
+    .btn-island:hover { background: var(--blue-hover); }
+    .btn-island:active { transform: scale(0.98); }
+    .btn-island:disabled { opacity: 0.88; cursor: wait; }
+    .ring-wrap { display: none; width: 18px; height: 18px; }
+    .btn-island.is-loading .ring-wrap { display: inline-flex; }
+    .btn-island.is-loading .dl-ico { display: none; }
+    .ring-svg { transform: rotate(-90deg); }
+    .ring-track { fill: none; stroke: rgba(255,255,255,0.28); stroke-width: 2.5; }
+    .ring-fill { fill: none; stroke: #ffffff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 44; stroke-dashoffset: 44; transition: stroke-dashoffset 0.9s linear; }
+
+    .action-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+    .btn-g {
+      min-height: 40px; padding: 0 12px; border-radius: 999px;
+      background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--ink);
+      text-decoration: none; font-family: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-g:hover { background: var(--surface-3); }
+
+    /* Live Verification & Broken-Link Reactions */
+    .react-row { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .react-btn {
+      flex: 1; min-width: 135px; height: 36px; padding: 0 12px; border-radius: 12px;
+      background: var(--surface-2); border: 1px solid var(--border); color: var(--muted-2);
+      font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      transition: all 0.18s ease;
+    }
+    .react-btn.works.active { background: var(--green-soft); border-color: rgba(48,209,88,0.45); color: var(--green); }
+    .react-btn.broken.active { background: var(--red-soft); border-color: rgba(255,69,58,0.45); color: var(--red); }
+
+    /* Bento Details Row */
+    .lower { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; margin-bottom: 20px; }
+    @media (max-width: 740px) { .lower { grid-template-columns: minmax(0, 1fr); } }
+    .box { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular); border-radius: 22px; padding: 20px; }
+    .box h2 { font-size: 16.5px; font-weight: 700; margin-bottom: 12px; }
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--muted-2); line-height: 1.55; }
+    .checklist li { display: flex; align-items: flex-start; gap: 9px; }
+    .chk { width: 18px; height: 18px; margin-top: 2px; border-radius: 50%; background: var(--blue-soft); color: var(--blue); display: grid; place-items: center; font-size: 11px; flex-shrink: 0; }
+    .steps { display: flex; flex-direction: column; gap: 9px; }
+    .step { display: flex; align-items: center; gap: 10px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; font-size: 13px; color: var(--ink); }
+    .snum { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; flex-shrink: 0; }
+
+    /* Per-File Comments Section */
+    .comm-sec { background: var(--surface); border: 1px solid var(--border); box-shadow: var(--specular); border-radius: 24px; padding: 22px; margin-bottom: 20px; }
+    .comm-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+    .comm-head h2 { font-size: 18px; font-weight: 700; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+    .inp, .txt {
+      width: 100%; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+      color: var(--ink); font-family: inherit; font-size: 13.5px; padding: 10px 13px; outline: none;
+    }
+    .inp:focus, .txt:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
+    .txt { min-height: 82px; resize: vertical; margin-bottom: 10px; }
+    .rate-bar {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 8px 13px; margin-bottom: 10px; font-size: 12.5px; color: var(--muted);
+    }
+    .stars { display: flex; gap: 4px; font-size: 20px; cursor: pointer; user-select: none; }
+    .star-on { color: var(--gold); }
+    .star-off { color: var(--border-strong); }
+    .send-btn {
+      padding: 10px 22px; border-radius: 999px; border: none; background: var(--blue); color: #fff;
+      font-family: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer;
+    }
+    .send-btn:disabled { opacity: 0.6; cursor: wait; }
+    .msg-box { display: none; margin-top: 10px; padding: 9px 12px; border-radius: 11px; font-size: 12.5px; font-weight: 600; }
+    .msg-box.err { display: block; background: var(--red-soft); color: var(--red); }
+    .msg-box.ok { display: block; background: var(--green-soft); color: var(--green); }
+
+    .c-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .c-item { background: var(--surface-2); border: 1px solid var(--border); border-radius: 16px; padding: 14px; }
+    .c-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .av { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #f5f5f7; flex-shrink: 0; }
+    .c-name { font-size: 13.5px; font-weight: 700; }
+    .c-meta { font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .c-body { font-size: 13.5px; line-height: 1.62; color: var(--ink); opacity: 0.92; white-space: pre-wrap; word-break: break-word; }
+    .dev-reply { margin-top: 10px; background: var(--dev-bg); border: 1px solid var(--blue-border); border-radius: 13px; padding: 10px 13px; }
+    .dev-head { font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; color: var(--ink); }
+    .dev-body { font-size: 12.8px; line-height: 1.55; color: var(--ink); opacity: 0.9; }
+
+    /* Related Items */
+    .rel-head { font-size: 17px; font-weight: 700; margin: 24px 0 12px; }
+    .rel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 720px) { .rel-grid { grid-template-columns: minmax(0, 1fr); } }
+    .rel-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+      text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .rel-card:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+    .rel-cov { aspect-ratio: 16/9; background: var(--surface-2); position: relative; overflow: hidden; display: grid; place-items: center; }
+    .rel-cov img { width: 100%; height: 100%; object-fit: cover; }
+    .rel-in { padding: 12px 14px; }
+    .rel-in b { display: block; font-size: 14px; margin-bottom: 4px; }
+    .rel-in span { font-size: 11.5px; color: var(--muted); }
+
+    /* Adsterra Apple Slots */
+    .ad-slot {
+      width: 100%; margin: 18px auto; background: var(--surface); border: 1px solid var(--border);
+      box-shadow: var(--specular); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 8px 10px; overflow: hidden;
+    }
+    .ad-slot::before { content: attr(data-label); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); opacity: 0.65; margin-bottom: 4px; }
+    .ad-slot iframe { max-width: 100%; border: 0; display: block; border-radius: 8px; }
+    .ad-slot.banner-top { min-height: 76px; }
+    @media (min-width: 760px) { .ad-slot.banner-top { min-height: 118px; } }
+    .ad-slot.banner-300 { min-height: 278px; }
+    .ad-slot.banner-bottom { min-height: 84px; }
+    .ad-slot.native-box { min-height: 78px; padding: 10px; }
+    .ad-slot.ad-pending { min-height: 0 !important; max-height: 0; padding: 0; margin: 0 auto; border-width: 0; opacity: 0; pointer-events: none; }
+    .ad-slot.ad-pending::before { display: none; }
+    .ad-slot.ad-collapsed { display: none !important; }
+    .ad-rail { display: none; position: fixed; top: 82px; width: 174px; padding: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; z-index: 20; align-items: center; justify-content: center; flex-direction: column; overflow: hidden; }
+    .ad-rail.left { left: 12px; }
+    .ad-rail.right { right: 12px; }
+    @media (min-width: 1360px) { .ad-rail.ad-ready { display: flex; } }
+
+    .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--ink); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; z-index: 1000; display: none; box-shadow: 0 12px 32px rgba(0,0,0,0.45); }
+    .toast.show { display: block; }
+  </style>
+</head>
+<body>
+  <div class="ad-rail left ad-pending" id="ad-rail-left"></div>
+  <div class="ad-rail right ad-pending" id="ad-rail-right"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html"><span class="bg-mark" id="secretLogo">BG</span><span>Bedo Gaming</span></a>
+      <nav class="nav-links">
+        <a href="./index.html">Football 2027</a>
+        <a href="./library.html" class="active" id="n-lib">المكتبة والتحميلات</a>
+        <a href="./community.html" id="n-comm">مجتمع اللاعبين</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-pill" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg id="themeIco" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+        </button>
+        <button class="lang-pill" id="langBtn" onclick="toggleLang()">EN</button>
+      </div>
+    </div>
+    <div class="scroll-bar" id="scrollBar"></div>
+  </header>
+
+  <main class="wrap">
+    <a class="crumb" href="./library.html" id="crumbBack">→ العودة للمكتبة الرسمية</a>
+
+    <!-- AD ZONE 1 -->
+    <div class="ad-slot banner-top" id="ad-top" data-label="Sponsored"></div>
+
+    <!-- DYNAMIC ITEM CONTENT -->
+    <div id="itemRoot">
+      <div class="box" style="text-align:center;padding:48px 20px;color:var(--muted);">جاري تحميل تفاصيل الملف...</div>
+    </div>
+
+    <!-- AD ZONE 2 -->
+    <div class="ad-slot banner-300" id="ad-mid" data-label="Sponsored"></div>
+
+    <!-- PER-FILE COMMENTS & RATINGS -->
+    <section class="comm-sec" id="commentsSection" style="display:none;">
+      <div class="comm-head">
+        <h2 id="c-title">اترك تعليقاً وتقييماً لهذا الملف</h2>
+        <span class="tag gold num" id="c-avg">5.0 ★</span>
+      </div>
+      <div class="form-grid">
+        <input class="inp" id="cName" maxlength="40" placeholder="اسمك (مثلاً: محمد علاء)" />
+        <input class="inp" id="cDevice" maxlength="50" placeholder="نوع موبايلك (اختياري)" />
+      </div>
+      <div class="rate-bar">
+        <span id="c-rate-lbl">تقييمك للملف:</span>
+        <div class="stars" id="cStars"></div>
+      </div>
+      <textarea class="txt" id="cBody" maxlength="600" placeholder="شاركنا تجربتك: هل التحميل سريع؟ هل اشتغل تمام على جهازك؟"></textarea>
+      <button class="send-btn" id="cSendBtn" onclick="submitItemComment()">نشر التعليق</button>
+      <div class="msg-box" id="cMsg"></div>
+      <div class="c-list" id="cList"></div>
+    </section>
+
+    <!-- AD ZONE 3: NATIVE -> AUTO-FALLBACK -->
+    <div class="ad-slot native-box ad-pending" id="ad-native" data-label="Sponsored">
+      <script id="nativeAdScript" async fetchpriority="high" data-cfasync="false" src="https://bellnewyork.org/21/5b38501e9f95039d29df080b96b84b0a"></script>
+      <div id="container-5b38501e9f95039d29df080b96b84b0a"></div>
+    </div>
+
+    <!-- RELATED RELEASES -->
+    <div id="relatedWrap"></div>
+
+    <!-- AD ZONE 4 -->
+    <div class="ad-slot banner-bottom ad-pending" id="ad-bottom" data-label="Sponsored"></div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script async data-cfasync="false" src="https://bellnewyork.org/14/e4d253ca9a4280174668cc2da1127cce"></script>
+
+  <!-- SMART DUAL-DOMAIN ADSTERRA ENGINE -->
+  <script>
+    (function initBedoSmartAds() {
+      const UNITS = {
+        b728x90:  { key: "4da2912468a04007bed3d337c4662f79", w: 728, h: 90,  anti: true },
+        b468x60:  { key: "c8e8d01fc23f989b737c14696091128f", w: 468, h: 60,  anti: true },
+        b300x250: { key: "1b3e8d2dbc99ddd864135c064c0f2f2a", w: 300, h: 250, anti: false },
+        b320x50:  { key: "eb17e3aff845e4544068be8326111b68", w: 320, h: 50,  anti: false },
+        b160x600: { key: "8976f2241077446934a4fc600e495d22", w: 160, h: 600, anti: true },
+        b160x300: { key: "41315dda23852b7335be460fd076296f", w: 160, h: 300, anti: true }
+      };
+      const queue = []; let busy = false; const usedKeys = new Set();
+      function runQueue() { if (busy || !queue.length) return; busy = true; queue.shift()().finally(() => { busy = false; runQueue(); }); }
+      function loadScriptInto(slotEl, unit, srcUrl, timeoutMs) {
+        return new Promise((resolve) => {
+          let settled = false, postLoadTimer = null;
+          const finish = (ok) => { if (settled) return; settled = true; clearTimeout(timer); clearTimeout(postLoadTimer); mo.disconnect(); resolve(ok); };
+          const mo = new MutationObserver(() => { if (slotEl.querySelector("iframe")) finish(true); });
+          mo.observe(slotEl, { childList: true, subtree: true });
+          window.atOptions = { key: unit.key, format: "iframe", height: unit.h, width: unit.w, params: {} };
+          const s = document.createElement("script"); s.type = "text/javascript"; s.setAttribute("data-cfasync", "false"); s.src = srcUrl;
+          s.onload = () => { if (slotEl.querySelector("iframe")) return finish(true); postLoadTimer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), 2200); };
+          s.onerror = () => finish(false);
+          const timer = setTimeout(() => finish(!!slotEl.querySelector("iframe")), timeoutMs);
+          slotEl.appendChild(s);
+        });
+      }
+      function enqueueBanner(slotId, unit) {
+        const slotEl = document.getElementById(slotId);
+        if (!slotEl || !unit || usedKeys.has(unit.key)) { if (slotEl) slotEl.classList.add("ad-collapsed"); return; }
+        usedKeys.add(unit.key);
+        queue.push(async () => {
+          slotEl.innerHTML = "";
+          let ok = await loadScriptInto(slotEl, unit, "https://www.highperformanceformat.com/" + unit.key + "/invoke.js", 5000);
+          if (!ok && unit.anti) { slotEl.innerHTML = ""; ok = await loadScriptInto(slotEl, unit, "https://bellnewyork.org/22/" + unit.key, 4500); }
+          slotEl.classList.remove("ad-pending", ok ? "ad-collapsed" : "ad-ready");
+          slotEl.classList.add(ok ? "ad-ready" : "ad-collapsed");
+        });
+        runQueue();
+      }
+      const vw = window.innerWidth || document.documentElement.clientWidth || 360;
+      enqueueBanner("ad-top", vw >= 760 ? UNITS.b728x90 : UNITS.b320x50);
+      enqueueBanner("ad-mid", UNITS.b300x250);
+      if (vw >= 1360) { enqueueBanner("ad-rail-left", UNITS.b160x600); enqueueBanner("ad-rail-right", UNITS.b160x300); }
+      const nativeSlot = document.getElementById("ad-native"), nativeBox = document.getElementById("container-5b38501e9f95039d29df080b96b84b0a"), nativeScript = document.getElementById("nativeAdScript");
+      let nativeResolved = false, obs = null;
+      function mountBottom(ok) {
+        const el = document.getElementById("ad-bottom"); if (!el) return;
+        if (vw >= 760) enqueueBanner("ad-bottom", ok ? UNITS.b468x60 : UNITS.b320x50);
+        else if (vw >= 490) enqueueBanner("ad-bottom", ok ? UNITS.b468x60 : UNITS.b160x300);
+        else if (ok) enqueueBanner("ad-bottom", UNITS.b160x300);
+        else el.classList.add("ad-collapsed");
+      }
+      function onOk() { if (nativeResolved) return; nativeResolved = true; clearTimeout(nt); if (obs) obs.disconnect(); nativeSlot.classList.remove("ad-pending","ad-collapsed"); nativeSlot.classList.add("ad-ready"); mountBottom(true); }
+      function onFail() { if (nativeResolved) return; nativeResolved = true; clearTimeout(nt); if (obs) obs.disconnect(); enqueueBanner("ad-native", vw >= 490 ? UNITS.b468x60 : UNITS.b160x300); mountBottom(false); }
+      if (nativeBox && nativeSlot) {
+        if (nativeBox.children.length > 0) onOk();
+        else { obs = new MutationObserver(() => { if (nativeBox.children.length > 0) onOk(); }); obs.observe(nativeBox, { childList: true, subtree: true }); if (nativeScript) nativeScript.addEventListener("error", onFail); }
+      }
+      const nt = setTimeout(() => { if (!nativeResolved) { if (nativeBox && nativeBox.children.length > 0) onOk(); else onFail(); } }, 3800);
+    })();
+  </script>
+
+  <!-- DEDICATED ITEM DOWNLOAD + SMARTLINK + REACTIONS + COMMENTS -->
+  <script>
+    const API_BASE = "https://bedo-community-api.vercel.app";
+    const WEBSITE_SMARTLINK_URL = "https://asiafilm.org/4/0c638d27a6b3d1c9c3705b5f1038f1ae";
+    let lang = localStorage.getItem("bedo_lang") || "ar";
+    let currentItem = null;
+    let itemComments = [];
+    let viewerReacts = new Set();
+    let relatedItems = [];
+    let cStarsVal = 5;
+    let counting = false;
+
+    const CAT_LABELS = {
+      ar: { games: "الألعاب", mods: "المودات والباتشات", apps: "التطبيقات", files: "ملفات حصرية" },
+      en: { games: "Games", mods: "Mods & Patches", apps: "Apps", files: "Exclusive Files" }
+    };
+    const AV_COLORS = [
+      "linear-gradient(135deg,#2c3e5e,#1a2438)","linear-gradient(135deg,#3c3452,#201c2d)",
+      "linear-gradient(135deg,#27473e,#142823)","linear-gradient(135deg,#524127,#2c2315)"
+    ];
+
+    function escapeHtml(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+    }
+    function getClientId() {
+      let id = localStorage.getItem("bedo_client_id");
+      if (!id) { id = "c_" + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem("bedo_client_id", id); }
+      return id;
+    }
+    function showToast(m) {
+      const t = document.getElementById("toast"); t.textContent = m; t.classList.add("show");
+      clearTimeout(window._tt); window._tt = setTimeout(() => t.classList.remove("show"), 3000);
+    }
+    function coverSrc(item) {
+      if (item.has_cover_data) return `${API_BASE}/api/catalog/${item.id}/cover?v=${item.updated_at || 1}`;
+      if (item.cover_url) return item.cover_url;
+      return "";
+    }
+    function timeAgo(ms) {
+      const d = Math.max(0, Math.floor((Date.now() - Number(ms || 0)) / 1000));
+      if (lang === "en") return d < 60 ? "Just now" : d < 3600 ? `${Math.floor(d/60)}m ago` : d < 86400 ? `${Math.floor(d/3600)}h ago` : `${Math.floor(d/86400)}d ago`;
+      return d < 60 ? "الآن" : d < 3600 ? `منذ ${Math.floor(d/60)} دقيقة` : d < 86400 ? `منذ ${Math.floor(d/3600)} ساعة` : `منذ ${Math.floor(d/86400)} يوم`;
+    }
+
+    function renderItem() {
+      const root = document.getElementById("itemRoot");
+      const ar = lang === "ar";
+      if (!currentItem) return;
+      const it = currentItem;
+      const title = ar ? it.title_ar : (it.title_en || it.title_ar);
+      const sum = ar ? it.summary_ar : (it.summary_en || it.summary_ar);
+      const featText = ar ? it.features_ar : (it.features_en || it.features_ar);
+      const instText = ar ? it.install_ar : (it.install_en || it.install_ar);
+      const feats = featText ? featText.split(/(?:\\n|\r?\n)+/).map(x => x.trim()).filter(Boolean) : [
+        ar ? "ملف مفحوص ومجرّب قبل النشر" : "Tested and verified before release",
+        ar ? "رابط تحميل مباشر وسريع بدون VPN" : "Fast direct download with no VPN required"
+      ];
+      const steps = instText ? instText.split(/(?:\\n|\r?\n)+/).map(x => x.trim()).filter(Boolean) : [
+        ar ? "اضغط زر التحميل وانتظر 5 ثوانٍ لتجهيز الرابط السريع" : "Tap Download and wait 5 seconds for the direct link",
+        ar ? "حمّل الملف وثبّته على جهازك" : "Download and install the file on your device",
+        ar ? "شاركنا رأيك في التعليقات تحت" : "Leave a quick review in the comments below"
+      ];
+      const src = coverSrc(it);
+      const catLbl = (CAT_LABELS[lang] || CAT_LABELS.ar)[it.category] || it.category;
+      document.title = `${title} — Bedo Gaming Official`;
+
+      root.innerHTML = `
+        <section class="dl-hero">
+          <div>
+            <div class="cover-box">
+              ${src ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(title)}" />` : `<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#f5f5f7" stroke-width="1.2"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg>`}
+            </div>
+            <div class="spec-grid">
+              <div class="spec"><span>${ar ? "حجم الملف" : "File Size"}</span><b class="num">${escapeHtml(it.file_size || "—")}</b></div>
+              <div class="spec"><span>${ar ? "الإصدار" : "Version"}</span><b class="num">${escapeHtml(it.version)}</b></div>
+              <div class="spec"><span>${ar ? "سيرفر التحميل" : "Server"}</span><b class="num">${escapeHtml(it.host_label || "Direct")}</b></div>
+              <div class="spec"><span>${ar ? "عدد التحميلات" : "Downloads"}</span><b class="num" id="dlCountVal" style="color:var(--green)">${Number(it.downloads || 0).toLocaleString()}</b></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="tags">
+              <span class="tag">${escapeHtml(catLbl)}</span>
+              <span class="tag ok">✓ ${ar ? "ملف مفحوص وآمن" : "Tested &amp; Safe"}</span>
+              ${it.featured ? `<span class="tag gold">★ ${ar ? "مميز" : "Featured"}</span>` : ""}
+            </div>
+            <h1 class="dl-title">${escapeHtml(title)}</h1>
+            <p class="dl-sum">${escapeHtml(sum)}</p>
+
+            <button class="btn-island" id="dlBtn" onclick="startItemDownload()">
+              <svg class="dl-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span class="ring-wrap"><svg class="ring-svg" width="18" height="18" viewBox="0 0 18 18"><circle class="ring-track" cx="9" cy="9" r="7"/><circle class="ring-fill" id="dlRing" cx="9" cy="9" r="7"/></svg></span>
+              <span id="dlTxt">${ar ? "تحميل مباشر الآن" : "Direct Download Now"}${it.file_size ? ` — <span class="num">${escapeHtml(it.file_size)}</span>` : ""}</span>
+            </button>
+
+            <div class="action-row">
+              ${it.mirror_url
+                ? `<a class="btn-g" href="${escapeHtml(it.mirror_url)}" target="_blank" rel="noopener">${ar ? "رابط احتياطي ↗" : "Backup Mirror ↗"}</a>`
+                : `<button class="btn-g" onclick="shareTelegram()">${ar ? "مشاركة تليجرام ↗" : "Share Telegram ↗"}</button>`
+              }
+              <button class="btn-g" onclick="copyShareLink()">${ar ? "نسخ رابط الصفحة" : "Copy Share Link"}</button>
+            </div>
+
+            <div class="react-row">
+              <button class="react-btn works ${viewerReacts.has("works") ? "active" : ""}" onclick="toggleReaction('works')">
+                <span>✓ ${ar ? "شغال 100%" : "Works 100%"}</span>
+                <b class="num" id="worksCnt">${Number(it.works_count || 0)}</b>
+              </button>
+              <button class="react-btn broken ${viewerReacts.has("broken") ? "active" : ""}" onclick="toggleReaction('broken')">
+                <span>! ${ar ? "إبلاغ عن رابط معطل" : "Report Broken Link"}</span>
+                <b class="num" id="brokenCnt">${Number(it.broken_reports || 0)}</b>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="lower">
+          <div class="box">
+            <h2>${ar ? "مميزات الإصدار وما يشمله الملف" : "Highlights &amp; What's Included"}</h2>
+            <ul class="checklist">${feats.map(f => `<li><span class="chk">✓</span><span>${escapeHtml(f)}</span></li>`).join("")}</ul>
+          </div>
+          <div class="box">
+            <h2>${ar ? "طريقة التثبيت السريعة" : "Quick Install Guide"}</h2>
+            <div class="steps">${steps.map((s, i) => `<div class="step"><span class="snum num">${i+1}</span><span>${escapeHtml(s)}</span></div>`).join("")}</div>
+          </div>
+        </section>
+      `;
+
+      document.getElementById("commentsSection").style.display = "block";
+      document.getElementById("c-avg").textContent = `${Number(it.avg_rating || 5).toFixed(1)} ★ (${itemComments.length})`;
+      renderComments();
+      renderRelated();
+    }
+
+    function renderComments() {
+      const list = document.getElementById("cList");
+      const ar = lang === "ar";
+      if (!itemComments.length) {
+        list.innerHTML = `<div style="text-align:center;color:var(--muted);font-size:13px;padding:16px 0;">${ar ? "لا توجد تعليقات على هذا الملف بعد — كن أول من يشارك تجربته!" : "No comments yet — be the first to review this file!"}</div>`;
+        return;
+      }
+      const verifiedSvg = `<svg width="13" height="13" viewBox="0 0 24 24" fill="var(--blue)"><path d="M12 2l2.39 1.66 2.9-.24 1.15 2.67 2.57 1.38-.52 2.86L22 12.8l-1.51 2.47.52 2.86-2.57 1.38-1.15 2.67-2.9-.24L12 23.6l-2.39-1.66-2.9.24-1.15-2.67-2.57-1.38.52-2.86L2 12.8l1.51-2.47-.52-2.86 2.57-1.38 1.15-2.67 2.9.24L12 2zm-1.1 14.2l5.3-5.3-1.4-1.4-3.9 3.9-1.9-1.9-1.4 1.4 3.3 3.3z"/></svg>`;
+      list.innerHTML = itemComments.map((c, idx) => {
+        const init = String(c.author || "?").trim().slice(0,2).toUpperCase();
+        const stars = c.rating ? `<span style="color:var(--gold)">${"★".repeat(c.rating)}${"☆".repeat(5-c.rating)}</span>` : "";
+        const reply = c.dev_reply ? `
+          <div class="dev-reply">
+            <div class="dev-head">${verifiedSvg} <span>Bedo Gaming</span> <span style="color:var(--muted);font-weight:500;">• ${ar ? "المطور الرسمي" : "Official Developer"}</span></div>
+            <div class="dev-body">${escapeHtml(c.dev_reply)}</div>
+          </div>` : "";
+        return `
+          <div class="c-item">
+            <div class="c-top">
+              <div class="av" style="background:${AV_COLORS[idx % AV_COLORS.length]}">${escapeHtml(init)}</div>
+              <div>
+                <div class="c-name">${escapeHtml(c.author)}</div>
+                <div class="c-meta">
+                  <span>${timeAgo(c.created_at)}</span>
+                  ${c.device ? `<span>• ${escapeHtml(c.device)}</span>` : ""}
+                  ${stars}
+                </div>
+              </div>
+            </div>
+            <div class="c-body">${escapeHtml(c.body)}</div>
+            ${reply}
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderRelated() {
+      const wrap = document.getElementById("relatedWrap");
+      if (!relatedItems.length) { wrap.innerHTML = ""; return; }
+      const ar = lang === "ar";
+      wrap.innerHTML = `
+        <h3 class="rel-head">${ar ? "إصدارات أخرى من Bedo Gaming" : "More from Bedo Gaming"}</h3>
+        <div class="rel-grid">
+          ${relatedItems.map(r => {
+            const t = ar ? r.title_ar : (r.title_en || r.title_ar);
+            const s = coverSrc(r);
+            return `
+              <a class="rel-card" href="./download.html?id=${r.id}">
+                <div class="rel-cov">${s ? `<img src="${escapeHtml(s)}" alt="${escapeHtml(t)}" loading="lazy" />` : `<span class="num" style="color:var(--muted)">BG</span>`}</div>
+                <div class="rel-in"><b>${escapeHtml(t)}</b><span class="num">${escapeHtml(r.version)} • ${escapeHtml(r.file_size || "Direct")}</span></div>
+              </a>`;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function startItemDownload() {
+      if (!currentItem || counting) return;
+      counting = true;
+      if (WEBSITE_SMARTLINK_URL) window.open(WEBSITE_SMARTLINK_URL, "_blank", "noopener");
+      // Increment live download counter on D1
+      fetch(`${API_BASE}/api/catalog/${currentItem.id}/download`, {
+        method: "POST", headers: { "X-Client-Id": getClientId() }
+      }).then(r => r.json()).then(d => {
+        if (d.ok) {
+          currentItem.downloads = d.downloads;
+          const el = document.getElementById("dlCountVal");
+          if (el) el.textContent = Number(d.downloads).toLocaleString();
+        }
+      }).catch(() => {});
+
+      const btn = document.getElementById("dlBtn"), txt = document.getElementById("dlTxt"), ring = document.getElementById("dlRing");
+      btn.disabled = true; btn.classList.add("is-loading");
+      let sec = 5;
+      const tick = () => {
+        if (ring) ring.style.strokeDashoffset = String(44 * (sec / 5));
+        if (sec <= 0) {
+          txt.textContent = lang === "ar" ? "جاري فتح رابط التحميل..." : "Opening Download Link...";
+          window.location.href = currentItem.download_url;
+          setTimeout(() => {
+            btn.disabled = false; btn.classList.remove("is-loading"); if (ring) ring.style.strokeDashoffset = "44"; counting = false;
+            txt.innerHTML = (lang === "ar" ? "تحميل مباشر الآن" : "Direct Download Now") + (currentItem.file_size ? ` — <span class="num">${escapeHtml(currentItem.file_size)}</span>` : "");
+          }, 3000);
+          return;
+        }
+        txt.textContent = lang === "ar" ? `تجهيز الرابط السريع (${sec} ث)...` : `Preparing fast link (${sec}s)...`;
+        sec--; setTimeout(tick, 1000);
+      };
+      tick();
+    }
+
+    async function toggleReaction(kind) {
+      if (!currentItem) return;
+      try {
+        const res = await fetch(`${API_BASE}/api/catalog/${currentItem.id}/react`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Client-Id": getClientId() },
+          body: JSON.stringify({ kind })
+        });
+        const data = await res.json();
+        if (!data.ok) return;
+        if (data.active) viewerReacts.add(kind); else viewerReacts.delete(kind);
+        currentItem.works_count = data.works_count;
+        currentItem.broken_reports = data.broken_reports;
+        renderItem();
+        if (kind === "broken" && data.active) showToast(lang === "ar" ? "تم إرسال البلاغ للمطور لفحص الرابط" : "Broken link reported to developer");
+      } catch {}
+    }
+
+    function copyShareLink() {
+      navigator.clipboard?.writeText(window.location.href).then(() => {
+        showToast(lang === "ar" ? "تم نسخ رابط التحميل للمشاركة" : "Share link copied");
+      }).catch(() => showToast(window.location.href));
+    }
+    function shareTelegram() {
+      const u = encodeURIComponent(window.location.href);
+      const t = encodeURIComponent(currentItem ? currentItem.title_ar : "Bedo Gaming");
+      window.open(`https://t.me/share/url?url=${u}&text=${t}`, "_blank", "noopener");
+    }
+
+    function renderCStars() {
+      const el = document.getElementById("cStars");
+      el.innerHTML = "";
+      for (let i = 1; i <= 5; i++) {
+        const s = document.createElement("span");
+        s.textContent = i <= cStarsVal ? "★" : "☆";
+        s.className = i <= cStarsVal ? "star-on" : "star-off";
+        s.onclick = () => { cStarsVal = i; renderCStars(); };
+        el.appendChild(s);
+      }
+    }
+
+    async function submitItemComment() {
+      if (!currentItem) return;
+      const btn = document.getElementById("cSendBtn"), msg = document.getElementById("cMsg");
+      const author = document.getElementById("cName").value.trim();
+      const device = document.getElementById("cDevice").value.trim();
+      const body = document.getElementById("cBody").value.trim();
+      msg.className = "msg-box"; btn.disabled = true;
+      try {
+        const res = await fetch(`${API_BASE}/api/catalog/${currentItem.id}/comments`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Client-Id": getClientId() },
+          body: JSON.stringify({ author, device, rating: cStarsVal, body })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          msg.textContent = lang === "ar" ? (data.error_ar || "تعذر الإرسال") : (data.error_en || "Failed");
+          msg.className = "msg-box err"; return;
+        }
+        localStorage.setItem("bedo_user_name", author);
+        if (device) localStorage.setItem("bedo_user_device", device);
+        document.getElementById("cBody").value = "";
+        itemComments.unshift(data.comment);
+        document.getElementById("c-avg").textContent = `${Number(currentItem.avg_rating || 5).toFixed(1)} ★ (${itemComments.length})`;
+        renderComments();
+        msg.textContent = lang === "ar" ? "تم نشر تعليقك بنجاح" : "Your comment is live";
+        msg.className = "msg-box ok";
+      } catch {
+        msg.textContent = lang === "ar" ? "خطأ في الاتصال." : "Network error."; msg.className = "msg-box err";
+      } finally { btn.disabled = false; }
+    }
+
+    async function loadItem() {
+      const id = new URLSearchParams(location.search).get("id") || "1";
+      try {
+        const res = await fetch(`${API_BASE}/api/catalog/${encodeURIComponent(id)}`, { headers: { "X-Client-Id": getClientId() } });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error("not found");
+        currentItem = data.item;
+        itemComments = data.comments || [];
+        viewerReacts = new Set(data.viewer_reactions || []);
+        relatedItems = data.related || [];
+        renderItem();
+      } catch {
+        document.getElementById("itemRoot").innerHTML = `<div class="box" style="text-align:center;padding:42px 20px;color:var(--muted);">${lang === "ar" ? "الملف المطلوب غير موجود أو تم حذفه." : "Release not found."} <br><br><a class="btn-g" href="./library.html">${lang === "ar" ? "العودة للمكتبة" : "Back to Library"}</a></div>`;
+      }
+    }
+
+    function syncThemeIcon() {
+      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      const ico = document.getElementById("themeIco");
+      if (ico) ico.innerHTML = isDark
+        ? '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+    function toggleTheme() {
+      const next = (document.documentElement.getAttribute("data-theme") || "dark") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("bedo_theme", next); } catch(e){}
+      syncThemeIcon();
+    }
+    function applyLang() {
+      const ar = lang === "ar";
+      document.documentElement.lang = lang; document.documentElement.dir = ar ? "rtl" : "ltr";
+      document.getElementById("langBtn").textContent = ar ? "EN" : "العربية";
+      document.getElementById("n-lib").textContent = ar ? "المكتبة والتحميلات" : "Library";
+      document.getElementById("n-comm").textContent = ar ? "مجتمع اللاعبين" : "Community";
+      document.getElementById("crumbBack").textContent = ar ? "→ العودة للمكتبة الرسمية" : "← Back to Official Library";
+      document.getElementById("c-title").textContent = ar ? "اترك تعليقاً وتقييماً لهذا الملف" : "Leave a Comment & Rating";
+      document.getElementById("c-rate-lbl").textContent = ar ? "تقييمك للملف:" : "Your Rating:";
+      document.getElementById("cName").placeholder = ar ? "اسمك (مثلاً: محمد علاء)" : "Your name";
+      document.getElementById("cDevice").placeholder = ar ? "نوع موبايلك (اختياري)" : "Device model (optional)";
+      document.getElementById("cBody").placeholder = ar ? "شاركنا تجربتك: هل التحميل سريع؟ هل اشتغل تمام على جهازك؟" : "Share your experience with this download...";
+      document.getElementById("cSendBtn").textContent = ar ? "نشر التعليق" : "Post Comment";
+      if (currentItem) renderItem();
+    }
+    function toggleLang() {
+      lang = lang === "ar" ? "en" : "ar";
+      try { localStorage.setItem("bedo_lang", lang); } catch(e){}
+      applyLang();
+    }
+
+    // Secret 5-tap unlock
+    (function(){
+      let t=0, tm=null;
+      const el = document.getElementById("secretLogo");
+      if (!el) return;
+      el.addEventListener("click", (e) => {
+        t++; clearTimeout(tm);
+        if (t >= 5) { e.preventDefault(); e.stopPropagation(); t=0; location.href = "./studio.html"; return; }
+        if (t >= 2) { e.preventDefault(); e.stopPropagation(); }
+        tm = setTimeout(() => { t=0; }, 1400);
+      });
+    })();
+
+    const sn = localStorage.getItem("bedo_user_name"), sd = localStorage.getItem("bedo_user_device");
+    if (sn) document.getElementById("cName").value = sn;
+    if (sd) document.getElementById("cDevice").value = sd;
+
+    syncThemeIcon();
+    renderCStars();
+    applyLang();
+    loadItem();
+  </script>
+</body>
+</html>

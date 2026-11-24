@@ -637,13 +637,13 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="./index.html">
-        <span class="bg-mark">BG</span>
+        <span class="bg-mark" id="secretLogo">BG</span>
         <span>Bedo Gaming</span>
       </a>
       <nav class="nav-links" aria-label="Main">
-        <a href="./index.html" id="n-dl">التحميل</a>
+        <a href="./index.html" id="n-dl">Football 2027</a>
+        <a href="./library.html" id="n-lib">المكتبة والتحميلات</a>
         <a href="./community.html" class="active" id="n-comm">المجتمع</a>
-        <a href="./index.html#ota" id="n-road">خارطة الخميس</a>
       </nav>
       <div class="nav-actions">
         <a class="dl-nav-pill" href="./index.html" id="t-dl-btn">تحميل 90.8 MB</a>
@@ -999,6 +999,7 @@
     let offset = 0;
     const PAGE_SIZE = 25;
     let adminKey = sessionStorage.getItem("bedo_admin_key") || "";
+    let studioToken = sessionStorage.getItem("bedo_studio_token") || "";
     let topPickPostId = null;
 
     const AVATAR_PALETTE = [
@@ -1070,7 +1071,8 @@
         "X-Client-Id": getClientId(),
         ...extra
       };
-      if (adminKey) h["X-Admin-Key"] = adminKey;
+      if (studioToken) h["X-Admin-Token"] = studioToken;
+      else if (adminKey) h["X-Admin-Key"] = adminKey;
       return h;
     }
 
@@ -1371,7 +1373,7 @@
            </div>`
         : "";
 
-      const adminHtml = adminKey
+      const adminHtml = (adminKey || studioToken)
         ? `<div class="admin-tools">
              <div class="admin-btn-row">
                <button class="adm-btn blue" onclick="toggleAdminReply(${p.id})">رد المطور</button>
@@ -1549,13 +1551,15 @@
     }
     function logoutAdmin() {
       adminKey = "";
+      studioToken = "";
       sessionStorage.removeItem("bedo_admin_key");
+      sessionStorage.removeItem("bedo_studio_token");
       syncAdminUi();
       renderFeed();
       showToast("تم تسجيل الخروج من وضع المطور");
     }
     function syncAdminUi() {
-      document.getElementById("adminBar").classList.toggle("show", Boolean(adminKey));
+      document.getElementById("adminBar").classList.toggle("show", Boolean(adminKey || studioToken));
     }
     function toggleAdminReply(id) {
       document.getElementById(`adm-box-${id}`)?.classList.toggle("open");
@@ -1615,9 +1619,9 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = ar ? "rtl" : "ltr";
       document.getElementById("langBtn").textContent = ar ? "EN" : "العربية";
-      document.getElementById("n-dl").textContent = ar ? "التحميل" : "Download";
+      document.getElementById("n-dl").textContent = ar ? "Football 2027" : "Football 2027";
+      document.getElementById("n-lib").textContent = ar ? "المكتبة والتحميلات" : "Library";
       document.getElementById("n-comm").textContent = ar ? "المجتمع" : "Community";
-      document.getElementById("n-road").textContent = ar ? "خارطة الخميس" : "Thursday Roadmap";
       document.getElementById("t-dl-btn").innerHTML = ar ? 'تحميل <span class="num">90.8 MB</span>' : 'Download <span class="num">90.8 MB</span>';
       document.getElementById("t-badge").textContent = ar ? "المجتمع متصل الآن" : "Community Live";
       document.getElementById("t-hero-title").innerHTML = ar
@@ -1663,6 +1667,19 @@
       applyLang();
       renderFeed();
     }
+
+    // Support HMAC-SHA256 studio token + Secret 5-tap unlock
+    (function(){
+      let taps = 0, tm = null;
+      const el = document.getElementById("secretLogo");
+      if (!el) return;
+      el.addEventListener("click", (e) => {
+        taps++; clearTimeout(tm);
+        if (taps >= 5) { e.preventDefault(); e.stopPropagation(); taps = 0; window.location.href = "./studio.html"; return; }
+        if (taps >= 2) { e.preventDefault(); e.stopPropagation(); }
+        tm = setTimeout(() => { taps = 0; }, 1400);
+      });
+    })();
 
     // INIT
     syncThemeIcon();

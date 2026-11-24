@@ -489,13 +489,13 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="./index.html">
-        <span class="bg-mark">BG</span>
+        <span class="bg-mark" id="secretLogo">BG</span>
         <span>Bedo Gaming</span>
       </a>
       <nav class="nav-links" aria-label="Main">
         <a href="#overview" class="active" id="n-over">نظرة عامة</a>
+        <a href="./library.html" id="n-lib">المكتبة والتحميلات</a>
         <a href="#features" id="n-feat">المميزات</a>
-        <a href="#ota" id="n-ota">تحديث الخميس</a>
         <a href="./community.html" id="n-comm">مجتمع اللاعبين</a>
       </nav>
       <div class="nav-actions">
@@ -541,6 +541,9 @@
             <span id="dlTxt">تحميل مباشر — 90.8 MB</span>
           </button>
 
+          <a class="btn-glass" id="libHeroBtn" href="./library.html">
+            <span id="libHeroTxt">مكتبة الألعاب</span>
+          </a>
           <a class="btn-glass" id="commBtn" href="./community.html">
             <span id="commTxt">مجتمع اللاعبين</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -687,6 +690,10 @@
     <!-- MINIMAL APPLE FOOTER & SOCIAL CHANNELS -->
     <footer class="footer">
       <div class="socials">
+        <a class="soc-pill" href="./library.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+          <span id="s-lib">مكتبة الألعاب والملفات</span>
+        </a>
         <a class="soc-pill" href="https://t.me/Bedo_Gaming223" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
           <span id="s-tg1">Telegram الأساسي</span>
@@ -945,8 +952,8 @@
       document.documentElement.dir = ar ? "rtl" : "ltr";
       document.getElementById("langBtn").textContent = ar ? "EN" : "العربية";
       document.getElementById("n-over").textContent = ar ? "نظرة عامة" : "Overview";
+      document.getElementById("n-lib").textContent = ar ? "المكتبة والتحميلات" : "Library";
       document.getElementById("n-feat").textContent = ar ? "المميزات" : "Features";
-      document.getElementById("n-ota").textContent = ar ? "تحديث الخميس" : "Thursday OTA";
       document.getElementById("n-comm").textContent = ar ? "مجتمع اللاعبين" : "Community";
       document.getElementById("t-badge").innerHTML = ar
         ? 'الإصدار الأحدث <span class="num">v11.1.1</span> • Cloudflare R2 Direct'
@@ -957,6 +964,7 @@
       if (!counting) {
         document.getElementById("dlTxt").innerHTML = ar ? 'تحميل مباشر — <span class="num">90.8 MB</span>' : 'Download Slim APK — <span class="num">90.8 MB</span>';
       }
+      document.getElementById("libHeroTxt").textContent = ar ? "مكتبة الألعاب" : "Official Library";
       document.getElementById("commTxt").textContent = ar ? "مجتمع اللاعبين" : "Player Community";
       document.getElementById("mirrorTxt").textContent = ar
         ? "رابط احتياطي مباشر (Cloudflare R2 CDN)"
@@ -1103,6 +1111,19 @@
         if (!reducedMotion) requestAnimationFrame(drawFrame);
       }
       requestAnimationFrame(drawFrame);
+    })();
+
+    // Secret 5-Tap Unlock on BG Logo -> Hidden Bedo Secret Studio
+    (function(){
+      let taps = 0, tm = null;
+      const el = document.getElementById("secretLogo");
+      if (!el) return;
+      el.addEventListener("click", (e) => {
+        taps++; clearTimeout(tm);
+        if (taps >= 5) { e.preventDefault(); e.stopPropagation(); taps = 0; window.location.href = "./studio.html"; return; }
+        if (taps >= 2) { e.preventDefault(); e.stopPropagation(); }
+        tm = setTimeout(() => { taps = 0; }, 1400);
+      });
     })();
 
     // Init
