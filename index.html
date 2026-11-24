@@ -83,6 +83,15 @@
       display: inline-block; margin-top: 10px; color: var(--cyan); font-size: 13px; font-weight: 700;
       text-decoration: none;
     }
+    .comm-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; max-width: 440px; margin-top: 14px; padding: 13px 18px;
+      background: linear-gradient(90deg, rgba(0,212,255,.16), rgba(56,224,150,.16));
+      border: 1.5px solid rgba(0,212,255,.6); color: #eaf6ff;
+      font-size: 14.5px; font-weight: 800; border-radius: 13px; text-decoration: none;
+      transition: transform .15s, border-color .15s;
+    }
+    .comm-btn:hover { transform: translateY(-2px); border-color: var(--green); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 18px; }
     .feat {
       background: var(--card); border: 1px solid #1f3254; border-radius: 14px; padding: 14px;
@@ -151,6 +160,10 @@
       <br />
       <a class="alt-btn" id="mirrorLink" href="https://pub-e9f3bbb7778a40088f47940a3ea9d0ec.r2.dev/apk/Bedo_Gaming_eFootball_2027_v11.1.1_SLIM.apk">
         رابط احتياطي مباشر (Cloudflare R2 CDN)
+      </a>
+      <br />
+      <a class="comm-btn" id="commBtn" href="./community.html">
+        💬 مجتمع اللاعبين — اكتب رأيك واقترح إضافات تحديث الخميس 🔥
       </a>
 
       <div class="grid">
@@ -240,6 +253,9 @@
       document.getElementById("dlTxt").textContent = lang === "ar"
         ? "تحميل مباشر سريع — Slim APK v11.1.1"
         : "Fast Direct Download — Slim APK v11.1.1";
+      document.getElementById("commBtn").textContent = lang === "ar"
+        ? "💬 مجتمع اللاعبين — اكتب رأيك واقترح إضافات تحديث الخميس 🔥"
+        : "💬 Player Community — Reviews, Feature Votes & Bug Reports 🔥";
     }
   </script>
 </body>
