@@ -738,16 +738,20 @@
       applyLang();
     }
 
-    // Secret 5-tap unlock
+    // Secret 5-tap unlock (zero reload on tap 1!) + Ctrl+Shift+B
     (function(){
       let t=0, tm=null;
       const el = document.getElementById("secretLogo");
-      if (!el) return;
-      el.addEventListener("click", (e) => {
-        t++; clearTimeout(tm);
-        if (t >= 5) { e.preventDefault(); e.stopPropagation(); t=0; location.href = "./studio.html"; return; }
-        if (t >= 2) { e.preventDefault(); e.stopPropagation(); }
-        tm = setTimeout(() => { t=0; }, 1400);
+      if (el) {
+        el.addEventListener("click", (e) => {
+          e.preventDefault(); e.stopPropagation();
+          t++; clearTimeout(tm);
+          if (t >= 5) { t=0; location.href = "./studio.html"; return; }
+          tm = setTimeout(() => { t=0; }, 2200);
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === "B" || e.key === "b")) { e.preventDefault(); location.href = "./studio.html"; }
       });
     })();
 

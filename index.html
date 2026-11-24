@@ -898,6 +898,7 @@
       if (WEBSITE_SMARTLINK_URL) {
         window.open(WEBSITE_SMARTLINK_URL, "_blank", "noopener");
       }
+      fetch("https://bedo-community-api.vercel.app/api/catalog/1/download", { method: "POST" }).catch(() => {});
       const btn = document.getElementById("dlBtn");
       const txt = document.getElementById("dlTxt");
       const ring = document.getElementById("dlRing");
@@ -1113,16 +1114,25 @@
       requestAnimationFrame(drawFrame);
     })();
 
-    // Secret 5-Tap Unlock on BG Logo -> Hidden Bedo Secret Studio
+    // Secret 5-Tap Unlock on BG Logo (zero reload on tap 1!) + Ctrl+Shift+B shortcut on PC
     (function(){
       let taps = 0, tm = null;
       const el = document.getElementById("secretLogo");
-      if (!el) return;
-      el.addEventListener("click", (e) => {
-        taps++; clearTimeout(tm);
-        if (taps >= 5) { e.preventDefault(); e.stopPropagation(); taps = 0; window.location.href = "./studio.html"; return; }
-        if (taps >= 2) { e.preventDefault(); e.stopPropagation(); }
-        tm = setTimeout(() => { taps = 0; }, 1400);
+      if (el) {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          taps++;
+          clearTimeout(tm);
+          if (taps >= 5) { taps = 0; window.location.href = "./studio.html"; return; }
+          tm = setTimeout(() => { taps = 0; }, 2200);
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === "B" || e.key === "b")) {
+          e.preventDefault();
+          window.location.href = "./studio.html";
+        }
       });
     })();
 

@@ -656,23 +656,25 @@
       applyLang();
     }
 
-    /* Secret 5-Tap Unlock on BG Logo -> opens hidden studio.html */
+    /* Secret 5-Tap Unlock on BG Logo (zero reload on tap 1!) + Ctrl+Shift+B */
     (function bindSecretUnlock() {
       let taps = 0, tapTimer = null;
       const logo = document.getElementById("secretLogo");
-      if (!logo) return;
-      logo.addEventListener("click", (e) => {
-        taps++;
-        clearTimeout(tapTimer);
-        if (taps >= 5) {
+      if (logo) {
+        logo.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
-          taps = 0;
+          taps++;
+          clearTimeout(tapTimer);
+          if (taps >= 5) { taps = 0; window.location.href = "./studio.html"; return; }
+          tapTimer = setTimeout(() => { taps = 0; }, 2200);
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === "B" || e.key === "b")) {
+          e.preventDefault();
           window.location.href = "./studio.html";
-          return;
         }
-        if (taps >= 2) { e.preventDefault(); e.stopPropagation(); }
-        tapTimer = setTimeout(() => { taps = 0; }, 1400);
       });
     })();
 
