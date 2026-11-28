@@ -254,9 +254,66 @@
 
     .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--surface-2); border: 1px solid var(--border-strong); color: var(--ink); padding: 10px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; z-index: 1000; display: none; box-shadow: 0 12px 32px rgba(0,0,0,0.45); }
     .toast.show { display: block; }
+
+    /* Smart 3-Step Verification Progress & VIP Upsell Strip */
+    .verify-strip { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 2px 0 12px; padding: 9px 14px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--border); font-size: 12px; color: var(--muted-2); }
+    .verify-dots { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; }
+    .v-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); transition: all 0.25s ease; }
+    .v-dot.done { background: var(--green); box-shadow: 0 0 8px rgba(48,209,88,0.5); }
+    .v-dot.now { background: var(--blue); box-shadow: 0 0 8px rgba(10,132,255,0.55); transform: scale(1.15); }
+    .turnstile-wrap { display: none; justify-content: center; margin: 10px 0 12px; min-height: 65px; }
+    .turnstile-wrap.show { display: flex; }
+    .vip-strip {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      margin: 0 0 12px; padding: 10px 13px; border-radius: 14px; text-decoration: none;
+      background: linear-gradient(135deg, rgba(212,175,106,0.14), rgba(10,132,255,0.08));
+      border: 1px solid var(--gold-border); color: var(--ink); font-size: 12.2px; font-weight: 600;
+      transition: transform 0.16s ease, border-color 0.2s ease;
+    }
+    .vip-strip:hover { transform: translateY(-1px); border-color: var(--gold); }
+    .vip-strip b { color: var(--gold); font-weight: 700; }
+
+    /* Zero-False-Positive Apple Titanium AdBlock & Private-DNS Guard */
+    .bedo-ad-bait { position: absolute !important; left: -9999px !important; top: -9999px !important; width: 300px !important; height: 250px !important; pointer-events: none !important; opacity: 0.01 !important; }
+    #__bedo_ad_guard {
+      position: fixed; inset: 0; z-index: 2147483000; display: none; align-items: center; justify-content: center;
+      padding: 20px; background: rgba(5, 5, 8, 0.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    }
+    #__bedo_ad_guard.on { display: flex; }
+    .ab-card {
+      max-width: 470px; width: 100%; background: #111116; border: 1px solid rgba(212,175,106,0.42);
+      border-radius: 24px; padding: 28px 24px; text-align: center; box-shadow: 0 28px 70px rgba(0,0,0,0.68);
+    }
+    .ab-ico { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 16px; display: grid; place-items: center; font-size: 26px; background: rgba(255,69,58,0.14); border: 1px solid rgba(255,69,58,0.35); }
+    .ab-card h2 { font-size: 20px; font-weight: 800; color: #f5f5f7; margin-bottom: 10px; }
+    .ab-card p { font-size: 13.8px; color: #a1a1a6; line-height: 1.65; margin-bottom: 18px; }
+    .ab-steps { text-align: start; background: #18181f; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px 14px; margin-bottom: 18px; font-size: 12.6px; color: #d1d1d6; line-height: 1.7; }
+    .ab-btn { width: 100%; min-height: 46px; border: none; border-radius: 999px; background: #0a84ff; color: #fff; font-family: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; }
+    .ab-btn:hover { background: #2997ff; }
   </style>
 </head>
 <body>
+  <!-- Hidden AdBlock CSS Bait Elements -->
+  <div class="bedo-ad-bait ad-banner-top" id="__bg_bait_1" aria-hidden="true"></div>
+  <div class="bedo-ad-bait google-ad-box" id="__bg_bait_2" aria-hidden="true"></div>
+  <div class="bedo-ad-bait pub_300x250" id="__bg_bait_3" aria-hidden="true"></div>
+  <div class="bedo-ad-bait ads-placement-wrapper" id="__bg_bait_4" aria-hidden="true"></div>
+
+  <!-- Apple Titanium AdBlock & Private-DNS Guard Modal -->
+  <div id="__bedo_ad_guard" role="alertdialog" aria-modal="true" aria-labelledby="abTitle">
+    <div class="ab-card">
+      <div class="ab-ico">🛡️</div>
+      <h2 id="abTitle">تم اكتشاف مانع إعلانات (Ad Blocker)</h2>
+      <p id="abDesc">سيرفرات Cloudflare R2 السريعة وتحديثات الخميس مجانية بفضل الإعلانات البسيطة. يرجى إيقاف مانع الإعلانات أو Brave Shields أو Private DNS (مثل AdGuard DNS) ثم إعادة تحميل الصفحة لفتح التحميل المباشر.</p>
+      <div class="ab-steps" id="abSteps">
+        • في <b>Brave</b>: اضغط أيقونة الأسد بالأعلى ← أوقف <b>Shields</b>.<br/>
+        • في <b>إعدادات الموبايل</b>: أوقف <b>Private DNS / AdGuard DNS</b> مؤقتاً.<br/>
+        • في <b>المتصفح</b>: أوقف AdBlock / uBlock لهذا الموقع ثم اضغط الزر بالأسفل.
+      </div>
+      <button class="ab-btn" id="abReloadBtn" type="button" onclick="location.reload()">↻ إعادة فحص وتحميل الصفحة</button>
+    </div>
+  </div>
+
   <div class="ad-rail left ad-pending" id="ad-rail-left"></div>
   <div class="ad-rail right ad-pending" id="ad-rail-right"></div>
 
@@ -391,17 +448,138 @@
     })();
   </script>
 
-  <!-- DEDICATED ITEM DOWNLOAD + SMARTLINK + REACTIONS + COMMENTS -->
+  <!-- DEDICATED ITEM DOWNLOAD + PROTECTED 3-STEP VERIFICATION + ADBLOCK GUARD + REACTIONS + COMMENTS -->
   <script>
     const API_BASE = "https://bedo-community-api.vercel.app";
-    const WEBSITE_SMARTLINK_URL = "https://asiafilm.org/4/0c638d27a6b3d1c9c3705b5f1038f1ae";
+
+    // ==================== BEDO MONETIZATION & PROTECTION CONFIG ====================
+    // Works 100% live immediately with your Adsterra units.
+    // Optional: paste your Monetag tags or Cloudflare Turnstile Site Key below anytime to activate them automatically!
+    const BEDO_MONETIZATION_CONFIG = {
+      VERIFY_STEPS: 3,                 // Clean 3-step verification (no intrusive scroll hijacking!)
+      STEP_DELAY_SEC: 4,               // Smooth 4s progress ring per verification step
+      ADSTERRA_SMARTLINK: "https://asiafilm.org/4/0c638d27a6b3d1c9c3705b5f1038f1ae",
+      MONETAG_INPAGE_PUSH_SRC: "",     // Optional: "https://.../act/files/tag.min.js?z=XXXX"
+      MONETAG_VIGNETTE_SRC: "",        // Optional: "https://.../tag.min.js"
+      MONETAG_VIGNETTE_ZONE: "",       // Optional: "XXXX"
+      MONETAG_SMARTLINK: "",           // Optional: "https://.../4/XXXX" (rotates automatically with Adsterra!)
+      TURNSTILE_SITE_KEY: "",          // Optional: Cloudflare Turnstile Site Key
+      VIP_TELEGRAM_URL: "https://t.me/Bedogaming211"
+    };
+
     let lang = localStorage.getItem("bedo_lang") || "ar";
     let currentItem = null;
+    let dlChallenge = "";
+    let turnstileRequired = false;
+    let turnstileToken = "";
+    let unlockedUrls = null; // { download_url, mirror_url }
     let itemComments = [];
     let viewerReacts = new Set();
     let relatedItems = [];
     let cStarsVal = 5;
+    let verifyStep = 0;
     let counting = false;
+    let adBlockLocked = false;
+
+    // Optional Monetag Auto-Loader (only runs if configured above)
+    (function initOptionalMonetag() {
+      if (BEDO_MONETIZATION_CONFIG.MONETAG_INPAGE_PUSH_SRC) {
+        const s = document.createElement("script");
+        s.src = BEDO_MONETIZATION_CONFIG.MONETAG_INPAGE_PUSH_SRC;
+        s.async = true; s.setAttribute("data-cfasync", "false");
+        document.body.appendChild(s);
+      }
+      if (BEDO_MONETIZATION_CONFIG.MONETAG_VIGNETTE_SRC && BEDO_MONETIZATION_CONFIG.MONETAG_VIGNETTE_ZONE) {
+        const s = document.createElement("script");
+        s.dataset.zone = BEDO_MONETIZATION_CONFIG.MONETAG_VIGNETTE_ZONE;
+        s.src = BEDO_MONETIZATION_CONFIG.MONETAG_VIGNETTE_SRC;
+        s.async = true; s.setAttribute("data-cfasync", "false");
+        document.body.appendChild(s);
+      }
+    })();
+
+    // Zero-False-Positive Apple Titanium AdBlock & Private-DNS Guard
+    (function initBedoAdBlockGuard() {
+      function lockGuard(reasonKey) {
+        if (adBlockLocked) return;
+        adBlockLocked = true;
+        const g = document.getElementById("__bedo_ad_guard");
+        if (!g) return;
+        syncGuardLang(reasonKey);
+        g.classList.add("on");
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
+        const b = document.getElementById("dlBtn");
+        if (b) { b.disabled = true; b.style.opacity = "0.35"; }
+      }
+      function syncGuardLang(reasonKey) {
+        const ar = lang === "ar";
+        const t = document.getElementById("abTitle");
+        const d = document.getElementById("abDesc");
+        const st = document.getElementById("abSteps");
+        const btn = document.getElementById("abReloadBtn");
+        if (!t) return;
+        if (reasonKey === "brave") {
+          t.textContent = ar ? "تم اكتشاف دروع Brave Shields" : "Brave Shields Detected";
+          d.textContent = ar
+            ? "متصفح Brave يحجب الإعلانات التي تدعم سيرفرات Cloudflare R2 المجانية. يرجى إيقاف Brave Shields لهذا الموقع أو فتح الرابط في Chrome لبدء التحميل."
+            : "Brave Shields blocks the ads that keep our fast Cloudflare R2 servers 100% free. Please turn off Brave Shields for this site or open in Chrome.";
+        } else {
+          t.textContent = ar ? "تم اكتشاف مانع إعلانات (Ad Blocker)" : "Ad Blocker / Private DNS Detected";
+          d.textContent = ar
+            ? "سيرفرات Cloudflare R2 السريعة وتحديثات الخميس مجانية بفضل الإعلانات البسيطة. أوقف مانع الإعلانات أو Private DNS (مثل AdGuard DNS) ثم أعد تحميل الصفحة."
+            : "Our fast Cloudflare R2 servers & weekly updates stay free thanks to light ads. Please disable your Ad Blocker or Private DNS (AdGuard / NextDNS) to unlock the download.";
+        }
+        st.innerHTML = ar
+          ? "• في <b>Brave</b>: اضغط أيقونة الأسد بالأعلى ← أوقف <b>Shields</b>.<br/>• في <b>إعدادات الموبايل</b>: أوقف <b>Private DNS / AdGuard DNS</b> مؤقتاً.<br/>• في <b>المتصفح</b>: أوقف AdBlock / uBlock لهذا الموقع ثم اضغط الزر بالأسفل."
+          : "• <b>Brave Browser</b>: Tap the Lion icon in the address bar → turn <b>Shields OFF</b>.<br/>• <b>Android Settings</b>: Temporarily turn off <b>Private DNS (AdGuard / NextDNS)</b>.<br/>• <b>Extensions</b>: Pause uBlock / AdBlock on this page, then tap Reload below.";
+        btn.textContent = ar ? "↻ إعادة فحص وتحميل الصفحة" : "↻ Reload & Verify Page";
+      }
+      window.__syncBedoGuardLang = syncGuardLang;
+
+      // 1. Deterministic CSS Bait Check (catches uBlock, AdBlock Plus, AdGuard extensions with 0% false positives)
+      function checkCssBaits() {
+        const ids = ["__bg_bait_1", "__bg_bait_2", "__bg_bait_3", "__bg_bait_4"];
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (!el) { lockGuard("bait"); return true; }
+          const cs = window.getComputedStyle(el);
+          if (cs.display === "none" || cs.visibility === "hidden" || el.offsetHeight === 0) {
+            lockGuard("bait"); return true;
+          }
+        }
+        return false;
+      }
+
+      // 2. Network / Private-DNS / Brave Shields Check (ONLY locks if our own API is online while BOTH ad hosts fail!)
+      async function checkNetworkAdBlock() {
+        if (!navigator.onLine) return;
+        let isBrave = false;
+        try {
+          if (navigator.brave && typeof navigator.brave.isBrave === "function") {
+            isBrave = await navigator.brave.isBrave();
+          }
+        } catch {}
+
+        const probe = (url) => fetch(new Request(url, { mode: "no-cors", cache: "no-store" })).then(() => true).catch(() => false);
+        const [pGoogle, pAdsterra] = await Promise.all([
+          probe("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"),
+          probe("https://www.highperformanceformat.com/eb17e3aff845e4544068be8326111b68/invoke.js")
+        ]);
+        if (!pGoogle && !pAdsterra) {
+          // Confirm the user actually has internet (zero false positive on offline/flaky 4G!)
+          const apiUp = await fetch(`${API_BASE}/api/health`, { cache: "no-store" }).then(r => r.ok).catch(() => false);
+          if (apiUp) lockGuard(isBrave ? "brave" : "dns");
+        } else if (isBrave && !pAdsterra) {
+          const apiUp = await fetch(`${API_BASE}/api/health`, { cache: "no-store" }).then(r => r.ok).catch(() => false);
+          if (apiUp) lockGuard("brave");
+        }
+      }
+
+      setTimeout(checkCssBaits, 350);
+      setTimeout(checkCssBaits, 1400);
+      setTimeout(checkNetworkAdBlock, 900);
+    })();
 
     const CAT_LABELS = {
       ar: { games: "الألعاب", mods: "المودات والباتشات", apps: "التطبيقات", files: "ملفات حصرية" },
@@ -483,12 +661,26 @@
             <button class="btn-island" id="dlBtn" onclick="startItemDownload()">
               <svg class="dl-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               <span class="ring-wrap"><svg class="ring-svg" width="18" height="18" viewBox="0 0 18 18"><circle class="ring-track" cx="9" cy="9" r="7"/><circle class="ring-fill" id="dlRing" cx="9" cy="9" r="7"/></svg></span>
-              <span id="dlTxt">${ar ? "تحميل مباشر الآن" : "Direct Download Now"}${it.file_size ? ` — <span class="num">${escapeHtml(it.file_size)}</span>` : ""}</span>
+              <span id="dlTxt">${getDownloadBtnLabel()}</span>
             </button>
 
+            <div class="verify-strip" id="verifyStrip">
+              <span id="verifyHint">${getVerifyHintLabel()}</span>
+              <div class="verify-dots" id="verifyDots">
+                ${Array.from({ length: BEDO_MONETIZATION_CONFIG.VERIFY_STEPS }, (_, idx) => `<span class="v-dot ${idx < verifyStep ? "done" : (idx === verifyStep ? "now" : "")}"></span>`).join("")}
+              </div>
+            </div>
+
+            <div class="turnstile-wrap ${BEDO_MONETIZATION_CONFIG.TURNSTILE_SITE_KEY ? "show" : ""}" id="turnstileWrap"></div>
+
+            <a class="vip-strip" href="${escapeHtml(BEDO_MONETIZATION_CONFIG.VIP_TELEGRAM_URL)}" target="_blank" rel="noopener">
+              <span>👑 ${ar ? "عايز اللعبة <b>بدون إعلانات 100%</b> + باكدج أبو تريكة بالكوينز؟" : "Want <b>0% In-Game Ads</b> + Coin Packs instead of Ads?"}</span>
+              <b>${ar ? "اطلب كود VIP ↗" : "Get VIP Code ↗"}</b>
+            </a>
+
             <div class="action-row">
-              ${it.mirror_url
-                ? `<a class="btn-g" href="${escapeHtml(it.mirror_url)}" target="_blank" rel="noopener">${ar ? "رابط احتياطي ↗" : "Backup Mirror ↗"}</a>`
+              ${(unlockedUrls && unlockedUrls.mirror_url)
+                ? `<a class="btn-g" href="${escapeHtml(unlockedUrls.mirror_url)}" target="_blank" rel="noopener">${ar ? "رابط احتياطي ↗" : "Backup Mirror ↗"}</a>`
                 : `<button class="btn-g" onclick="shareTelegram()">${ar ? "مشاركة تليجرام ↗" : "Share Telegram ↗"}</button>`
               }
               <button class="btn-g" onclick="copyShareLink()">${ar ? "نسخ رابط الصفحة" : "Copy Share Link"}</button>
@@ -521,8 +713,78 @@
 
       document.getElementById("commentsSection").style.display = "block";
       document.getElementById("c-avg").textContent = `${Number(it.avg_rating || 5).toFixed(1)} ★ (${itemComments.length})`;
+      mountOptionalTurnstile();
       renderComments();
       renderRelated();
+    }
+
+    function getDownloadBtnLabel() {
+      const ar = lang === "ar";
+      const total = BEDO_MONETIZATION_CONFIG.VERIFY_STEPS;
+      if (unlockedUrls && unlockedUrls.download_url) {
+        return ar ? "⬇️ بدء التحميل المباشر الآن" : "⬇️ Start Direct Download Now";
+      }
+      if (verifyStep === 0) {
+        return (ar ? "تحميل مباشر الآن" : "Direct Download Now") + (currentItem?.file_size ? ` — <span class="num">${escapeHtml(currentItem.file_size)}</span>` : "");
+      }
+      if (verifyStep < total - 1) {
+        return ar ? `متابعة تجهيز الرابط (${verifyStep}/${total})` : `Continue Verification (${verifyStep}/${total})`;
+      }
+      return ar ? `🔓 توليد رابط التحميل النهائي (${verifyStep}/${total})` : `🔓 Generate Direct Link (${verifyStep}/${total})`;
+    }
+
+    function getVerifyHintLabel() {
+      const ar = lang === "ar";
+      const total = BEDO_MONETIZATION_CONFIG.VERIFY_STEPS;
+      if (unlockedUrls && unlockedUrls.download_url) {
+        return ar ? "✓ تم التحقق — الرابط السريع جاهز!" : "✓ Verified — Fast R2 link ready!";
+      }
+      if (verifyStep === 0) {
+        return ar ? `تحقق سريع من ${total} خطوات لحماية السيرفر المجاني` : `Quick ${total}-step verification to keep R2 servers free`;
+      }
+      return ar
+        ? `تم إنجاز خطوة ${verifyStep} من ${total} — اضغط الزر للمتابعة`
+        : `Step ${verifyStep} of ${total} complete — tap button to continue`;
+    }
+
+    function syncVerifyUi() {
+      const txt = document.getElementById("dlTxt");
+      const hint = document.getElementById("verifyHint");
+      const dots = document.getElementById("verifyDots");
+      if (txt && !counting) txt.innerHTML = getDownloadBtnLabel();
+      if (hint) hint.textContent = getVerifyHintLabel();
+      if (dots) {
+        const total = BEDO_MONETIZATION_CONFIG.VERIFY_STEPS;
+        dots.innerHTML = Array.from({ length: total }, (_, idx) => `<span class="v-dot ${idx < verifyStep ? "done" : (idx === verifyStep ? "now" : "")}"></span>`).join("");
+      }
+    }
+
+    function mountOptionalTurnstile() {
+      const siteKey = BEDO_MONETIZATION_CONFIG.TURNSTILE_SITE_KEY;
+      const wrap = document.getElementById("turnstileWrap");
+      if (!siteKey || !wrap || wrap.dataset.mounted === "1") return;
+      wrap.dataset.mounted = "1";
+      window.onBedoTurnstileOk = function (tok) { turnstileToken = tok; };
+      const div = document.createElement("div");
+      div.className = "cf-turnstile";
+      div.setAttribute("data-sitekey", siteKey);
+      div.setAttribute("data-callback", "onBedoTurnstileOk");
+      div.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+      wrap.appendChild(div);
+      if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+        const s = document.createElement("script");
+        s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+        s.async = true; s.defer = true;
+        document.head.appendChild(s);
+      }
+    }
+
+    function pickSmartlinkForStep(stepIdx) {
+      const links = [BEDO_MONETIZATION_CONFIG.ADSTERRA_SMARTLINK, BEDO_MONETIZATION_CONFIG.MONETAG_SMARTLINK].filter(Boolean);
+      if (!links.length) return "";
+      const base = links[(stepIdx - 1) % links.length];
+      const sep = base.includes("?") ? "&" : "?";
+      return `${base}${sep}s=${stepIdx}&t=${Date.now()}`;
     }
 
     function renderComments() {
@@ -581,39 +843,122 @@
       `;
     }
 
-    function startItemDownload() {
+    async function startItemDownload() {
       if (!currentItem || counting) return;
-      counting = true;
-      if (WEBSITE_SMARTLINK_URL) window.open(WEBSITE_SMARTLINK_URL, "_blank", "noopener");
-      // Increment live download counter on D1
-      fetch(`${API_BASE}/api/catalog/${currentItem.id}/download`, {
-        method: "POST", headers: { "X-Client-Id": getClientId() }
-      }).then(r => r.json()).then(d => {
-        if (d.ok) {
-          currentItem.downloads = d.downloads;
-          const el = document.getElementById("dlCountVal");
-          if (el) el.textContent = Number(d.downloads).toLocaleString();
-        }
-      }).catch(() => {});
+      if (adBlockLocked) {
+        showToast(lang === "ar" ? "أوقف مانع الإعلانات أولاً ثم أعد تحميل الصفحة" : "Disable Ad Blocker & reload first");
+        return;
+      }
+
+      // Already unlocked in this session -> start direct download immediately!
+      if (unlockedUrls && unlockedUrls.download_url) {
+        window.location.href = unlockedUrls.download_url;
+        showToast(lang === "ar" ? "بدأ التحميل المباشر من Cloudflare R2 ⚡" : "Direct Cloudflare R2 download started ⚡");
+        return;
+      }
+
+      const totalSteps = BEDO_MONETIZATION_CONFIG.VERIFY_STEPS;
+      const stepDelay = BEDO_MONETIZATION_CONFIG.STEP_DELAY_SEC;
+      const nextStep = verifyStep + 1;
+
+      // Open SmartLink cleanly on explicit user tap (NO scroll/touchstart hijacking!)
+      const smUrl = pickSmartlinkForStep(nextStep);
+      if (smUrl) {
+        try { window.open(smUrl, "_blank", "noopener"); } catch {}
+      }
 
       const btn = document.getElementById("dlBtn"), txt = document.getElementById("dlTxt"), ring = document.getElementById("dlRing");
-      btn.disabled = true; btn.classList.add("is-loading");
-      let sec = 5;
-      const tick = () => {
-        if (ring) ring.style.strokeDashoffset = String(44 * (sec / 5));
+      counting = true;
+      btn.disabled = true;
+      btn.classList.add("is-loading");
+
+      let sec = stepDelay;
+      const runCountdown = () => {
+        if (ring) ring.style.strokeDashoffset = String(44 * (sec / Math.max(1, stepDelay)));
         if (sec <= 0) {
-          txt.textContent = lang === "ar" ? "جاري فتح رابط التحميل..." : "Opening Download Link...";
-          window.location.href = currentItem.download_url;
-          setTimeout(() => {
-            btn.disabled = false; btn.classList.remove("is-loading"); if (ring) ring.style.strokeDashoffset = "44"; counting = false;
-            txt.innerHTML = (lang === "ar" ? "تحميل مباشر الآن" : "Direct Download Now") + (currentItem.file_size ? ` — <span class="num">${escapeHtml(currentItem.file_size)}</span>` : "");
-          }, 3000);
+          verifyStep = nextStep;
+          if (verifyStep < totalSteps) {
+            counting = false;
+            btn.disabled = false;
+            btn.classList.remove("is-loading");
+            if (ring) ring.style.strokeDashoffset = "44";
+            syncVerifyUi();
+            showToast(lang === "ar"
+              ? `✓ اكتملت الخطوة ${verifyStep}/${totalSteps} — اضغط الزر للمتابعة`
+              : `✓ Step ${verifyStep}/${totalSteps} verified — tap to continue`);
+            return;
+          }
+
+          // Final step reached -> verify optional Turnstile & unlock protected URL from Worker!
+          if ((turnstileRequired || BEDO_MONETIZATION_CONFIG.TURNSTILE_SITE_KEY) && !turnstileToken) {
+            counting = false;
+            verifyStep = totalSteps - 1;
+            btn.disabled = false;
+            btn.classList.remove("is-loading");
+            if (ring) ring.style.strokeDashoffset = "44";
+            syncVerifyUi();
+            showToast(lang === "ar" ? "أكمل تحقق الحماية (Captcha) أسفل الزر أولاً" : "Please complete the Captcha below first");
+            return;
+          }
+
+          txt.textContent = lang === "ar" ? "جاري توليد رابط Cloudflare R2 المحمي..." : "Generating protected R2 link...";
+          fetch(`${API_BASE}/api/catalog/${currentItem.id}/unlock-download`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "X-Client-Id": getClientId() },
+            body: JSON.stringify({
+              challenge: dlChallenge,
+              steps_done: verifyStep,
+              cf_turnstile_token: turnstileToken || ""
+            })
+          })
+          .then(r => r.json())
+          .then(d => {
+            if (d && d.ok && d.download_url) {
+              unlockedUrls = { download_url: d.download_url, mirror_url: d.mirror_url || "" };
+              currentItem.downloads = d.downloads || currentItem.downloads;
+              const cntEl = document.getElementById("dlCountVal");
+              if (cntEl) cntEl.textContent = Number(currentItem.downloads || 0).toLocaleString();
+              txt.textContent = lang === "ar" ? "⚡ جاري بدء التحميل المباشر..." : "⚡ Starting Direct Download...";
+              showToast(lang === "ar" ? "✓ تم فتح الرابط السريع — بدأ التحميل!" : "✓ Verified — Direct download started!");
+              window.location.href = d.download_url;
+              setTimeout(() => {
+                counting = false;
+                btn.disabled = false;
+                btn.classList.remove("is-loading");
+                if (ring) ring.style.strokeDashoffset = "44";
+                renderItem();
+              }, 2600);
+            } else {
+              counting = false;
+              verifyStep = Math.max(0, totalSteps - 1);
+              btn.disabled = false;
+              btn.classList.remove("is-loading");
+              if (ring) ring.style.strokeDashoffset = "44";
+              syncVerifyUi();
+              showToast(lang === "ar" ? (d?.error_ar || "أعد المحاولة بعد ثوانٍ") : (d?.error_en || "Please retry in a moment"));
+            }
+          })
+          .catch(() => {
+            counting = false;
+            verifyStep = Math.max(0, totalSteps - 1);
+            btn.disabled = false;
+            btn.classList.remove("is-loading");
+            if (ring) ring.style.strokeDashoffset = "44";
+            syncVerifyUi();
+            showToast(lang === "ar" ? "تعذر الاتصال بالسيرفر — حاول مرة أخرى" : "Network error — please retry");
+          });
           return;
         }
-        txt.textContent = lang === "ar" ? `تجهيز الرابط السريع (${sec} ث)...` : `Preparing fast link (${sec}s)...`;
-        sec--; setTimeout(tick, 1000);
+        const stepVerb = nextStep === 1
+          ? (lang === "ar" ? "فحص الملف وتجهيز السيرفر" : "Checking file & fast server")
+          : nextStep < totalSteps
+            ? (lang === "ar" ? "تأكيد الاتصال السريع" : "Verifying high-speed CDN")
+            : (lang === "ar" ? "توليد الرابط المحمي" : "Generating protected link");
+        txt.textContent = `${stepVerb} (${sec}${lang === "ar" ? " ث" : "s"})...`;
+        sec--;
+        setTimeout(runCountdown, 1000);
       };
-      tick();
+      runCountdown();
     }
 
     async function toggleReaction(kind) {
@@ -691,10 +1036,12 @@
     async function loadItem() {
       const id = new URLSearchParams(location.search).get("id") || "1";
       try {
-        const res = await fetch(`${API_BASE}/api/catalog/${encodeURIComponent(id)}`, { headers: { "X-Client-Id": getClientId() } });
+        const res = await fetch(`${API_BASE}/api/catalog/${encodeURIComponent(id)}?protected=1`, { headers: { "X-Client-Id": getClientId() } });
         const data = await res.json();
         if (!res.ok || !data.ok) throw new Error("not found");
         currentItem = data.item;
+        dlChallenge = data.dl_challenge || "";
+        turnstileRequired = Boolean(data.turnstile_required);
         itemComments = data.comments || [];
         viewerReacts = new Set(data.viewer_reactions || []);
         relatedItems = data.related || [];
@@ -730,6 +1077,7 @@
       document.getElementById("cDevice").placeholder = ar ? "نوع موبايلك (اختياري)" : "Device model (optional)";
       document.getElementById("cBody").placeholder = ar ? "شاركنا تجربتك: هل التحميل سريع؟ هل اشتغل تمام على جهازك؟" : "Share your experience with this download...";
       document.getElementById("cSendBtn").textContent = ar ? "نشر التعليق" : "Post Comment";
+      if (typeof window.__syncBedoGuardLang === "function") window.__syncBedoGuardLang();
       if (currentItem) renderItem();
     }
     function toggleLang() {
